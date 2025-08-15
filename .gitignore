@@ -12,3 +12,5 @@ yarn-error.log*
 
 # Next.js build output
 .next
+.vercel
+.env*
