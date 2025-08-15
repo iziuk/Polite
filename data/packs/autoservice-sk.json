@@ -1,0 +1,159 @@
+{
+  "id": "autoservice-sk",
+  "emoji": "🚗",
+  "title": "Автосервіс (SK ↔ UA)",
+  "phrases": [
+    {
+      "id": "book-service",
+      "ua": "Хочу записатися на сервіс.",
+      "sk": "Chcel by som sa objednať na servis.",
+      "phonetic_ua": "Хцель би сом са об’єднаť на сервіс.",
+      "expected_replies": [
+        {
+          "sk": "Kedy vám vyhovuje?",
+          "ua": "Коли вам зручно?"
+        },
+        {
+          "sk": "Zajtra o desiatej?",
+          "ua": "Завтра о 10-й?"
+        }
+      ],
+      "fallback": {
+        "sk": "Môžete, prosím, pomalšie?",
+        "ua": "Можете, будь ласка, повільніше?"
+      }
+    },
+    {
+      "id": "nearest-slot",
+      "ua": "Коли маєте найближчий вільний термін?",
+      "sk": "Kedy máte najbližší voľný termín?",
+      "phonetic_ua": "Кеди матє найближші вольни термін?",
+      "expected_replies": [
+        {
+          "sk": "V stredu o 14:00.",
+          "ua": "У середу о 14:00."
+        },
+        {
+          "sk": "Na budúci týždeň.",
+          "ua": "Наступного тижня."
+        }
+      ],
+      "fallback": {
+        "sk": "Prosím, potvrďte termín SMS.",
+        "ua": "Підтвердіть термін SMS, будь ласка."
+      }
+    },
+    {
+      "id": "noise-brakes",
+      "ua": "Чути скрип при гальмуванні.",
+      "sk": "Pri brzdení počuť škrípanie.",
+      "phonetic_ua": "Прі брыздєні почуть шкріпанє.",
+      "expected_replies": [
+        {
+          "sk": "Predné alebo zadné?",
+          "ua": "Передні чи задні?"
+        },
+        {
+          "sk": "V akých rýchlostiach?",
+          "ua": "На якій швидкості?"
+        }
+      ],
+      "fallback": {
+        "sk": "Neviem presne, prosím skontrolujte.",
+        "ua": "Не знаю точно, перевірте, будь ласка."
+      }
+    },
+    {
+      "id": "check-engine",
+      "ua": "Горить лампа двигуна (check engine).",
+      "sk": "Svieti kontrolka motora (check engine).",
+      "phonetic_ua": "Свєті контролька мотора.",
+      "expected_replies": [
+        {
+          "sk": "Dáme diagnostiku.",
+          "ua": "Зробимо діагностику."
+        }
+      ],
+      "fallback": {
+        "sk": "Koľko stojí diagnostika?",
+        "ua": "Скільки коштує діагностика?"
+      }
+    },
+    {
+      "id": "diag-price",
+      "ua": "Скільки коштує діагностика?",
+      "sk": "Koľko stojí diagnostika?",
+      "phonetic_ua": "Колько стої діагностіка?",
+      "expected_replies": [
+        {
+          "sk": "Tridsať až osemdesiat eur.",
+          "ua": "30–80 євро."
+        },
+        {
+          "sk": "Podľa problému.",
+          "ua": "Залежить від проблеми."
+        }
+      ],
+      "fallback": {
+        "sk": "Ak súhlasím, odpočítate z opravy?",
+        "ua": "Якщо погоджусь, віднімете від вартості ремонту?"
+      }
+    },
+    {
+      "id": "budget-limit",
+      "ua": "Не ремонтуйте понад 150 € без мого погодження.",
+      "sk": "Prosím, neopravujte nad 150 € bez môjho súhlasu.",
+      "phonetic_ua": "Просім, не-оправуйте над сто п’ятдесят євро без мойго сУхласу.",
+      "expected_replies": [
+        {
+          "sk": "Rozumiem.",
+          "ua": "Розумію."
+        }
+      ],
+      "fallback": {
+        "sk": "Zavolajte pred prekročením sumy.",
+        "ua": "Подзвоніть перед перевищенням суми."
+      }
+    },
+    {
+      "id": "invoice-vat",
+      "ua": "Потрібен рахунок з ПДВ на компанію.",
+      "sk": "Potrebujem faktúru s DPH na firmu.",
+      "phonetic_ua": "Потребуєм фактуру з ДПГ на фірму.",
+      "expected_replies": [
+        {
+          "sk": "Prosím IČO a DIČ.",
+          "ua": "Будь ласка, IČO та DIČ."
+        },
+        {
+          "sk": "Pošlite údaje e-mailom.",
+          "ua": "Надішліть дані на e-mail."
+        }
+      ],
+      "fallback": {
+        "sk": "Pošlem údaje e-mailom.",
+        "ua": "Надішлю дані e‑mailом."
+      }
+    },
+    {
+      "id": "when-ready",
+      "ua": "Коли авто буде готове?",
+      "sk": "Kedy bude auto hotové?",
+      "phonetic_ua": "Кеди буде ауто готове?",
+      "expected_replies": [
+        {
+          "sk": "Dnes o štvrtej.",
+          "ua": "Сьогодні о 16:00."
+        },
+        {
+          "sk": "Zajtra ráno.",
+          "ua": "Завтра вранці."
+        }
+      ],
+      "fallback": {
+        "sk": "Prosím, zavolajte, keď bude pripravené.",
+        "ua": "Подзвоніть, коли буде готово."
+      }
+    }
+  ]
+}

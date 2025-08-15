@@ -1,0 +1,87 @@
+{
+  "id": "pharmacy-sk",
+  "emoji": "💊",
+  "title": "Аптека (SK ↔ UA)",
+  "phrases": [
+    {
+      "id": "headache",
+      "ua": "Щось від головного болю, будь ласка.",
+      "sk": "Niečo proti bolesti hlavy, prosím.",
+      "phonetic_ua": "Нєчо проті болесті глави, просім.",
+      "expected_replies": [
+        {
+          "sk": "Tablety alebo sirup?",
+          "ua": "Таблетки чи сироп?"
+        },
+        {
+          "sk": "Máte alergie?",
+          "ua": "Є алергії?"
+        }
+      ],
+      "fallback": {
+        "sk": "Bez receptu, prosím.",
+        "ua": "Без рецепта, будь ласка."
+      }
+    },
+    {
+      "id": "cold",
+      "ua": "Від застуди/нежитю щось просте.",
+      "sk": "Niečo jednoduché na nachladnutie / nádchu.",
+      "phonetic_ua": "Нєчо єднодухе на нахладнутє / надху.",
+      "expected_replies": [
+        {
+          "sk": "Kvapky alebo sprej?",
+          "ua": "Краплі чи спрей?"
+        },
+        {
+          "sk": "Pre dospelých alebo deti?",
+          "ua": "Для дорослих чи дітей?"
+        }
+      ],
+      "fallback": {
+        "sk": "Pre dospelých, prosím.",
+        "ua": "Для дорослих, будь ласка."
+      }
+    },
+    {
+      "id": "sore-throat",
+      "ua": "Болить горло, потрібні льодяники/спрей.",
+      "sk": "Bolí ma hrdlo, potrebujem pastilky / sprej.",
+      "phonetic_ua": "Болі ма гърдло, потрєбуєм пастілки / спрей.",
+      "expected_replies": [
+        {
+          "sk": "S mentolom alebo bez?",
+          "ua": "З ментолом чи без?"
+        },
+        {
+          "sk": "Koľko balení?",
+          "ua": "Скільки упаковок?"
+        }
+      ],
+      "fallback": {
+        "sk": "Jedno balenie stačí, ďakujem.",
+        "ua": "Однієї упаковки достатньо, дякую."
+      }
+    },
+    {
+      "id": "pharmacy-price",
+      "ua": "Скільки це коштує?",
+      "sk": "Koľko to stojí?",
+      "phonetic_ua": "Колько то стої?",
+      "expected_replies": [
+        {
+          "sk": "Sedem eur päťdesiat.",
+          "ua": "Сім євро п’ятдесят."
+        },
+        {
+          "sk": "Štyri eurá.",
+          "ua": "Чотири євро."
+        }
+      ],
+      "fallback": {
+        "sk": "Môžete, prosím, povedať pomalšie?",
+        "ua": "Скажіть, будь ласка, повільніше?"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "transport-sk",
+  "emoji": "🚌",
+  "title": "Транспорт (SK ↔ UA)",
+  "phrases": [
+    {
+      "id": "ticket",
+      "ua": "Один квиток, будь ласка.",
+      "sk": "Jeden lístok, prosím.",
+      "phonetic_ua": "Єден ліскок, просім.",
+      "expected_replies": [
+        {
+          "sk": "Zónový alebo časový?",
+          "ua": "Зональний чи часовий?"
+        },
+        {
+          "sk": "Platíte kartou?",
+          "ua": "Платитимете карткою?"
+        }
+      ],
+      "fallback": {
+        "sk": "Kartou, prosím.",
+        "ua": "Карткою, будь ласка."
+      }
+    },
+    {
+      "id": "direction",
+      "ua": "Це автобус до центру?",
+      "sk": "Je toto autobus do centra?",
+      "phonetic_ua": "Є тотто аўтобус до центра?",
+      "expected_replies": [
+        {
+          "sk": "Áno, ide cez hlavnú stanicu.",
+          "ua": "Так, іде через головний вокзал."
+        },
+        {
+          "sk": "Nie, to je opačný smer.",
+          "ua": "Ні, це у протилежному напрямку."
+        }
+      ],
+      "fallback": {
+        "sk": "Ktorá zastávka je hlavná stanica?",
+        "ua": "Яка зупинка — головний вокзал?"
+      }
+    },
+    {
+      "id": "where-get-off",
+      "ua": "Де мені вийти для… [місце]?",
+      "sk": "Kde mám vystúpiť na… [miesto]?",
+      "phonetic_ua": "Гдє мам вистовпіть на… [м’есто]?",
+      "expected_replies": [
+        {
+          "sk": "O dve zastávky.",
+          "ua": "Через дві зупинки."
+        },
+        {
+          "sk": "Hneď na nasledujúcej.",
+          "ua": "Одразу на наступній."
+        }
+      ],
+      "fallback": {
+        "sk": "Dajte prosím vedieť, keď bude moja zastávka.",
+        "ua": "Скажіть, будь ласка, коли буде моя зупинка."
+      }
+    }
+  ]
+}

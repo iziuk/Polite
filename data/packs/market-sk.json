@@ -1,0 +1,127 @@
+{
+  "id": "market-sk",
+  "emoji": "🛒",
+  "title": "Ринок / магазин (SK ↔ UA)",
+  "phrases": [
+    {
+      "id": "price",
+      "ua": "Скільки це коштує?",
+      "sk": "Koľko to stojí?",
+      "phonetic_ua": "Колько то стої?",
+      "expected_replies": [
+        {
+          "sk": "Tri eurá päťdesiat.",
+          "ua": "Три євро п’ятдесят."
+        },
+        {
+          "sk": "Dve päťdesiat.",
+          "ua": "Дві п’ятдесят."
+        }
+      ],
+      "fallback": {
+        "sk": "Prosím, povedzte cenu ešte raz, pomalšie.",
+        "ua": "Повторіть ціну, будь ласка, повільніше."
+      }
+    },
+    {
+      "id": "price-per-kg",
+      "ua": "Скільки коштує кілограм [продукт]?",
+      "sk": "Koľko stojí kilo [produkt]?",
+      "phonetic_ua": "Колько стої кіло [продукт]?",
+      "expected_replies": [
+        {
+          "sk": "Podľa váhy.",
+          "ua": "Залежить від ваги."
+        },
+        {
+          "sk": "Tri eurá.",
+          "ua": "Три євро."
+        }
+      ],
+      "fallback": {
+        "sk": "Môžete prosím napísať cenu?",
+        "ua": "Можете, будь ласка, написати ціну?"
+      }
+    },
+    {
+      "id": "half-kilo",
+      "ua": "Пів кіло [продукт], будь ласка.",
+      "sk": "Prosím pol kila [produkt].",
+      "phonetic_ua": "Просім поль кіла [продукт].",
+      "expected_replies": [
+        {
+          "sk": "Ešte niečo?",
+          "ua": "Ще щось?"
+        },
+        {
+          "sk": "Stačí?",
+          "ua": "Достатньо?"
+        }
+      ],
+      "fallback": {
+        "sk": "Stačí, ďakujem.",
+        "ua": "Достатньо, дякую."
+      }
+    },
+    {
+      "id": "fresh",
+      "ua": "Чи свіже?",
+      "sk": "Je to čerstvé?",
+      "phonetic_ua": "Є то черстве?",
+      "expected_replies": [
+        {
+          "sk": "Áno, dnes ráno.",
+          "ua": "Так, сьогодні зранку."
+        },
+        {
+          "sk": "Včera.",
+          "ua": "Вчора."
+        }
+      ],
+      "fallback": {
+        "sk": "Prosím, vyberte čerstvejšie.",
+        "ua": "Будь ласка, виберіть свіжіше."
+      }
+    },
+    {
+      "id": "try",
+      "ua": "Можна спробувати?",
+      "sk": "Môžem ochutnať?",
+      "phonetic_ua": "МожеМ охутнать?",
+      "expected_replies": [
+        {
+          "sk": "Jasné, tu máte.",
+          "ua": "Звісно, тримайте."
+        },
+        {
+          "sk": "Nie je možné.",
+          "ua": "Неможливо."
+        }
+      ],
+      "fallback": {
+        "sk": "Nechám si pol kila, prosím.",
+        "ua": "Тоді візьму пів кіло, будь ласка."
+      }
+    },
+    {
+      "id": "bag",
+      "ua": "Пакет потрібен? / Дайте пакет, будь ласка.",
+      "sk": "Treba sáčok? / Prosím jeden sáčok.",
+      "phonetic_ua": "Треба сачок? / Просім єден сачок.",
+      "expected_replies": [
+        {
+          "sk": "Desať centov.",
+          "ua": "Десять центів."
+        },
+        {
+          "sk": "Samozrejme.",
+          "ua": "Звичайно."
+        }
+      ],
+      "fallback": {
+        "sk": "Bez sáčku, ďakujem.",
+        "ua": "Без пакета, дякую."
+      }
+    }
+  ]
+}
