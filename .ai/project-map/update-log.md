@@ -272,3 +272,32 @@ Notes:
 - Added reusable `team-completeness-audit.md` template for future audits.
 - Added a project-knowledge retrieval eval case for the completeness audit.
 - routes.md and data-flow.md checked; no route or flow changes required.
+
+## 2026-06-04
+
+Changed files:
+
+- AGENTS.md
+- .ai/ai-sdlc/README.md
+- .ai/ai-sdlc/governance.md
+- .ai/project-knowledge/eval-cases.json
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/data-flow.md
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> branch-per-task known decision
+- modules.yaml -> ai-sdlc-operating-model public API includes branch-per-task policy
+- data-flow.md -> AI SDLC delivery flow includes dedicated task branch
+- decisions.md -> branch-per-task workflow convention
+
+Notes:
+
+- Documented that every new task starts on a new dedicated `polite/` branch.
+- Existing branches are reused only for clear continuations, fixes, or follow-ups for the same task or PR.
+- If task boundaries are unclear, agents must ask before branching, committing, or pushing.
+- Added a project-knowledge retrieval eval case for the task branch policy.
+- routes.md checked; no route changes required.

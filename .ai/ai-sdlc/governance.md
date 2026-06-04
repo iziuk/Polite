@@ -45,6 +45,20 @@ Use a change request when work affects:
 
 Use `templates/change-request.md`.
 
+## Branch Governance
+
+Every new task starts on a new dedicated branch so scope, review, verification, and push history stay traceable.
+
+Required behavior:
+
+- Create task branches with the `polite/` prefix by default.
+- Start from `main` by default unless the user explicitly requests another base or the task depends on unmerged current
+  branch context.
+- Reuse an existing task branch only for clear continuations, fixes, or follow-ups for the same task or PR.
+- Do not continue unrelated new work on an existing task branch.
+- If task boundaries are unclear, ask before branching, committing, or pushing.
+- Do not create git worktrees unless the user explicitly requests a worktree.
+
 ## RFC Policy
 
 Use an RFC when:

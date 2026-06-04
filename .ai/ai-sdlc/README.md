@@ -154,7 +154,10 @@ npm run build
 
 Current branch convention:
 
-- Create normal work branches from `main` with the `polite/` prefix.
+- Every new task starts on a new dedicated branch.
+- Create normal work branches from `main` with the `polite/` prefix by default.
+- Reuse the current branch only when the request is clearly a continuation of the same task or PR.
+- If it is unclear whether the request is a new task or a continuation, ask before branching, committing, or pushing.
 - Do not create git worktrees unless explicitly requested.
 - After a completed and verified task, commit and push the finished changes without waiting for an extra instruction.
 - If readiness, scope, verification, safety, approval, or repository state is uncertain, do not push silently; ask the

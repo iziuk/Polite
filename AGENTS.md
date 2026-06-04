@@ -48,8 +48,13 @@ Before implementation, right-size the workflow:
 
 ## Git Branches
 
+Every new task must start on a new dedicated branch. Do not continue unrelated new work on an existing task branch.
+
 For this project, create new work branches from `main` with the `polite/` prefix by default, for example
 `polite/ai-sdlc-fullstack-team`, unless the user explicitly requests another prefix.
+
+Use the current branch only when the request is clearly a continuation of the same task or PR. If it is unclear whether
+the request is a new task or a continuation, ask the user before branching, committing, or pushing.
 
 Do not create git worktrees unless the user explicitly asks for a worktree.
 
