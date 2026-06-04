@@ -2,35 +2,42 @@
   "app": {
     "metadata": {
       "description": "Quick phrases with phonetics and voice",
-      "open-graph-description": "Фрази SK↔UA",
+      "open-graph-description": "SK↔UA phrases",
       "title": "Polite — MVP"
+    }
+  },
+  "shared": {
+    "i18n": {
+      "language-label": "Interface language",
+      "locale-option-en": "English",
+      "locale-option-uk": "Українська"
     }
   },
   "widgets": {
     "phrase-browser": {
-      "anti-stupor-action": "Не зрозумів",
-      "copy-action": "Копіювати",
-      "copy-fallback-action": "Текст 🆘",
-      "copy-reply-aria-label": "Скопіювати відповідь словацькою",
-      "copy-title": "Скопіювати словацький текст",
+      "anti-stupor-action": "Didn't understand",
+      "copy-action": "Copy",
+      "copy-fallback-action": "SOS text",
+      "copy-reply-aria-label": "Copy the Slovak reply",
+      "copy-title": "Copy the Slovak text",
       "direction-label": "UA → SK",
-      "empty-state": "Нічого не знайдено за запитом.",
-      "fallback-title": "Анти-ступор: озвучити прохання повторити повільніше/уточнити",
-      "footer-next-step": "Далі винесемо офлайн (Next-PWA) і простий CMS (Supabase) для редагування паків.",
-      "footer-tip-after": "— якщо відповідь швидка і незрозуміла, одразу ж тисни",
-      "footer-tip-before": "Порада: натисни",
-      "large-text-action": "Великий текст",
-      "normal-text-action": "Звичайний текст",
-      "page-description": "Швидкі фрази з фонетикою, варіантами відповідей та «анти-ступор» кнопкою. Пакети: автосервіс, ринок, аптека, транспорт.",
-      "page-title": "Polite — розмовні пакети",
-      "replies-hide-action": "Приховати відповіді",
-      "replies-show-action": "Можливі відповіді",
-      "search-label": "Пошук по українському або словацькому тексту",
-      "search-placeholder": "Наприклад: діагностика, термін, рахунок, квиток",
-      "speak-action": "Озвучити",
-      "speak-reply-aria-label": "Озвучити відповідь словацькою",
-      "speak-title": "Озвучити словацькою",
-      "ukrainian-label": "Українською:"
+      "empty-state": "No phrases match this search.",
+      "fallback-title": "Anti-stupor: ask them to repeat more slowly or clarify",
+      "footer-next-step": "Next we will add offline support (Next-PWA) and a simple CMS (Supabase) for editing packs.",
+      "footer-tip-after": "if the reply is quick and unclear, press",
+      "footer-tip-before": "Tip: press",
+      "large-text-action": "Large text",
+      "normal-text-action": "Normal text",
+      "page-description": "Quick phrases with phonetics, likely replies, and an anti-stupor button. Packs: auto service, market, pharmacy, transport.",
+      "page-title": "Polite — phrase packs",
+      "replies-hide-action": "Hide replies",
+      "replies-show-action": "Possible replies",
+      "search-label": "Search Ukrainian or Slovak text",
+      "search-placeholder": "For example: diagnostics, term, invoice, ticket",
+      "speak-action": "Speak",
+      "speak-reply-aria-label": "Speak the Slovak reply",
+      "speak-title": "Speak in Slovak",
+      "ukrainian-label": "Ukrainian:"
     }
   }
 }

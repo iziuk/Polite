@@ -8,7 +8,11 @@ Last verified: 2026-06-04
 flowchart TD
   Data["packages/data/*.json"] --> Entity["apps/web/src/entities/phrase"]
   Entity --> Widget["apps/web/src/widgets/phrase-browser"]
-  I18n["apps/web/src/shared/core/i18n"] --> Widget
+  Cookie["locale cookie"] --> I18nRequest["apps/web/src/shared/core/i18n/request.ts"]
+  Messages["apps/web/src/shared/core/i18n/translations/*.json"] --> I18nRequest
+  I18nRequest --> Layout["apps/web/src/app/layout.tsx"]
+  Layout --> I18n["next-intl provider and @shared/core/i18n facade"]
+  I18n --> Widget
   Ui["apps/web/src/shared/ui"] --> Widget
   Widget --> Card["PhraseCard"]
   Card --> BrowserFacade["apps/web/src/shared/lib/browser"]
@@ -20,13 +24,16 @@ flowchart TD
 ## State Ownership
 
 - `PhraseBrowser` owns selected pack, search query, and large text mode.
+- `next-intl` owns request-scoped UI messages through the root layout provider.
+- `useTranslation` is the local shared facade for `next-intl` and exposes the current locale plus a cookie-backed setter.
 - `filterPhrases` is a pure local helper in the phrase browser widget.
 - `PhraseCard` owns only per-card reply expansion state.
 - Shared UI primitives are stateless wrappers around native elements.
 
 ## Copy And Content
 
-- UI copy lives in `apps/web/src/shared/core/i18n/translations/en.json`.
+- UI copy lives in `apps/web/src/shared/core/i18n/translations/en.json` and `apps/web/src/shared/core/i18n/translations/uk.json`.
+- The default interface locale is Ukrainian (`uk`); English (`en`) is selectable in the phrase toolbar.
 - Phrase pack domain content stays in `packages/data/*.json`.
 - Phrase interfaces are exported from `packages/shared/src/types` and re-exposed through the phrase entity public API.
 

@@ -378,3 +378,28 @@ Notes:
 - Split pull request lifecycle into creation, review, and merge workflow stages/gates.
 - Updated RACI, governance, PR checklist, completeness audit, and retrieval evals for PR create/review/merge.
 - routes.md checked; no route changes required.
+
+## 2026-06-04
+
+Changed files:
+
+- apps/web/next.config.mjs
+- apps/web/package.json
+- apps/web/src/app/layout.tsx
+- apps/web/src/shared/core/i18n/\*\*
+- apps/web/src/shared/ui/\*\*
+- apps/web/src/widgets/phrase-browser/ui/phrase-toolbar.tsx
+- package-lock.json
+
+Updated map files:
+
+- INDEX.md -> next-intl stack note, localization lookup, and locale-switching flow
+- modules.yaml -> shared-i18n, shared-ui, web-config affected files and public API
+- routes.md -> cookie-based localization routing note
+- data-flow.md -> next-intl request/provider/cookie flow
+- decisions.md -> next-intl interface localization decision
+
+Notes:
+
+- Incremental update after adding next-intl-backed Ukrainian/English interface localization.
+- Verification passed with `npm run lint`, `npm run build`, and browser smoke checks on `/`.
