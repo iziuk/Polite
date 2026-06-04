@@ -53,6 +53,12 @@ For this project, create new work branches from `main` with the `polite/` prefix
 
 Do not create git worktrees unless the user explicitly asks for a worktree.
 
+## Post-Task Push Policy
+
+After a task is completed and verified, commit and push the finished changes without waiting for an extra instruction.
+If readiness, scope, verification, safety, approval, or repository state is uncertain, do not push silently; stop and ask
+the user before pushing.
+
 ## Commit Message Drafting
 
 Always use the global `draft-commit-message` skill before drafting commit messages or preparing commits. Inspect the

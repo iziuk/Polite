@@ -72,3 +72,5 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
   summarizes project-map relevant decisions.
 - Current RAG posture is RAG-ready manual context retrieval through `.ai/ai-sdlc/rag-strategy.md`; automated vector RAG
   is not implemented and requires ADR, evals, security/privacy review, and approval before adoption.
+- Completed and verified tasks should be committed and pushed automatically; if readiness or safety is uncertain, ask
+  before pushing.

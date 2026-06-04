@@ -244,6 +244,7 @@ ai-sdlc-operating-model:
     - Architecture decision record operating policy
     - Accepted ADR decision log
     - RAG and project knowledge retrieval strategy
+    - Post-task commit and push policy
     - Commit message drafting convention
     - Reusable artifact templates
   related_routes: []

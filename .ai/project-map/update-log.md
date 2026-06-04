@@ -177,3 +177,26 @@ Notes:
 - Added full ADR operating policy, ADR index, seven baseline accepted ADRs, RAG/project knowledge strategy, and a RAG strategy template.
 - Wired ADR/RAG responsibilities into AI SDLC README, coverage, workflow, quality gates, AI policy, governance, roles, responsibility matrix, architecture, and security/risk docs.
 - routes.md checked; no route changes required.
+
+## 2026-06-04
+
+Changed files:
+
+- AGENTS.md
+- .ai/ai-sdlc/README.md
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> known decision for automatic post-task push policy
+- modules.yaml -> ai-sdlc-operating-model public API includes post-task push policy
+- decisions.md -> post-task push convention
+
+Notes:
+
+- Added future instruction that completed and verified tasks should be committed and pushed automatically.
+- If readiness, scope, verification, safety, approval, or repository state is uncertain, agents must ask before pushing.
+- routes.md and data-flow.md checked; no route or data-flow changes required.
