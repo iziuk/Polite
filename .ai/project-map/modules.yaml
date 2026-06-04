@@ -164,10 +164,18 @@ mobile-shared-i18n:
   depends_on: []
   key_files:
     - apps/mobile/src/shared/core/i18n/index.ts
+    - apps/mobile/src/shared/core/i18n/i18n-provider.tsx
+    - apps/mobile/src/shared/core/i18n/locale.ts
     - apps/mobile/src/shared/core/i18n/translation-map.ts
     - apps/mobile/src/shared/core/i18n/use-translation.ts
     - apps/mobile/src/shared/core/i18n/translations/en.json
+    - apps/mobile/src/shared/core/i18n/translations/uk.json
   public_api:
+    - DEFAULT_LOCALE
+    - SUPPORTED_LOCALES
+    - TLocale
+    - TranslationProvider
+    - getMessages
     - translate
     - useTranslation
     - TTranslationKey

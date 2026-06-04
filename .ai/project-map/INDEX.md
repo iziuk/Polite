@@ -53,7 +53,8 @@ import through slice/segment public APIs.
 | Mobile phrase entity API   | `apps/mobile/src/entities/phrase/index.ts`, `apps/mobile/src/entities/phrase/model/phrase-packs.ts`                                        |
 | UI localization            | `apps/web/src/shared/core/i18n/request.ts`, `apps/web/src/shared/core/i18n/translation-map.ts`                                             |
 | UI copy                    | `apps/web/src/shared/core/i18n/translations/en.json`, `apps/web/src/shared/core/i18n/translations/uk.json`                                 |
-| Mobile UI copy             | `apps/mobile/src/shared/core/i18n/translations/en.json`                                                                                    |
+| Mobile UI localization     | `apps/mobile/src/shared/core/i18n/i18n-provider.tsx`, `apps/mobile/src/shared/core/i18n/translation-map.ts`                                |
+| Mobile UI copy             | `apps/mobile/src/shared/core/i18n/translations/en.json`, `apps/mobile/src/shared/core/i18n/translations/uk.json`                           |
 | Shared UI primitives       | `apps/web/src/shared/ui/button/button.tsx`, `apps/web/src/shared/ui/select/select.tsx`, `apps/web/src/shared/ui/text-input/text-input.tsx` |
 | Mobile UI primitives       | `apps/mobile/src/shared/ui/button/button.tsx`, `apps/mobile/src/shared/ui/text-input/text-input.tsx`                                       |
 | Browser helpers            | `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                                                                |
@@ -82,8 +83,9 @@ import through slice/segment public APIs.
 6. `PhraseToolbar` switches interface locale by updating the locale cookie and reloading the current route; routes stay
    prefix-free.
 7. UI copy comes from `@shared/core/i18n`; phrase pack content remains backend/content data in `packages/data`.
-8. `apps/mobile` registers an Expo root component, renders the RN `PhraseBrowser`, reads the same static packs, and uses
-   Expo Clipboard/Speech modules for copy and TTS parity with the web app.
+8. `apps/mobile` registers an Expo root component, provides client-local `uk`/`en` interface localization, renders the RN
+   `PhraseBrowser`, reads the same static packs, and uses Expo Clipboard/Speech modules for copy and TTS parity with the
+   web app.
 9. Non-trivial AI-assisted work follows `AGENTS.md` into `.ai/ai-sdlc`, checks `coverage-matrix.md`, retrieves context
    through the RAG/source-priority policy, checks accepted ADRs, applies the relevant product, BA, architecture,
    engineering, PR lifecycle, QA, DevOps, security, governance, and template artifacts, then passes quality gates and
@@ -98,7 +100,8 @@ import through slice/segment public APIs.
 - Reusable browser helpers and phrase interfaces stay in `packages/shared/src` and are exposed through public barrels.
 - Shared UI primitives wrap native elements and Tailwind classes, matching the current project stack.
 - Interface localization uses `next-intl` with local `uk` and `en` message files and a cookie-based locale preference.
-- Mobile interface copy currently uses a client-local translation map under `apps/mobile/src/shared/core/i18n`.
+- Mobile interface localization uses a client-local provider and translation map under
+  `apps/mobile/src/shared/core/i18n` with local `uk` and `en` message files.
 - Dependency freshness tracks latest stable direct dependencies where the ecosystem supports them; the current baseline
   requires Node.js 22.22.1+ and npm 11.16.0+.
 - AI-assisted delivery uses `.ai/ai-sdlc` as a comprehensive managed fullstack team operating model with coverage matrix,

@@ -24,8 +24,8 @@ Cross-layer imports use `@widgets`, `@entities`, and `@shared` aliases. Shared p
 
 User-facing UI copy is centralized in `apps/web/src/shared/core/i18n/translations/*.json` and accessed through the
 `@shared/core/i18n` public API. Mobile UI copy is centralized under
-`apps/mobile/src/shared/core/i18n/translations/en.json`. Phrase pack domain content remains in `packages/data` rather
-than UI localization files.
+`apps/mobile/src/shared/core/i18n/translations/*.json` and accessed through the mobile `@shared/core/i18n` public API.
+Phrase pack domain content remains in `packages/data` rather than UI localization files.
 
 ## next-intl For Interface Localization
 

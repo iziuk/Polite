@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 
 import type { IPack } from "@entities/phrase";
 
-import { useTranslation } from "@shared/core/i18n";
+import { type TLocale, type TTranslationKey, useTranslation } from "@shared/core/i18n";
 import { Button, TextInput } from "@shared/ui";
 
 import { phraseToolbarStyles } from "./phrase-toolbar.styles";
@@ -18,8 +18,17 @@ interface IPhraseToolbarProps {
   query: string;
 }
 
+const LANGUAGE_OPTIONS: readonly { labelKey: TTranslationKey; locale: TLocale }[] = [
+  { labelKey: "shared.i18n.locale-option-uk", locale: "uk" },
+  { labelKey: "shared.i18n.locale-option-en", locale: "en" },
+];
+
 export const PhraseToolbar: FC<IPhraseToolbarProps> = ({ activePackId, isLargeText, onChangePack, onChangeQuery, onToggleLargeText, packs, query }) => {
-  const { t } = useTranslation();
+  const { locale, setLocale, t } = useTranslation();
+
+  const handleLocaleChange = (nextLocale: TLocale): void => {
+    setLocale(nextLocale);
+  };
 
   return (
     <View style={phraseToolbarStyles.toolbar}>
@@ -29,6 +38,20 @@ export const PhraseToolbar: FC<IPhraseToolbarProps> = ({ activePackId, isLargeTe
             {pack.emoji ?? "📦"} {pack.title}
           </Button>
         ))}
+        <View style={phraseToolbarStyles.languageGroup}>
+          <Text style={phraseToolbarStyles.languageLabel}>{t("shared.i18n.language-label")}</Text>
+          <View style={phraseToolbarStyles.languageButtons}>
+            {LANGUAGE_OPTIONS.map((languageOption) => (
+              <Button
+                accessibilityLabel={t(languageOption.labelKey)}
+                key={languageOption.locale}
+                onPress={() => handleLocaleChange(languageOption.locale)}
+                variant={locale === languageOption.locale ? "primary" : "secondary"}>
+                {t(languageOption.labelKey)}
+              </Button>
+            ))}
+          </View>
+        </View>
         <Button onPress={onToggleLargeText}>
           {isLargeText ? t("widgets.phrase-browser.normal-text-action") : t("widgets.phrase-browser.large-text-action")}
         </Button>

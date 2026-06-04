@@ -472,3 +472,29 @@ Notes:
 - Migrated Next 16 config for top-level typed routes, explicit Turbopack root, and generated typed-route declarations.
 - Audit still reports upstream moderate advisories in Next/PostCSS and Expo/xcode/uuid where npm only proposes force
   downgrades to older major versions.
+
+## 2026-06-04
+
+Changed files:
+
+- apps/mobile/src/app/app.tsx
+- apps/mobile/src/shared/core/i18n/\*\*
+- apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.tsx
+- apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.styles.ts
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> mobile localization lookup, flow, and known decision
+- modules.yaml -> mobile-shared-i18n provider, locale files, and public API
+- decisions.md -> mobile UI copy ownership uses all local translation files
+
+Notes:
+
+- PR review found that mobile lacked the web app's `uk`/`en` interface localization after rebasing onto localized
+  `main`.
+- Added a mobile translation provider, locale model, Ukrainian translation file, corrected English copy, and language
+  controls in the RN toolbar.

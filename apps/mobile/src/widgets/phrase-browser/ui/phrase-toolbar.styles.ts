@@ -10,6 +10,18 @@ export const phraseToolbarStyles = StyleSheet.create({
     flexWrap: "wrap",
     gap: spacing.sm,
   },
+  languageButtons: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: spacing.sm,
+  },
+  languageGroup: {
+    gap: spacing.xs,
+  },
+  languageLabel: {
+    color: colors.muted,
+    fontSize: 14,
+  },
   searchGroup: {
     gap: spacing.xs,
   },
