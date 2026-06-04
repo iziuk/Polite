@@ -1,0 +1,22 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": "../..",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "paths": {
+      "@app/*": ["apps/mobile/src/app/*"],
+      "@pages/*": ["apps/mobile/src/pages/*"],
+      "@widgets/*": ["apps/mobile/src/widgets/*"],
+      "@features/*": ["apps/mobile/src/features/*"],
+      "@entities/*": ["apps/mobile/src/entities/*"],
+      "@shared/*": ["apps/mobile/src/shared/*"],
+      "@polite/shared/types": ["packages/shared/src/types/index.ts"],
+      "@polite/data/*": ["packages/data/*"]
+    },
+    "strict": true
+  },
+  "include": ["index.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}

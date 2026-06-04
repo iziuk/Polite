@@ -403,3 +403,34 @@ Notes:
 
 - Incremental update after adding next-intl-backed Ukrainian/English interface localization.
 - Verification passed with `npm run lint`, `npm run build`, and browser smoke checks on `/`.
+
+## 2026-06-04
+
+Changed files:
+
+- .gitignore
+- package-lock.json
+- apps/mobile/\*\*
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/routes.md
+- .ai/project-map/data-flow.md
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> mobile app snapshot, lookup table, main flow, and known decision
+- modules.yaml -> mobile app, widget, entity, i18n, UI, native helper, and config modules
+- routes.md -> Expo root entry and no-navigation note
+- data-flow.md -> shared phrase data feeding web and mobile plus platform action split
+- decisions.md -> FSD-style mobile app, UI copy ownership, and platform actions
+
+Notes:
+
+- Added an Expo RN client that mirrors the current web phrase browser: pack switching, search, large text, phrase cards,
+  expected replies, fallback phrase, copy, and speech actions.
+- Mobile reuses `packages/data` phrase JSON and `packages/shared` phrase types; Expo Clipboard/Speech wrappers stay
+  app-specific under `apps/mobile/src/shared/lib/native`.
+- No ADR created; this fills the existing mobile workspace direction from ADR-001 and static data constraints from
+  ADR-003 without introducing a new backend, persistence model, or production platform decision.

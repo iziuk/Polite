@@ -1,0 +1,27 @@
+{
+  "name": "polite-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "android": "expo start --android",
+    "build": "tsc --noEmit",
+    "dev": "expo start",
+    "ios": "expo start --ios",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "expo": "^53.0.20",
+    "expo-clipboard": "~7.1.5",
+    "expo-speech": "~13.1.7",
+    "react": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.11.1"
+  },
+  "devDependencies": {
+    "@types/react": "~19.0.10",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "typescript": "^5.9.2"
+  }
+}
