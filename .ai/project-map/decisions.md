@@ -55,10 +55,13 @@ providers, vector databases, product RAG, and LLM-generated answers are still no
 security/privacy review, evals, rollback path, and human approval when high-risk sources or user-facing output are
 involved.
 
-## Polite Branch Prefix
+## Branch-Per-Task Workflow
 
-Project work branches should use the `polite/` prefix by default, for example `polite/ai-sdlc-fullstack-team`. Git
-worktrees should not be created unless the user explicitly asks for a worktree.
+Every new task starts on a new dedicated branch. Project work branches should use the `polite/` prefix by default, for
+example `polite/ai-sdlc-fullstack-team`, and start from `main` unless the user requests another base or the task depends
+on unmerged current branch context. Existing branches are reused only for clear continuations, fixes, or follow-ups for
+the same task or PR. If the task boundary is unclear, ask before branching, committing, or pushing. Git worktrees should
+not be created unless the user explicitly asks for a worktree.
 
 ## Commit Message Drafting Skill
 

@@ -257,6 +257,7 @@ ai-sdlc-operating-model:
     - AI feature specifications and retrieval evaluations
     - Security reviews and threat models
     - AI fullstack team completeness audit
+    - Branch-per-task policy
     - Post-task commit and push policy
     - Commit message drafting convention
     - Reusable artifact templates

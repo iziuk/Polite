@@ -41,6 +41,7 @@ flowchart TD
 ```mermaid
 flowchart TD
   Request["User request"] --> Agents["AGENTS.md"]
+  Agents --> Branch["Dedicated task branch"]
   Agents --> Map["project-cartographer map read"]
   Agents --> OperatingModel[".ai/ai-sdlc operating model"]
   OperatingModel --> Coverage["coverage-matrix.md"]
@@ -57,6 +58,8 @@ flowchart TD
 ```
 
 - Small low-risk fixes can use the lightweight path documented in `.ai/ai-sdlc/README.md`.
+- Every new task starts on a new dedicated `polite/` branch; existing branches are reused only for clear continuations of
+  the same task or PR.
 - Context retrieval follows `.ai/ai-sdlc/rag-strategy.md`; accepted ADRs in `.ai/ai-sdlc/adr/` constrain architecture
   decisions.
 - Local project-knowledge retrieval can build a gitignored TF-IDF/cosine index from allowlisted docs, source, config, and

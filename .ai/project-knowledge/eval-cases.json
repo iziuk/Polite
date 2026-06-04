@@ -15,6 +15,11 @@
     "expectedPaths": ["AGENTS.md", ".ai/project-map/decisions.md"]
   },
   {
+    "id": "task-branch-policy",
+    "query": "When should agents create a new dedicated branch for a user task?",
+    "expectedPaths": ["AGENTS.md", ".ai/ai-sdlc/governance.md", ".ai/project-map/decisions.md"]
+  },
+  {
     "id": "fsd-boundaries",
     "query": "What are the Feature-Sliced Design layer import boundaries for the web app?",
     "expectedPaths": ["AGENTS.md", ".ai/ai-sdlc/adr/adr-002-fsd-web-boundaries.md"]

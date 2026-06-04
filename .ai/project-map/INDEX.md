@@ -78,5 +78,7 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
   provider/vector database/product RAG is not implemented and requires ADR, evals, security/privacy review, and approval
   before adoption.
 - Local retrieval is governed by ADR-008 and verified with `.ai/project-knowledge/eval-cases.json`.
+- Every new task starts on a new dedicated `polite/` branch; reuse an existing branch only for clear continuations of
+  the same task or PR, and ask when task boundaries are unclear.
 - Completed and verified tasks should be committed and pushed automatically; if readiness or safety is uncertain, ask
   before pushing.
