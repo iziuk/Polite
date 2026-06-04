@@ -36,7 +36,7 @@ AI may usually:
 - Implement low-risk changes inside the current branch.
 - Add or update documentation.
 - Run local verification commands.
-- Propose ADRs, RFCs, risk entries, and release checklists.
+- Propose ADRs, RFCs, RAG strategy updates, risk entries, and release checklists.
 
 ## What Requires Human Approval
 
@@ -59,13 +59,15 @@ For non-trivial work, AI must:
 1. Read `AGENTS.md`.
 2. Read `.ai/project-map/INDEX.md` and `.ai/project-map/modules.yaml`.
 3. Read relevant `.ai/ai-sdlc` documents.
-4. Identify role reviews needed.
-5. Identify gates that apply.
-6. Identify artifacts to create or update.
-7. Implement only after scope and risk are clear.
-8. Verify according to risk.
-9. Update project map and docs.
-10. Report verification and residual risk.
+4. Read relevant accepted ADRs.
+5. Apply `.ai/ai-sdlc/rag-strategy.md` source-priority rules when context retrieval matters.
+6. Identify role reviews needed.
+7. Identify gates that apply.
+8. Identify artifacts to create or update.
+9. Implement only after scope and risk are clear.
+10. Verify according to risk.
+11. Update project map and docs.
+12. Report verification and residual risk.
 
 ## Prompt Discipline
 
@@ -83,6 +85,8 @@ AI should:
 
 - State assumptions.
 - Use project-specific sources of truth.
+- Retrieve context in the order defined by `.ai/ai-sdlc/rag-strategy.md`.
+- Treat accepted ADRs as constraints and proposed ADRs as discussion context.
 - Prefer concrete artifacts over vague plans.
 - Keep implementation scoped.
 - Mark unknowns and follow-ups.
@@ -126,6 +130,7 @@ If the product gains AI features, the feature must define:
 - Prompt or retrieval strategy.
 - Data sources and privacy classification.
 - Evaluation set.
+- RAG strategy impact, source priority, and stale-context handling when retrieval is used.
 - Success metrics.
 - Safety tests.
 - Cost and latency limits.

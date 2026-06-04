@@ -44,7 +44,11 @@ flowchart TD
   Agents --> Map["project-cartographer map read"]
   Agents --> OperatingModel[".ai/ai-sdlc operating model"]
   OperatingModel --> Coverage["coverage-matrix.md"]
+  OperatingModel --> ADRs["ADR policy and accepted decision records"]
+  OperatingModel --> Retrieval["RAG/source-priority strategy"]
   Coverage --> Artifacts["Product, BA, architecture, engineering, QA, DevOps, security, governance artifacts"]
+  ADRs --> Artifacts
+  Retrieval --> Artifacts
   Artifacts --> Roles["Role reviews: PO, BA, Architect, Dev, QA, DevOps, Security"]
   Roles --> Gates["Quality gates and human approval checks"]
   Gates --> Implementation["Scoped implementation"]
@@ -53,5 +57,7 @@ flowchart TD
 ```
 
 - Small low-risk fixes can use the lightweight path documented in `.ai/ai-sdlc/README.md`.
+- Context retrieval follows `.ai/ai-sdlc/rag-strategy.md`; accepted ADRs in `.ai/ai-sdlc/adr/` constrain architecture
+  decisions.
 - High-risk work keeps the relevant role reviews, artifacts, gates, QA strategy, security review, release readiness,
   rollback plan, and human approvals explicit.

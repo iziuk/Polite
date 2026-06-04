@@ -19,6 +19,8 @@ Legend:
 | Acceptance criteria     | C             | A/R              | C         | C      | C      | C         | C             | I          | C        | I                        |
 | Architecture design     | C             | C                | A/R       | C      | C      | I         | C             | C          | C        | A when major             |
 | ADR                     | I             | C                | A/R       | C      | C      | I         | I             | C          | C        | A when accepted          |
+| RAG strategy            | C             | C                | A/R       | C      | C      | C         | C             | C          | C        | A when high-risk         |
+| RAG security review     | I             | I                | C         | C      | C      | I         | C             | C          | A/R      | A when sensitive         |
 | Frontend implementation | I             | C                | C         | A/R    | I      | C         | C             | I          | C        | I                        |
 | Backend implementation  | I             | C                | C         | I      | A/R    | C         | C             | C          | C        | I                        |
 | Test plan               | C             | C                | C         | C      | C      | A/R       | R             | I          | C        | C for UAT                |
@@ -54,6 +56,7 @@ BA to Architect:
 Architect to Developers:
 
 - Affected modules, boundaries, contracts, risks, ADR/RFC status.
+- RAG/source-priority constraints when retrieval or AI context affects implementation.
 
 Developers to QA:
 

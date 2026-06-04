@@ -109,6 +109,8 @@ Responsibilities:
 - Evaluate alternatives for significant decisions.
 - Define contracts, data models, and NFRs.
 - Decide whether ADR or RFC is required.
+- Maintain ADR consistency and check accepted ADRs before architecture changes.
+- Apply RAG/source-priority rules when project knowledge retrieval or AI context affects the design.
 - Identify migration, rollback, and dependency risks.
 
 Inputs:
@@ -123,6 +125,7 @@ Outputs:
 - Technical design.
 - Affected file/module list.
 - ADR or RFC.
+- RAG strategy update when retrieval, embeddings, indexing, or knowledge governance changes.
 - Integration contract.
 - Data model and NFRs when needed.
 - Implementation constraints.
@@ -132,6 +135,8 @@ Self-check:
 - Does this change fit current ownership boundaries?
 - Is there a simpler design?
 - Is the decision reversible?
+- Do accepted ADRs support this design?
+- Does retrieval/source priority need to be documented?
 - What must remain stable?
 
 ## AI Frontend Developer
@@ -327,6 +332,7 @@ Responsibilities:
 - Threat model sensitive changes.
 - Check OWASP baseline when relevant.
 - Review prompt injection, data leakage, unsafe output, and human fallback for AI features.
+- Review RAG, embeddings, retrieved context, indexing, retention, and provider data handling when AI retrieval is involved.
 - Require mitigation or human approval for high risk.
 
 Inputs:
@@ -335,6 +341,7 @@ Inputs:
 - Architecture design.
 - Data model.
 - Integration contracts.
+- RAG strategy and AI feature spec when retrieval is involved.
 - Implementation diff.
 
 Outputs:

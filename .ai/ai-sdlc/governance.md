@@ -14,20 +14,21 @@ artifact that preserves decision quality, traceability, and release safety.
 
 ## Artifact Ownership
 
-| Artifact              | Owner role                | Human approval required when              |
-| --------------------- | ------------------------- | ----------------------------------------- |
-| Product vision        | AI Product Owner          | Product direction changes                 |
-| Persona               | AI Product Owner          | New user segment changes roadmap          |
-| BRD                   | AI Business Analyst       | Business-critical workflow changes        |
-| User story            | AI Business Analyst       | Scope or priority is ambiguous            |
-| Architecture overview | AI Architect              | Platform or system boundary changes       |
-| ADR                   | AI Architect              | Decision is accepted or reversed          |
-| RFC                   | AI Architect              | Multiple stakeholders or high uncertainty |
-| Test plan             | AI QA Manual / Automation | Release-critical flow                     |
-| Release checklist     | AI DevOps / SRE           | Production deploy                         |
-| Threat model          | AI Security Reviewer      | Medium or high security risk              |
-| Risk register item    | Owning role               | High risk is accepted                     |
-| Postmortem            | AI DevOps / SRE           | Major incident                            |
+| Artifact              | Owner role                | Human approval required when                              |
+| --------------------- | ------------------------- | --------------------------------------------------------- |
+| Product vision        | AI Product Owner          | Product direction changes                                 |
+| Persona               | AI Product Owner          | New user segment changes roadmap                          |
+| BRD                   | AI Business Analyst       | Business-critical workflow changes                        |
+| User story            | AI Business Analyst       | Scope or priority is ambiguous                            |
+| Architecture overview | AI Architect              | Platform or system boundary changes                       |
+| ADR                   | AI Architect              | Decision is accepted or reversed                          |
+| RAG strategy          | AI Architect / Security   | Automated RAG, sensitive data, or production AI retrieval |
+| RFC                   | AI Architect              | Multiple stakeholders or high uncertainty                 |
+| Test plan             | AI QA Manual / Automation | Release-critical flow                                     |
+| Release checklist     | AI DevOps / SRE           | Production deploy                                         |
+| Threat model          | AI Security Reviewer      | Medium or high security risk                              |
+| Risk register item    | Owning role               | High risk is accepted                                     |
+| Postmortem            | AI DevOps / SRE           | Major incident                                            |
 
 ## Change Management
 
@@ -68,6 +69,23 @@ Decision records should include:
 - Consequences.
 - Status.
 - Follow-ups.
+
+Use `.ai/ai-sdlc/adr.md` for the ADR operating policy and `.ai/ai-sdlc/adr/` for accepted decision records.
+
+## Knowledge Governance
+
+Use `.ai/ai-sdlc/rag-strategy.md` for source priority, project knowledge retrieval, stale-context handling, citation
+rules, and future automated RAG requirements.
+
+Update the RAG strategy when work changes:
+
+- Which documents are authoritative.
+- Retrieval order or source priority.
+- Knowledge-base inclusion or exclusion rules.
+- Documentation freshness expectations.
+- Citation or handoff requirements.
+- Prompt-injection, privacy, or indexing controls.
+- Automated RAG architecture, provider, embeddings, or vector-store rules.
 
 ## Documentation Lifecycle
 

@@ -217,6 +217,9 @@ ai-sdlc-operating-model:
     - .ai/ai-sdlc/product-business.md
     - .ai/ai-sdlc/business-analysis.md
     - .ai/ai-sdlc/architecture.md
+    - .ai/ai-sdlc/adr.md
+    - .ai/ai-sdlc/adr/README.md
+    - .ai/ai-sdlc/rag-strategy.md
     - .ai/ai-sdlc/engineering.md
     - .ai/ai-sdlc/ai-development-policy.md
     - .ai/ai-sdlc/roles.md
@@ -238,6 +241,9 @@ ai-sdlc-operating-model:
     - Quality gates
     - Manual and automation QA strategy
     - DevOps, release, security, privacy, and AI risk playbooks
+    - Architecture decision record operating policy
+    - Accepted ADR decision log
+    - RAG and project knowledge retrieval strategy
     - Commit message drafting convention
     - Reusable artifact templates
   related_routes: []
