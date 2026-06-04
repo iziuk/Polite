@@ -15,3 +15,8 @@ yarn-error.log*
 .next/
 .vercel
 .env*
+
+# Generated project knowledge indexes
+.ai/project-knowledge/index.json
+.ai/project-knowledge/eval-results.json
+.ai/project-knowledge/*.tmp.json

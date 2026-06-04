@@ -1,0 +1,46 @@
+[
+  {
+    "id": "adr-rag-policy",
+    "query": "What governs RAG source priority and future automated retrieval requirements?",
+    "expectedPaths": [".ai/ai-sdlc/rag-strategy.md", ".ai/ai-sdlc/adr/adr-007-rag-ready-knowledge-retrieval-policy.md"]
+  },
+  {
+    "id": "architecture-decisions",
+    "query": "Where are accepted architecture decision records stored?",
+    "expectedPaths": [".ai/ai-sdlc/adr.md", ".ai/ai-sdlc/adr/README.md"]
+  },
+  {
+    "id": "post-task-push-policy",
+    "query": "When should agents commit and push after completed verified tasks?",
+    "expectedPaths": ["AGENTS.md", ".ai/project-map/decisions.md"]
+  },
+  {
+    "id": "task-branch-policy",
+    "query": "When should agents create a new dedicated branch for a user task?",
+    "expectedPaths": ["AGENTS.md", ".ai/ai-sdlc/governance.md", ".ai/project-map/decisions.md"]
+  },
+  {
+    "id": "fsd-boundaries",
+    "query": "What are the Feature-Sliced Design layer import boundaries for the web app?",
+    "expectedPaths": ["AGENTS.md", ".ai/ai-sdlc/adr/adr-002-fsd-web-boundaries.md"]
+  },
+  {
+    "id": "phrase-data-source",
+    "query": "Why are static phrase packs used as the MVP data source?",
+    "expectedPaths": [".ai/ai-sdlc/adr/adr-003-static-phrase-packs-mvp-data.md", ".ai/project-map/decisions.md"]
+  },
+  {
+    "id": "local-project-knowledge-retrieval",
+    "query": "What local retrieval tool uses TF-IDF cosine similarity without an external provider?",
+    "expectedPaths": [
+      ".ai/ai-sdlc/adr/adr-008-local-project-knowledge-retrieval.md",
+      ".ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md",
+      ".ai/project-knowledge/README.md"
+    ]
+  },
+  {
+    "id": "team-completeness-audit",
+    "query": "Where is AI fullstack team completeness audited with owner input output gate evidence?",
+    "expectedPaths": [".ai/ai-sdlc/completeness-audit.md", ".ai/project-map/decisions.md"]
+  }
+]

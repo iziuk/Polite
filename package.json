@@ -12,6 +12,9 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
+    "knowledge:index": "node .ai/tools/project-knowledge/index.mjs",
+    "knowledge:search": "node .ai/tools/project-knowledge/search.mjs",
+    "knowledge:evaluate": "node .ai/tools/project-knowledge/evaluate.mjs",
     "format": "prettier --write ."
   },
   "devDependencies": {
