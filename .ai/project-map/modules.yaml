@@ -201,3 +201,46 @@ web-config:
   last_verified: 2026-06-04
   confidence: high
   needs_review: false
+
+ai-sdlc-operating-model:
+  paths:
+    - AGENTS.md
+    - .ai/ai-sdlc
+  fsd_layer: app
+  type: app
+  depends_on: []
+  key_files:
+    - AGENTS.md
+    - .ai/ai-sdlc/README.md
+    - .ai/ai-sdlc/coverage-matrix.md
+    - .ai/ai-sdlc/workflow.md
+    - .ai/ai-sdlc/product-business.md
+    - .ai/ai-sdlc/business-analysis.md
+    - .ai/ai-sdlc/architecture.md
+    - .ai/ai-sdlc/engineering.md
+    - .ai/ai-sdlc/ai-development-policy.md
+    - .ai/ai-sdlc/roles.md
+    - .ai/ai-sdlc/responsibility-matrix.md
+    - .ai/ai-sdlc/quality-gates.md
+    - .ai/ai-sdlc/qa-manual.md
+    - .ai/ai-sdlc/qa-automation.md
+    - .ai/ai-sdlc/devops-release.md
+    - .ai/ai-sdlc/security-risk.md
+    - .ai/ai-sdlc/governance.md
+  public_api:
+    - AI SDLC coverage matrix
+    - AI SDLC managed fullstack team workflow
+    - Product and business documentation
+    - Business analysis documentation
+    - Architecture and engineering playbooks
+    - AI role playbooks
+    - Responsibility matrix
+    - Quality gates
+    - Manual and automation QA strategy
+    - DevOps, release, security, privacy, and AI risk playbooks
+    - Commit message drafting convention
+    - Reusable artifact templates
+  related_routes: []
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false

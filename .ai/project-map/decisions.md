@@ -21,3 +21,20 @@ User-facing UI copy is centralized in `apps/web/src/shared/core/i18n/translation
 ## React 19 Component Typing
 
 Reusable components are const arrow functions checked with `satisfies React.FC`. Their concrete return type stays `React.ReactElement` to remain compatible with Next.js 15 generated route checks.
+
+## AI SDLC Managed Team Operating Model
+
+Non-trivial AI-assisted work now uses `.ai/ai-sdlc` as the project operating model. `AGENTS.md` points future agents to
+check the coverage matrix, right-size the workflow, simulate the needed fullstack roles, use the required artifacts and
+templates, pass relevant quality gates, and require human approval for production, sensitive data, auth, payments,
+security exceptions, and major architecture decisions.
+
+## Polite Branch Prefix
+
+Project work branches should use the `polite/` prefix by default, for example `polite/ai-sdlc-fullstack-team`. Git
+worktrees should not be created unless the user explicitly asks for a worktree.
+
+## Commit Message Drafting Skill
+
+Commit messages should always be drafted through the global `draft-commit-message` skill. The workflow must inspect git
+state, classify in-scope and out-of-scope changes, and produce a Conventional Commit message that follows project rules.
