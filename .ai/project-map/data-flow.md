@@ -6,34 +6,46 @@ Last verified: 2026-06-04
 
 ```mermaid
 flowchart TD
-  Data["packages/data/*.json"] --> Entity["apps/web/src/entities/phrase"]
-  Entity --> Widget["apps/web/src/widgets/phrase-browser"]
+  Data["packages/data/*.json"] --> WebEntity["apps/web/src/entities/phrase"]
+  Data --> MobileEntity["apps/mobile/src/entities/phrase"]
+  Types["packages/shared/src/types"] --> WebEntity
+  Types --> MobileEntity
+  WebEntity --> WebWidget["apps/web/src/widgets/phrase-browser"]
+  MobileEntity --> MobileWidget["apps/mobile/src/widgets/phrase-browser"]
   Cookie["locale cookie"] --> I18nRequest["apps/web/src/shared/core/i18n/request.ts"]
   Messages["apps/web/src/shared/core/i18n/translations/*.json"] --> I18nRequest
   I18nRequest --> Layout["apps/web/src/app/layout.tsx"]
-  Layout --> I18n["next-intl provider and @shared/core/i18n facade"]
-  I18n --> Widget
-  Ui["apps/web/src/shared/ui"] --> Widget
-  Widget --> Card["PhraseCard"]
-  Card --> BrowserFacade["apps/web/src/shared/lib/browser"]
+  Layout --> WebI18n["next-intl provider and @shared/core/i18n facade"]
+  WebI18n --> WebWidget
+  MobileI18n["apps/mobile/src/shared/core/i18n"] --> MobileWidget
+  WebUi["apps/web/src/shared/ui"] --> WebWidget
+  MobileUi["apps/mobile/src/shared/ui"] --> MobileWidget
+  WebWidget --> WebCard["Web PhraseCard"]
+  MobileWidget --> MobileCard["RN PhraseCard"]
+  WebCard --> BrowserFacade["apps/web/src/shared/lib/browser"]
   BrowserFacade --> SharedHelpers["packages/shared/src/lib"]
   SharedHelpers --> Speech["Web Speech API"]
   SharedHelpers --> Clipboard["Clipboard API"]
+  MobileCard --> NativeActions["apps/mobile/src/shared/lib/native"]
+  NativeActions --> ExpoSpeech["expo-speech"]
+  NativeActions --> ExpoClipboard["expo-clipboard"]
 ```
 
 ## State Ownership
 
-- `PhraseBrowser` owns selected pack, search query, and large text mode.
+- Web and mobile `PhraseBrowser` components own selected pack, search query, and large text mode locally.
 - `next-intl` owns request-scoped UI messages through the root layout provider.
 - `useTranslation` is the local shared facade for `next-intl` and exposes the current locale plus a cookie-backed setter.
+- Mobile `useTranslation` reads the static mobile translation map.
 - `filterPhrases` is a pure local helper in the phrase browser widget.
 - `PhraseCard` owns only per-card reply expansion state.
-- Shared UI primitives are stateless wrappers around native elements.
+- Shared UI primitives are stateless wrappers around platform-native elements.
 
 ## Copy And Content
 
 - UI copy lives in `apps/web/src/shared/core/i18n/translations/en.json` and `apps/web/src/shared/core/i18n/translations/uk.json`.
 - The default interface locale is Ukrainian (`uk`); English (`en`) is selectable in the phrase toolbar.
+- Mobile UI copy lives in `apps/mobile/src/shared/core/i18n/translations/en.json`.
 - Phrase pack domain content stays in `packages/data/*.json`.
 - Phrase interfaces are exported from `packages/shared/src/types` and re-exposed through the phrase entity public API.
 
@@ -41,6 +53,8 @@ flowchart TD
 
 - Web Speech API is guarded in `packages/shared/src/lib/speech.ts`.
 - Clipboard API is guarded in `packages/shared/src/lib/clipboard.ts`.
+- Mobile speech uses `expo-speech` through `apps/mobile/src/shared/lib/native/actions.ts`.
+- Mobile copy uses `expo-clipboard` through `apps/mobile/src/shared/lib/native/actions.ts`.
 - No backend API or TanStack Query usage exists yet.
 
 ## AI SDLC Delivery Flow

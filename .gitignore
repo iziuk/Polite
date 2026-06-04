@@ -16,6 +16,9 @@ yarn-error.log*
 .vercel
 .env*
 
+# Expo local state
+.expo/
+
 # Generated project knowledge indexes
 .ai/project-knowledge/index.json
 .ai/project-knowledge/eval-results.json

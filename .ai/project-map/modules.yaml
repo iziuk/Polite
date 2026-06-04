@@ -20,6 +20,25 @@ web-app:
   confidence: high
   needs_review: false
 
+mobile-app:
+  paths:
+    - apps/mobile/index.ts
+    - apps/mobile/src/app
+  fsd_layer: app
+  type: app
+  depends_on:
+    - mobile-phrase-browser-widget
+    - mobile-shared-ui
+  key_files:
+    - apps/mobile/index.ts
+    - apps/mobile/src/app/app.tsx
+  public_api:
+    - Expo root component App
+  related_routes: []
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
 phrase-browser-widget:
   paths:
     - apps/web/src/widgets/phrase-browser
@@ -43,6 +62,29 @@ phrase-browser-widget:
   confidence: high
   needs_review: false
 
+mobile-phrase-browser-widget:
+  paths:
+    - apps/mobile/src/widgets/phrase-browser
+  fsd_layer: widgets
+  type: widget
+  depends_on:
+    - mobile-phrase-entity
+    - mobile-shared-i18n
+    - mobile-shared-native-lib
+    - mobile-shared-ui
+  key_files:
+    - apps/mobile/src/widgets/phrase-browser/index.ts
+    - apps/mobile/src/widgets/phrase-browser/model/filter-phrases.ts
+    - apps/mobile/src/widgets/phrase-browser/ui/phrase-browser.tsx
+    - apps/mobile/src/widgets/phrase-browser/ui/phrase-card.tsx
+    - apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.tsx
+  public_api:
+    - PhraseBrowser
+  related_routes: []
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
 phrase-entity:
   paths:
     - apps/web/src/entities/phrase
@@ -61,6 +103,27 @@ phrase-entity:
     - IPhrase
   related_routes:
     - /
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
+mobile-phrase-entity:
+  paths:
+    - apps/mobile/src/entities/phrase
+  fsd_layer: entities
+  type: entity
+  depends_on:
+    - phrase-data
+    - shared-package
+  key_files:
+    - apps/mobile/src/entities/phrase/index.ts
+    - apps/mobile/src/entities/phrase/model/phrase-packs.ts
+    - apps/mobile/src/entities/phrase/model/types.ts
+  public_api:
+    - PHRASE_PACKS
+    - IPack
+    - IPhrase
+  related_routes: []
   last_verified: 2026-06-04
   confidence: high
   needs_review: false
@@ -93,6 +156,34 @@ shared-i18n:
   confidence: high
   needs_review: false
 
+mobile-shared-i18n:
+  paths:
+    - apps/mobile/src/shared/core/i18n
+  fsd_layer: shared
+  type: shared
+  depends_on: []
+  key_files:
+    - apps/mobile/src/shared/core/i18n/index.ts
+    - apps/mobile/src/shared/core/i18n/i18n-provider.tsx
+    - apps/mobile/src/shared/core/i18n/locale.ts
+    - apps/mobile/src/shared/core/i18n/translation-map.ts
+    - apps/mobile/src/shared/core/i18n/use-translation.ts
+    - apps/mobile/src/shared/core/i18n/translations/en.json
+    - apps/mobile/src/shared/core/i18n/translations/uk.json
+  public_api:
+    - DEFAULT_LOCALE
+    - SUPPORTED_LOCALES
+    - TLocale
+    - TranslationProvider
+    - getMessages
+    - translate
+    - useTranslation
+    - TTranslationKey
+  related_routes: []
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
 shared-ui:
   paths:
     - apps/web/src/shared/ui
@@ -117,6 +208,30 @@ shared-ui:
   confidence: high
   needs_review: false
 
+mobile-shared-ui:
+  paths:
+    - apps/mobile/src/shared/config
+    - apps/mobile/src/shared/ui
+  fsd_layer: shared
+  type: shared
+  depends_on: []
+  key_files:
+    - apps/mobile/src/shared/config/index.ts
+    - apps/mobile/src/shared/config/theme.ts
+    - apps/mobile/src/shared/ui/index.ts
+    - apps/mobile/src/shared/ui/button/button.tsx
+    - apps/mobile/src/shared/ui/text-input/text-input.tsx
+  public_api:
+    - Button
+    - TextInput
+    - colors
+    - radii
+    - spacing
+  related_routes: []
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
 shared-browser-lib:
   paths:
     - apps/web/src/shared/lib/browser
@@ -135,6 +250,23 @@ shared-browser-lib:
     - speak
   related_routes:
     - /
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
+mobile-shared-native-lib:
+  paths:
+    - apps/mobile/src/shared/lib/native
+  fsd_layer: shared
+  type: shared
+  depends_on: []
+  key_files:
+    - apps/mobile/src/shared/lib/native/index.ts
+    - apps/mobile/src/shared/lib/native/actions.ts
+  public_api:
+    - copyText
+    - speak
+  related_routes: []
   last_verified: 2026-06-04
   confidence: high
   needs_review: false
@@ -184,6 +316,7 @@ phrase-data:
 
 web-config:
   paths:
+    - .nvmrc
     - .gitignore
     - apps/web/package.json
     - apps/web/tsconfig.json
@@ -198,6 +331,7 @@ web-config:
   type: app
   depends_on: []
   key_files:
+    - .nvmrc
     - .gitignore
     - package.json
     - turbo.json
@@ -209,11 +343,40 @@ web-config:
     - apps/web/tailwind.config.js
   public_api:
     - npm run dev:web
+    - npm run dev:mobile
     - npm run build
     - npm run lint
     - npm run knowledge:index
     - npm run knowledge:search
     - npm run knowledge:evaluate
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
+mobile-config:
+  paths:
+    - apps/mobile/app.json
+    - apps/mobile/babel.config.js
+    - apps/mobile/metro.config.js
+    - apps/mobile/package.json
+    - apps/mobile/tsconfig.json
+    - package-lock.json
+  fsd_layer: app
+  type: app
+  depends_on:
+    - mobile-app
+  key_files:
+    - apps/mobile/app.json
+    - apps/mobile/babel.config.js
+    - apps/mobile/metro.config.js
+    - apps/mobile/package.json
+    - apps/mobile/tsconfig.json
+    - package-lock.json
+  public_api:
+    - npm run dev:mobile
+    - npm run build --workspace apps/mobile
+    - npm run lint --workspace apps/mobile
+  related_routes: []
   last_verified: 2026-06-04
   confidence: high
   needs_review: false

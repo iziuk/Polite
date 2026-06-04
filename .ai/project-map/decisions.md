@@ -10,6 +10,12 @@ Phrase packs live in `packages/data/*.json` and are imported at build time throu
 
 The web app now uses FSD layers under `apps/web/src`. Route files stay in `src/app`, composed UI lives in `src/widgets`, phrase domain access lives in `src/entities`, and reusable app utilities live in `src/shared`.
 
+## FSD-Style Mobile App
+
+The Expo mobile app mirrors the web phrase browser under `apps/mobile/src` with app, widgets, entities, and shared
+layers. Mobile imports use the same FSD-style aliases through TypeScript and Babel config, while Metro watches
+`packages/` for shared data and types.
+
 ## Public APIs And Aliases
 
 Cross-layer imports use `@widgets`, `@entities`, and `@shared` aliases. Shared package internals are exposed through barrels in `packages/shared/src`.
@@ -17,13 +23,28 @@ Cross-layer imports use `@widgets`, `@entities`, and `@shared` aliases. Shared p
 ## UI Copy Ownership
 
 User-facing UI copy is centralized in `apps/web/src/shared/core/i18n/translations/*.json` and accessed through the
-`@shared/core/i18n` public API. Phrase pack domain content remains in `packages/data` rather than UI localization files.
+`@shared/core/i18n` public API. Mobile UI copy is centralized under
+`apps/mobile/src/shared/core/i18n/translations/*.json` and accessed through the mobile `@shared/core/i18n` public API.
+Phrase pack domain content remains in `packages/data` rather than UI localization files.
 
 ## next-intl For Interface Localization
 
 The web app uses `next-intl` for request-scoped interface localization. `apps/web/next.config.mjs` wires the plugin to
 `apps/web/src/shared/core/i18n/request.ts`, which reads a `locale` cookie and loads local `uk` or `en` messages. Routes
 remain prefix-free for the MVP; the toolbar updates the cookie and reloads the current route.
+
+## Platform Actions
+
+The web app uses guarded browser helper facades for Web Speech and Clipboard APIs. The mobile app uses Expo-native
+`expo-speech` and `expo-clipboard` wrappers in `apps/mobile/src/shared/lib/native` for the same phrase card actions.
+
+## Fresh Dependency Baseline
+
+Direct dependencies track latest stable releases where the surrounding ecosystem supports them. The current baseline is
+Node.js 22.22.1+ and npm 11.16.0+ so Next.js 16, Expo SDK 56, React Native 0.85, the latest ESLint 9 compatible line,
+lint-staged 17, Tailwind CSS 4, and TypeScript 6 can be used without downgrading to older toolchains. ESLint 10 is held
+until the Next.js React lint plugin stack supports its rule context API. Transitive audit fixes must not force major
+downgrades of Next.js or Expo.
 
 ## React 19 Component Typing
 

@@ -403,3 +403,98 @@ Notes:
 
 - Incremental update after adding next-intl-backed Ukrainian/English interface localization.
 - Verification passed with `npm run lint`, `npm run build`, and browser smoke checks on `/`.
+
+## 2026-06-04
+
+Changed files:
+
+- .gitignore
+- package-lock.json
+- apps/mobile/\*\*
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/routes.md
+- .ai/project-map/data-flow.md
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> mobile app snapshot, lookup table, main flow, and known decision
+- modules.yaml -> mobile app, widget, entity, i18n, UI, native helper, and config modules
+- routes.md -> Expo root entry and no-navigation note
+- data-flow.md -> shared phrase data feeding web and mobile plus platform action split
+- decisions.md -> FSD-style mobile app, UI copy ownership, and platform actions
+
+Notes:
+
+- Added an Expo RN client that mirrors the current web phrase browser: pack switching, search, large text, phrase cards,
+  expected replies, fallback phrase, copy, and speech actions.
+- Mobile reuses `packages/data` phrase JSON and `packages/shared` phrase types; Expo Clipboard/Speech wrappers stay
+  app-specific under `apps/mobile/src/shared/lib/native`.
+- No ADR created; this fills the existing mobile workspace direction from ADR-001 and static data constraints from
+  ADR-003 without introducing a new backend, persistence model, or production platform decision.
+
+## 2026-06-04
+
+Changed files:
+
+- .nvmrc
+- package.json
+- package-lock.json
+- apps/web/package.json
+- apps/web/eslint.config.mjs
+- apps/web/next-env.d.ts
+- apps/web/next.config.mjs
+- apps/web/postcss.config.mjs
+- apps/web/src/app/styles/globals.css
+- apps/web/tailwind.config.js
+- apps/web/tsconfig.json
+- apps/mobile/package.json
+- apps/mobile/tsconfig.json
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> latest dependency stack and Node/npm baseline
+- modules.yaml -> web-config includes `.nvmrc`
+- decisions.md -> fresh dependency baseline convention
+
+Notes:
+
+- Rebased RN work onto `origin/main` after interface localization landed.
+- Updated direct web, mobile, and root toolchain dependencies to current stable compatible versions and migrated Tailwind
+  to the v4 PostCSS plugin/import entrypoint.
+- Kept ESLint on the latest compatible 9.x line because the Next.js 16 React lint plugin stack fails under ESLint 10.
+- Migrated Next 16 config for top-level typed routes, explicit Turbopack root, and generated typed-route declarations.
+- Audit still reports upstream moderate advisories in Next/PostCSS and Expo/xcode/uuid where npm only proposes force
+  downgrades to older major versions.
+
+## 2026-06-04
+
+Changed files:
+
+- apps/mobile/src/app/app.tsx
+- apps/mobile/src/shared/core/i18n/\*\*
+- apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.tsx
+- apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.styles.ts
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> mobile localization lookup, flow, and known decision
+- modules.yaml -> mobile-shared-i18n provider, locale files, and public API
+- decisions.md -> mobile UI copy ownership uses all local translation files
+
+Notes:
+
+- PR review found that mobile lacked the web app's `uk`/`en` interface localization after rebasing onto localized
+  `main`.
+- Added a mobile translation provider, locale model, Ukrainian translation file, corrected English copy, and language
+  controls in the RN toolbar.
