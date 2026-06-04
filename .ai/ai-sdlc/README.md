@@ -28,26 +28,29 @@ explicit.
 
 ## Source Of Truth
 
-| Area                             | File                       |
-| -------------------------------- | -------------------------- |
-| Coverage map                     | `coverage-matrix.md`       |
-| End-to-end workflow              | `workflow.md`              |
-| Product and business             | `product-business.md`      |
-| Business analysis                | `business-analysis.md`     |
-| Architecture                     | `architecture.md`          |
-| Architecture decision records    | `adr.md`, `adr/`           |
-| Engineering                      | `engineering.md`           |
-| AI development policy            | `ai-development-policy.md` |
-| RAG and project knowledge        | `rag-strategy.md`          |
-| Roles                            | `roles.md`                 |
-| RACI / responsibility matrix     | `responsibility-matrix.md` |
-| Quality gates                    | `quality-gates.md`         |
-| Manual QA                        | `qa-manual.md`             |
-| Automation QA                    | `qa-automation.md`         |
-| DevOps and release               | `devops-release.md`        |
-| Security, privacy, and AI risk   | `security-risk.md`         |
-| Governance and change management | `governance.md`            |
-| Reusable templates               | `templates/`               |
+| Area                               | File                       |
+| ---------------------------------- | -------------------------- |
+| Coverage map                       | `coverage-matrix.md`       |
+| End-to-end workflow                | `workflow.md`              |
+| Product and business               | `product-business.md`      |
+| Business analysis                  | `business-analysis.md`     |
+| Architecture                       | `architecture.md`          |
+| Architecture decision records      | `adr.md`, `adr/`           |
+| Engineering                        | `engineering.md`           |
+| AI development policy              | `ai-development-policy.md` |
+| RAG and project knowledge          | `rag-strategy.md`          |
+| AI feature specs                   | `ai-features/`             |
+| Evaluation plans                   | `evaluations/`             |
+| Roles                              | `roles.md`                 |
+| RACI / responsibility matrix       | `responsibility-matrix.md` |
+| Quality gates                      | `quality-gates.md`         |
+| Manual QA                          | `qa-manual.md`             |
+| Automation QA                      | `qa-automation.md`         |
+| DevOps and release                 | `devops-release.md`        |
+| Security, privacy, and AI risk     | `security-risk.md`         |
+| Security reviews and threat models | `security/`                |
+| Governance and change management   | `governance.md`            |
+| Reusable templates                 | `templates/`               |
 
 ## When To Use The Full AI SDLC
 
@@ -168,6 +171,8 @@ Current knowledge baseline:
 - Accepted architecture decisions live in `.ai/ai-sdlc/adr/`.
 - ADR policy lives in `.ai/ai-sdlc/adr.md`.
 - AI context retrieval and future RAG rules live in `.ai/ai-sdlc/rag-strategy.md`.
+- Local project-knowledge retrieval tooling lives in `.ai/tools/project-knowledge`.
+- Local retrieval docs and eval cases live in `.ai/project-knowledge`.
 - The project map remains the required first navigation source before implementation.
 
 ## Operating Principle

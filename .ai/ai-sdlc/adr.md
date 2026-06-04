@@ -229,6 +229,7 @@ The initial Polite ADR set records current project-level decisions:
 - ADR-005: Use AI SDLC managed fullstack team operating model.
 - ADR-006: Require human approval gates for high-risk work.
 - ADR-007: Adopt a RAG-ready knowledge retrieval policy.
+- ADR-008: Use local project knowledge retrieval.
 
 Future examples that would require ADRs:
 

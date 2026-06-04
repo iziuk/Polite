@@ -6,19 +6,51 @@ systems if Polite later adds one.
 
 ## Current Position
 
-Polite does not currently have an automated vector database, embedding index, or product RAG pipeline.
+Polite now has local automated project-knowledge retrieval, implemented as repository tooling. It does not have an
+external vector database, external embedding provider, LLM answer-generation pipeline, or product RAG feature.
 
-The current strategy is RAG-ready knowledge management:
+The current strategy is local RAG-ready knowledge management:
 
 - Store authoritative project knowledge in structured, searchable markdown and code files.
 - Require AI agents to retrieve the right context before answering or implementing.
+- Use local TF-IDF vectors and cosine similarity for repeatable project-knowledge search.
 - Define source priority and conflict rules.
 - Keep architecture decisions in ADRs.
 - Keep project navigation in `.ai/project-map`.
-- Require future technical RAG implementation to pass architecture, security, privacy, AI risk, evaluation, and human
-  approval gates.
+- Require any future external provider, vector database, LLM generation, sensitive corpus, or product RAG implementation
+  to pass architecture, security, privacy, AI risk, evaluation, and human approval gates.
 
-This document is a policy and operating guide. It is not proof that an automated RAG pipeline has been implemented.
+This document is a policy and operating guide. The local retrieval implementation lives in `.ai/tools/project-knowledge`
+and `.ai/project-knowledge`.
+
+## Local Retrieval Implementation
+
+Commands:
+
+```bash
+npm run knowledge:index
+npm run knowledge:search -- "ADR RAG approval gates"
+npm run knowledge:evaluate
+```
+
+Local retrieval:
+
+- Uses Node.js built-ins and adds no dependencies.
+- Builds a generated JSON index at `.ai/project-knowledge/index.json`.
+- Keeps the generated index out of git.
+- Chunks markdown by semantic headings and non-markdown files by line ranges.
+- Stores source path, source type, authority level, owner role, module, line range, and risk metadata.
+- Uses local TF-IDF vectors and cosine similarity.
+- Runs a conservative secret-signal scan before indexing each file.
+- Evaluates seed retrieval cases from `.ai/project-knowledge/eval-cases.json`.
+
+Relevant artifacts:
+
+- ADR: `.ai/ai-sdlc/adr/adr-008-local-project-knowledge-retrieval.md`.
+- Feature spec: `.ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md`.
+- Evaluation plan: `.ai/ai-sdlc/evaluations/local-project-knowledge-retrieval.md`.
+- Threat model: `.ai/ai-sdlc/security/local-project-knowledge-retrieval-threat-model.md`.
+- Security review: `.ai/ai-sdlc/security/local-project-knowledge-retrieval-review.md`.
 
 ## Goals
 
@@ -113,7 +145,8 @@ For non-trivial work, also read:
 | Product/requirements | Product/business docs, BA docs, relevant templates, prior ADRs if technical direction is affected.                         |
 | Architecture         | Architecture guide, ADR policy, ADR index, relevant accepted ADRs, project map, source/config files.                       |
 | AI feature           | AI development policy, RAG strategy, security-risk, evaluation template, AI feature spec, ADRs.                            |
-| RAG implementation   | RAG strategy, ADR policy, architecture, security-risk, privacy policy, eval plan, integration contract, dependency review. |
+| Local RAG retrieval  | RAG strategy, ADR policy, ADR-008, local retrieval README, eval plan, threat model, security review.                       |
+| External/product RAG | RAG strategy, ADR policy, architecture, security-risk, privacy policy, eval plan, integration contract, dependency review. |
 | QA                   | QA manual, QA automation, acceptance criteria, affected implementation, quality gates.                                     |
 | DevOps/release       | DevOps/release guide, quality gates, release checklist, config, CI/CD docs when present.                                   |
 | Security/privacy     | Security-risk, privacy/PII policy template, threat model, access control matrix, relevant code/config.                     |
@@ -286,9 +319,10 @@ For future automated RAG, retrieval must preserve source metadata so the model c
 - External documentation.
 - Untrusted or user-generated content.
 
-## Future Automated RAG Requirements
+## Future External Or Product RAG Requirements
 
-Before implementing automated RAG, create or update:
+Before implementing external provider RAG, product RAG, LLM-generated answers, a vector database, a semantic embedding
+provider, or sensitive/user-document retrieval, create or update:
 
 - ADR for the RAG architecture and provider choices.
 - AI feature specification.
@@ -302,7 +336,7 @@ Before implementing automated RAG, create or update:
 - Risk register entries for accepted residual risks.
 - Rollback or disable plan.
 
-Automated RAG must define:
+External or product RAG must define:
 
 - Corpus scope.
 - Ingestion pipeline.
@@ -396,7 +430,7 @@ After implementation or documentation changes:
 6. Append `.ai/project-map/update-log.md`.
 7. Mention docs and residual risk in the final handoff.
 
-For future automated RAG:
+For future external or product RAG:
 
 1. Re-index changed allowed files.
 2. Remove deleted or superseded chunks.

@@ -200,3 +200,45 @@ Notes:
 - Added future instruction that completed and verified tasks should be committed and pushed automatically.
 - If readiness, scope, verification, safety, approval, or repository state is uncertain, agents must ask before pushing.
 - routes.md and data-flow.md checked; no route or data-flow changes required.
+
+## 2026-06-04
+
+Changed files:
+
+- package.json
+- .gitignore
+- .ai/tools/project-knowledge/\*\*
+- .ai/project-knowledge/README.md
+- .ai/project-knowledge/eval-cases.json
+- .ai/ai-sdlc/README.md
+- .ai/ai-sdlc/coverage-matrix.md
+- .ai/ai-sdlc/architecture.md
+- .ai/ai-sdlc/rag-strategy.md
+- .ai/ai-sdlc/adr.md
+- .ai/ai-sdlc/adr/README.md
+- .ai/ai-sdlc/adr/adr-008-local-project-knowledge-retrieval.md
+- .ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md
+- .ai/ai-sdlc/evaluations/local-project-knowledge-retrieval.md
+- .ai/ai-sdlc/security/local-project-knowledge-retrieval-threat-model.md
+- .ai/ai-sdlc/security/local-project-knowledge-retrieval-review.md
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/data-flow.md
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> local project-knowledge retrieval lookup and known decision
+- modules.yaml -> project-knowledge-retrieval module plus npm knowledge scripts
+- data-flow.md -> local retrieval indexing/search/eval flow
+- decisions.md -> local project knowledge retrieval decision
+
+Notes:
+
+- Implemented local project-knowledge retrieval with Node built-ins, allowlisted corpus, denylist, secret-signal scan,
+  markdown/line chunking, TF-IDF vectors, cosine search, generated gitignored index, search CLI, and eval CLI.
+- Added ADR-008, AI feature spec, evaluation plan, threat model, and security review.
+- Verified local retrieval with `npm run knowledge:index`, `npm run knowledge:search`, and `npm run knowledge:evaluate`
+  passing 6/6 seed cases.
+- routes.md checked; no route changes required.

@@ -175,6 +175,7 @@ phrase-data:
 
 web-config:
   paths:
+    - .gitignore
     - apps/web/package.json
     - apps/web/tsconfig.json
     - apps/web/next.config.mjs
@@ -187,6 +188,7 @@ web-config:
   type: app
   depends_on: []
   key_files:
+    - .gitignore
     - package.json
     - turbo.json
     - apps/web/package.json
@@ -198,6 +200,9 @@ web-config:
     - npm run dev:web
     - npm run build
     - npm run lint
+    - npm run knowledge:index
+    - npm run knowledge:search
+    - npm run knowledge:evaluate
   last_verified: 2026-06-04
   confidence: high
   needs_review: false
@@ -220,6 +225,10 @@ ai-sdlc-operating-model:
     - .ai/ai-sdlc/adr.md
     - .ai/ai-sdlc/adr/README.md
     - .ai/ai-sdlc/rag-strategy.md
+    - .ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md
+    - .ai/ai-sdlc/evaluations/local-project-knowledge-retrieval.md
+    - .ai/ai-sdlc/security/local-project-knowledge-retrieval-threat-model.md
+    - .ai/ai-sdlc/security/local-project-knowledge-retrieval-review.md
     - .ai/ai-sdlc/engineering.md
     - .ai/ai-sdlc/ai-development-policy.md
     - .ai/ai-sdlc/roles.md
@@ -244,9 +253,36 @@ ai-sdlc-operating-model:
     - Architecture decision record operating policy
     - Accepted ADR decision log
     - RAG and project knowledge retrieval strategy
+    - AI feature specifications and retrieval evaluations
+    - Security reviews and threat models
     - Post-task commit and push policy
     - Commit message drafting convention
     - Reusable artifact templates
+  related_routes: []
+  last_verified: 2026-06-04
+  confidence: high
+  needs_review: false
+
+project-knowledge-retrieval:
+  paths:
+    - .ai/project-knowledge
+    - .ai/tools/project-knowledge
+  fsd_layer: app
+  type: app
+  depends_on:
+    - ai-sdlc-operating-model
+    - web-config
+  key_files:
+    - .ai/project-knowledge/README.md
+    - .ai/project-knowledge/eval-cases.json
+    - .ai/tools/project-knowledge/shared.mjs
+    - .ai/tools/project-knowledge/index.mjs
+    - .ai/tools/project-knowledge/search.mjs
+    - .ai/tools/project-knowledge/evaluate.mjs
+  public_api:
+    - npm run knowledge:index
+    - npm run knowledge:search
+    - npm run knowledge:evaluate
   related_routes: []
   last_verified: 2026-06-04
   confidence: high

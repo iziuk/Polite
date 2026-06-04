@@ -14,6 +14,7 @@ This folder stores Polite Architecture Decision Records. Use `.ai/ai-sdlc/adr.md
 | [ADR-005](adr-005-ai-sdlc-managed-team-operating-model.md)   | Accepted | Use AI SDLC managed fullstack team operating model.     |
 | [ADR-006](adr-006-human-approval-gates.md)                   | Accepted | Require human approval gates for high-risk work.        |
 | [ADR-007](adr-007-rag-ready-knowledge-retrieval-policy.md)   | Accepted | Adopt a RAG-ready knowledge retrieval policy.           |
+| [ADR-008](adr-008-local-project-knowledge-retrieval.md)      | Accepted | Use local project knowledge retrieval.                  |
 
 ## Numbering Rules
 

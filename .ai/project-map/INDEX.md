@@ -44,7 +44,8 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 | Product, BA, architecture  | `.ai/ai-sdlc/product-business.md`, `.ai/ai-sdlc/business-analysis.md`, `.ai/ai-sdlc/architecture.md` |
 | Engineering and governance | `.ai/ai-sdlc/engineering.md`, `.ai/ai-sdlc/ai-development-policy.md`, `.ai/ai-sdlc/governance.md`    |
 | Architecture decisions     | `.ai/ai-sdlc/adr.md`, `.ai/ai-sdlc/adr/README.md`, `.ai/ai-sdlc/adr/`                                |
-| RAG / project knowledge    | `.ai/ai-sdlc/rag-strategy.md`, `.ai/ai-sdlc/templates/rag-strategy.md`                               |
+| RAG / project knowledge    | `.ai/ai-sdlc/rag-strategy.md`, `.ai/project-knowledge/README.md`, `.ai/tools/project-knowledge/`     |
+| RAG feature and evals      | `.ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md`, `.ai/ai-sdlc/evaluations/`           |
 | AI team roles and QA       | `.ai/ai-sdlc/roles.md`, `.ai/ai-sdlc/responsibility-matrix.md`, `.ai/ai-sdlc/qa-manual.md`           |
 | Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/devops-release.md`, `.ai/ai-sdlc/security-risk.md`      |
 
@@ -70,7 +71,9 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
   role playbooks, lifecycle gates, QA strategy, DevOps/release practice, security/risk review, governance, and templates.
 - Accepted ADRs in `.ai/ai-sdlc/adr/` are the authoritative architecture decision log; `.ai/project-map/decisions.md`
   summarizes project-map relevant decisions.
-- Current RAG posture is RAG-ready manual context retrieval through `.ai/ai-sdlc/rag-strategy.md`; automated vector RAG
-  is not implemented and requires ADR, evals, security/privacy review, and approval before adoption.
+- Current RAG posture includes local project-knowledge retrieval through `.ai/tools/project-knowledge`; external
+  provider/vector database/product RAG is not implemented and requires ADR, evals, security/privacy review, and approval
+  before adoption.
+- Local retrieval is governed by ADR-008 and verified with `.ai/project-knowledge/eval-cases.json`.
 - Completed and verified tasks should be committed and pushed automatically; if readiness or safety is uncertain, ask
   before pushing.
