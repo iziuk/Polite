@@ -18,10 +18,12 @@ understand requirement
 -> plan implementation
 -> implement
 -> verify automatically
+-> update docs
+-> create or update pull request
 -> review pull request diff
 -> verify manually
--> update docs
 -> prepare release or rollback
+-> merge pull request when gates pass
 ```
 
 Small low-risk work can collapse these steps into a short checklist. High-risk work must keep the relevant stages
@@ -98,10 +100,12 @@ For non-trivial work:
 6. Implementation plan.
 7. Development.
 8. Automated verification.
-9. Pull request and code review.
-10. Manual QA.
-11. Documentation and project-map update.
-12. Release readiness and rollback planning.
+9. Documentation and project-map update.
+10. Pull request creation or update.
+11. Pull request and code review.
+12. Manual QA.
+13. Release readiness and rollback planning.
+14. Pull request merge when gates pass.
 
 Use `workflow.md` for stage details.
 
@@ -138,6 +142,7 @@ For meaningful work, final handoff should include:
 - Branch.
 - Scope completed.
 - Changed files.
+- Pull request URL and merge status.
 - Pull request review summary and unresolved findings.
 - Verification commands and results.
 - Manual QA performed or skipped.

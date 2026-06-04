@@ -266,11 +266,63 @@ Additional checks depend on risk:
 
 If a command cannot run, explain why and what was verified instead.
 
-## Stage 9: Pull Request Review
+## Stage 9: Documentation Update
 
 Goal:
 
-- Review the implemented diff before merge, release handoff, or PR publication.
+- Keep operational memory accurate before pull request review and merge.
+
+Required updates:
+
+- Project map according to `project-cartographer`.
+- ADR or RFC when triggered.
+- QA docs when testing strategy changes.
+- Security docs when risk posture changes.
+- Release docs when deployable behavior changes.
+- RAG strategy when source priority, retrieval, indexing, or AI knowledge governance changes.
+
+Always append `.ai/project-map/update-log.md` after implementation.
+
+## Stage 10: Pull Request Creation Or Update
+
+Goal:
+
+- Create or update the pull request that contains the verified implementation and documentation.
+
+Owner:
+
+- AI PR Owner.
+
+Required for:
+
+- Any committed and pushed work that is intended to land on `main`.
+- Any existing PR updated by AI.
+
+Pass criteria:
+
+- PR targets the correct base branch.
+- PR title and body summarize scope, changed files, verification, manual QA plan or result, security/privacy impact,
+  docs/project-map updates, and residual risk.
+- PR includes or references the PR checklist.
+- PR excludes unrelated or user-owned changes.
+- PR URL is recorded in the final handoff.
+
+Blocking failures:
+
+- Work is pushed but no PR is created or updated.
+- PR contains unrelated changes.
+- PR body omits verification, reviewer, or merge-readiness evidence.
+
+Use:
+
+- `templates/pr-checklist.md`.
+- `governance.md`.
+
+## Stage 11: Pull Request Review
+
+Goal:
+
+- Review the implemented diff before merge.
 
 Owner:
 
@@ -299,7 +351,7 @@ Use:
 - `responsibility-matrix.md`.
 - `templates/pr-checklist.md`.
 
-## Stage 10: Manual QA
+## Stage 12: Manual QA
 
 Goal:
 
@@ -320,24 +372,7 @@ Use:
 - `templates/regression-checklist.md`.
 - `templates/uat-checklist.md`.
 
-## Stage 11: Documentation Update
-
-Goal:
-
-- Keep operational memory accurate.
-
-Required updates:
-
-- Project map according to `project-cartographer`.
-- ADR or RFC when triggered.
-- QA docs when testing strategy changes.
-- Security docs when risk posture changes.
-- Release docs when deployable behavior changes.
-- RAG strategy when source priority, retrieval, indexing, or AI knowledge governance changes.
-
-Always append `.ai/project-map/update-log.md` after implementation.
-
-## Stage 12: Release Readiness
+## Stage 13: Release Readiness
 
 Goal:
 
@@ -363,6 +398,37 @@ Use:
 - `devops-release.md`.
 - `templates/release-checklist.md`.
 - `templates/deployment-guide.md`.
+
+## Stage 14: Pull Request Merge
+
+Goal:
+
+- Merge the reviewed pull request once all required gates pass.
+
+Owner:
+
+- AI PR Owner.
+
+Required for:
+
+- Completed, verified, reviewed, and merge-ready pull requests.
+
+Pass criteria:
+
+- PR review verdict is merge-ready or all blocker findings are resolved.
+- Automated verification passed or approved gaps are documented.
+- Manual QA and release readiness are complete when applicable.
+- Human approval exists for production, high-risk, security, privacy, auth, payments, infrastructure, or major
+  architecture changes.
+- Merge method is appropriate for repository policy.
+- Merge result, SHA, and remaining follow-ups are recorded in the final handoff.
+
+Blocking failures:
+
+- PR is unreviewed.
+- Required checks, manual QA, release readiness, or approvals are missing.
+- Branch protection, merge conflicts, or failing checks prevent merge.
+- High-risk residual issues lack human approval.
 
 ## Lifecycle By Product Stage
 

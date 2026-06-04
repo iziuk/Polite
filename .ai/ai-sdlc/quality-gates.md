@@ -181,11 +181,52 @@ Blocking failures:
 - Critical automated check is skipped without approval.
 - Build or lint failure is ignored.
 
-## Gate 9: Pull Request Review Gate
+## Gate 9: Documentation Gate
 
 Purpose:
 
-- Ensure the implementation has been reviewed as a pull request before merge or final handoff.
+- Keep the project navigable and auditable before PR creation.
+
+Pass when:
+
+- Project map is updated according to trigger rules.
+- ADR/RFC is updated when triggered.
+- RAG strategy is updated when retrieval, indexing, source priority, freshness, or knowledge-governance rules change.
+- QA, security, product, or release docs are updated when changed.
+- Update log entry is appended.
+
+Blocking failures:
+
+- Changed architecture is not documented.
+- Required project-map update is skipped.
+- Accepted high risk is not recorded.
+
+## Gate 10: Pull Request Creation Gate
+
+Purpose:
+
+- Ensure completed pushed work is represented by a reviewable pull request.
+
+Pass when:
+
+- AI PR Owner has created or updated the PR.
+- PR targets the correct base branch and includes only in-scope changes.
+- PR title and body summarize scope, changed files, verification, manual QA plan or result, security/privacy impact,
+  docs/project-map updates, and residual risk.
+- PR checklist is included or referenced.
+- PR URL is recorded for the final handoff.
+
+Blocking failures:
+
+- Work is pushed but no PR is created or updated.
+- PR includes unrelated or user-owned changes.
+- PR body lacks verification, review, merge-readiness, or residual-risk evidence.
+
+## Gate 11: Pull Request Review Gate
+
+Purpose:
+
+- Ensure the implementation has been reviewed as a pull request before merge.
 
 Pass when:
 
@@ -205,7 +246,7 @@ Blocking failures:
 - Required verification evidence is missing or contradicted by the diff.
 - A high-risk residual finding lacks human approval.
 
-## Gate 10: Release Readiness Gate
+## Gate 12: Release Readiness Gate
 
 Purpose:
 
@@ -226,25 +267,27 @@ Blocking failures:
 - Migration is irreversible and unapproved.
 - Monitoring gap is unacceptable for the risk.
 
-## Gate 11: Documentation Gate
+## Gate 13: Pull Request Merge Gate
 
 Purpose:
 
-- Keep the project navigable and auditable.
+- Ensure merge happens only after the pull request is ready.
 
 Pass when:
 
-- Project map is updated according to trigger rules.
-- ADR/RFC is updated when triggered.
-- RAG strategy is updated when retrieval, indexing, source priority, freshness, or knowledge-governance rules change.
-- QA, security, product, or release docs are updated when changed.
-- Update log entry is appended.
+- AI PR Owner has merged the PR or documented why merge is blocked.
+- PR review is merge-ready and blocker findings are resolved.
+- Automated checks passed or approved gaps are documented.
+- Manual QA and release readiness are complete when applicable.
+- Required human approvals are recorded.
+- Merge SHA and method are recorded in the final handoff.
 
 Blocking failures:
 
-- Changed architecture is not documented.
-- Required project-map update is skipped.
-- Accepted high risk is not recorded.
+- PR is unreviewed or has unresolved blockers.
+- Required checks, QA, release readiness, or approvals are missing.
+- Merge conflicts or branch protection prevent merge.
+- High-risk residual findings lack human approval.
 
 ## Definition Of Ready Checklist
 
@@ -261,12 +304,14 @@ Blocking failures:
 
 - Acceptance criteria satisfied.
 - Code or docs changed only within scope.
+- Pull request created or updated.
 - Pull request review completed and blocker findings resolved or explicitly accepted.
 - Automated checks run or gaps documented.
 - Manual QA run or explicitly scoped out.
 - Security/privacy/AI risk reviewed.
 - Release readiness complete when applicable.
 - Project map and docs updated.
+- Pull request merged or blocker documented.
 - Final handoff includes residual risks.
 
 ## PR Checklist
@@ -275,6 +320,7 @@ Blocking failures:
 - Requirements and acceptance criteria are linked or summarized.
 - Affected modules are listed.
 - Architecture impact is stated.
+- PR owner, PR URL, and merge status are included.
 - PR reviewer verdict and unresolved findings are included.
 - Tests and verification commands are included.
 - Manual QA result is included for UI/user-flow changes.

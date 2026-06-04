@@ -247,7 +247,7 @@ ai-sdlc-operating-model:
     - Business analysis documentation
     - Architecture and engineering playbooks
     - AI role playbooks
-    - AI PR reviewer role and pull request review gate
+    - AI PR owner/reviewer roles and pull request lifecycle gates
     - Responsibility matrix
     - Quality gates
     - Manual and automation QA strategy

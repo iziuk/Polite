@@ -3,6 +3,9 @@
 ## Summary
 
 - Branch:
+- PR owner:
+- PR URL:
+- Base branch:
 - Scope:
 - Work type:
 - Risk level:
@@ -49,6 +52,13 @@
 - Rollback:
 - Monitoring:
 - Human approval required/received:
+
+## Merge
+
+- Merge-ready:
+- Merge method:
+- Merge SHA:
+- Merge blocker if not merged:
 
 ## Docs
 

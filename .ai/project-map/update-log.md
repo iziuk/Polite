@@ -340,3 +340,41 @@ Notes:
 - Updated RACI, PR checklist, governance, and completeness audit coverage.
 - Added a project-knowledge retrieval eval case for the PR review role/gate.
 - routes.md checked; no route changes required.
+
+## 2026-06-04
+
+Changed files:
+
+- AGENTS.md
+- .ai/ai-sdlc/README.md
+- .ai/ai-sdlc/coverage-matrix.md
+- .ai/ai-sdlc/workflow.md
+- .ai/ai-sdlc/ai-development-policy.md
+- .ai/ai-sdlc/engineering.md
+- .ai/ai-sdlc/roles.md
+- .ai/ai-sdlc/responsibility-matrix.md
+- .ai/ai-sdlc/quality-gates.md
+- .ai/ai-sdlc/governance.md
+- .ai/ai-sdlc/completeness-audit.md
+- .ai/ai-sdlc/templates/pr-checklist.md
+- .ai/ai-sdlc/templates/team-completeness-audit.md
+- .ai/project-knowledge/eval-cases.json
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/data-flow.md
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> pull request lifecycle lookup and known decision
+- modules.yaml -> ai-sdlc-operating-model public API includes PR owner/reviewer lifecycle gates
+- data-flow.md -> AI SDLC delivery flow includes PR create, review, and merge
+- decisions.md -> pull request lifecycle decision
+
+Notes:
+
+- Added AI PR Owner as the explicit owner for pull request creation/update and merge.
+- Split pull request lifecycle into creation, review, and merge workflow stages/gates.
+- Updated RACI, governance, PR checklist, completeness audit, and retrieval evals for PR create/review/merge.
+- routes.md checked; no route changes required.

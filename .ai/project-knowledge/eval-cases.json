@@ -44,8 +44,8 @@
     "expectedPaths": [".ai/ai-sdlc/completeness-audit.md", ".ai/project-map/decisions.md"]
   },
   {
-    "id": "pr-review-role-gate",
-    "query": "Which AI SDLC role reviews pull request diffs before merge or final handoff?",
-    "expectedPaths": [".ai/ai-sdlc/roles.md", ".ai/ai-sdlc/quality-gates.md", ".ai/project-map/decisions.md"]
+    "id": "pr-lifecycle-role-gates",
+    "query": "Which AI SDLC roles create review and merge pull requests?",
+    "expectedPaths": [".ai/ai-sdlc/roles.md", ".ai/ai-sdlc/quality-gates.md", ".ai/ai-sdlc/governance.md", ".ai/project-map/decisions.md"]
   }
 ]

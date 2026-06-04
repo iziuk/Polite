@@ -10,7 +10,7 @@ DevOps, security, release, and governance work without leaving important respons
 Status: Substantially complete operational baseline.
 
 The AI SDLC has owners, inputs, outputs, gates, evidence artifacts, RACI ownership, Definition of Ready, Definition of
-Done, approval gates, PR review ownership, QA strategy, release discipline, security/privacy review, ADRs,
+Done, approval gates, PR lifecycle ownership, QA strategy, release discipline, security/privacy review, ADRs,
 RAG/project-knowledge retrieval, and project-map update rules.
 
 Remaining maturity work is not a missing team role. It is operational hardening that should happen as Polite moves from
@@ -43,12 +43,14 @@ There should be no "nobody owns this" work.
 | Architecture and technical design            | AI Architect                                    | Requirements, project map, ADRs, code/config context                       | Architecture overview, ADR/RFC, data model, integration contract, NFRs      | Architecture Gate                                               | `architecture.md`, `adr.md`, `adr/`, `templates/architecture-overview.md`, `templates/adr.md`                                |
 | Frontend delivery                            | AI Frontend Developer                           | Acceptance criteria, design, widgets/routes/entities/shared UI             | UI implementation, i18n copy, responsive states, component verification     | Implementation Gate / Automated Verification Gate               | `engineering.md`, `AGENTS.md`, source files, QA docs                                                                         |
 | Backend/API/data delivery                    | AI Backend Developer                            | BRD, API/data contracts, security requirements                             | API/service implementation, DTOs, validation, migrations when applicable    | Architecture Gate / Security Gate / Automated Verification Gate | `engineering.md`, `templates/api-specification.md`, `templates/data-model.md`                                                |
+| Pull request creation/update                 | AI PR Owner                                     | Pushed branch, PR body inputs, verification, docs updates                  | Created or updated PR with checklist and URL                                | Pull Request Creation Gate                                      | `roles.md`, `responsibility-matrix.md`, `quality-gates.md`, `templates/pr-checklist.md`                                      |
 | Pull request and code review                 | AI PR Reviewer                                  | Pull request diff, scope, requirements, project map, verification evidence | PR review summary, severity-ranked findings, merge-ready or blocked verdict | Pull Request Review Gate                                        | `roles.md`, `responsibility-matrix.md`, `quality-gates.md`, `templates/pr-checklist.md`                                      |
 | Manual QA                                    | AI QA Manual                                    | User stories, AC, changed behavior, risk areas                             | Manual test plan, test cases, exploratory notes, regression/smoke results   | Definition of Done / PR Review Gate                             | `qa-manual.md`, `templates/test-plan.md`, `templates/manual-test-case.md`, `templates/regression-checklist.md`               |
 | Automation QA                                | AI QA Automation                                | AC, contracts, manual scenarios, existing tooling                          | Unit/integration/API/E2E plan or tests, CI policy, coverage gaps            | Automated Verification Gate / CI pass when CI exists            | `qa-automation.md`, `templates/automation-test-plan.md`, `templates/e2e-scenario.md`, `templates/ci-test-policy.md`          |
 | Security and privacy                         | AI Security / Privacy Reviewer                  | Requirements, architecture, data model, integration contracts, diff        | Security review, threat model, privacy/PII policy, risk register            | Security And Privacy Gate / AI Risk Gate                        | `security-risk.md`, `templates/threat-model.md`, `templates/privacy-pii-policy.md`, `templates/security-review-checklist.md` |
 | DevOps and release readiness                 | AI DevOps / SRE                                 | Release scope, verification results, environment/config impact             | Deployment guide, release checklist, rollback plan, monitoring plan         | Release Readiness Gate                                          | `devops-release.md`, `templates/deployment-guide.md`, `templates/release-checklist.md`, `templates/observability-guide.md`   |
 | Product release approval                     | Human Approver / AI Product Owner / AI DevOps   | Release evidence, QA, security, rollback, monitoring                       | Approval or blocker list                                                    | Human approval gate for production/high risk                    | `README.md`, `quality-gates.md`, `governance.md`                                                                             |
+| Pull request merge                           | AI PR Owner                                     | Merge-ready PR, review verdict, checks, QA, approvals                      | Merged PR or documented merge blocker                                       | Pull Request Merge Gate                                         | `workflow.md`, `quality-gates.md`, `governance.md`, `templates/pr-checklist.md`                                              |
 | Incident response and learning               | AI DevOps / SRE with Security/Product as needed | Incident signal, severity, impact, timeline                                | Incident runbook execution, postmortem, follow-ups                          | Postmortem / Governance Done Criteria                           | `devops-release.md`, `templates/incident-runbook.md`, `templates/postmortem.md`                                              |
 | Knowledge retrieval and documentation memory | AI Architect / owning role                      | Project map, ADRs, AI SDLC docs, source files, local retrieval index       | Retrieved context, updated docs, project-map update log                     | Documentation Gate / AI Risk Gate                               | `rag-strategy.md`, `.ai/tools/project-knowledge`, `.ai/project-map/update-log.md`                                            |
 
@@ -59,55 +61,58 @@ Result: Every lifecycle stage has an owner, input, output, gate, and evidence so
 Evidence: `responsibility-matrix.md`.
 
 The current RACI covers product vision, prioritization, BRD, user stories, acceptance criteria, architecture design,
-ADRs, RAG strategy, RAG security review, frontend implementation, backend implementation, pull request review, test
-planning, automation tests, manual QA, security review, deployment planning, release approval, incident response, and
-postmortems.
+ADRs, RAG strategy, RAG security review, frontend implementation, backend implementation, pull request creation, pull
+request review, pull request merge, test planning, automation tests, manual QA, security review, deployment planning,
+release approval, incident response, and postmortems.
 
 Result: No critical activity is ownerless. High-risk architecture, production, and security decisions route to Human
 Approver.
 
 ## Artifact Coverage Check
 
-| Artifact               | Status                                                         | Evidence                                                                          |
-| ---------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Product Vision         | Covered                                                        | `product-business.md`, `templates/product-vision.md`                              |
-| Roadmap                | Covered                                                        | `product-business.md`, `templates/roadmap.md`                                     |
-| User Stories           | Covered                                                        | `business-analysis.md`, `templates/user-story.md`                                 |
-| Acceptance Criteria    | Covered                                                        | `business-analysis.md`, `quality-gates.md`                                        |
-| Domain Glossary        | Covered                                                        | `templates/domain-glossary.md`                                                    |
-| Architecture Overview  | Covered                                                        | `architecture.md`, `templates/architecture-overview.md`                           |
-| ADR                    | Covered                                                        | `adr.md`, `adr/`, `templates/adr.md`                                              |
-| API Docs               | Covered by template; not yet product-used                      | `templates/api-specification.md`                                                  |
-| Data Model             | Covered by template; not yet product-used                      | `templates/data-model.md`                                                         |
-| Test Strategy          | Covered                                                        | `qa-manual.md`, `qa-automation.md`, `templates/test-plan.md`                      |
-| Manual QA Checklist    | Covered                                                        | `qa-manual.md`, `templates/regression-checklist.md`, `templates/uat-checklist.md` |
-| Automation QA Strategy | Covered                                                        | `qa-automation.md`, `templates/automation-test-plan.md`                           |
-| PR Review Role/Gate    | Covered                                                        | `roles.md`, `quality-gates.md`, `responsibility-matrix.md`                        |
-| PR Checklist           | Covered                                                        | `quality-gates.md`, `templates/pr-checklist.md`                                   |
-| Release Checklist      | Covered                                                        | `devops-release.md`, `templates/release-checklist.md`                             |
-| Deployment Guide       | Covered                                                        | `devops-release.md`, `templates/deployment-guide.md`                              |
-| Monitoring Guide       | Covered by template; production monitoring not yet implemented | `devops-release.md`, `templates/observability-guide.md`                           |
-| Security Checklist     | Covered                                                        | `security-risk.md`, `templates/security-review-checklist.md`                      |
-| Incident Runbook       | Covered                                                        | `devops-release.md`, `templates/incident-runbook.md`                              |
+| Artifact                | Status                                                         | Evidence                                                                          |
+| ----------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Product Vision          | Covered                                                        | `product-business.md`, `templates/product-vision.md`                              |
+| Roadmap                 | Covered                                                        | `product-business.md`, `templates/roadmap.md`                                     |
+| User Stories            | Covered                                                        | `business-analysis.md`, `templates/user-story.md`                                 |
+| Acceptance Criteria     | Covered                                                        | `business-analysis.md`, `quality-gates.md`                                        |
+| Domain Glossary         | Covered                                                        | `templates/domain-glossary.md`                                                    |
+| Architecture Overview   | Covered                                                        | `architecture.md`, `templates/architecture-overview.md`                           |
+| ADR                     | Covered                                                        | `adr.md`, `adr/`, `templates/adr.md`                                              |
+| API Docs                | Covered by template; not yet product-used                      | `templates/api-specification.md`                                                  |
+| Data Model              | Covered by template; not yet product-used                      | `templates/data-model.md`                                                         |
+| Test Strategy           | Covered                                                        | `qa-manual.md`, `qa-automation.md`, `templates/test-plan.md`                      |
+| Manual QA Checklist     | Covered                                                        | `qa-manual.md`, `templates/regression-checklist.md`, `templates/uat-checklist.md` |
+| Automation QA Strategy  | Covered                                                        | `qa-automation.md`, `templates/automation-test-plan.md`                           |
+| PR Lifecycle Role/Gates | Covered                                                        | `roles.md`, `quality-gates.md`, `responsibility-matrix.md`, `governance.md`       |
+| PR Checklist            | Covered                                                        | `quality-gates.md`, `templates/pr-checklist.md`                                   |
+| Release Checklist       | Covered                                                        | `devops-release.md`, `templates/release-checklist.md`                             |
+| Deployment Guide        | Covered                                                        | `devops-release.md`, `templates/deployment-guide.md`                              |
+| Monitoring Guide        | Covered by template; production monitoring not yet implemented | `devops-release.md`, `templates/observability-guide.md`                           |
+| Security Checklist      | Covered                                                        | `security-risk.md`, `templates/security-review-checklist.md`                      |
+| Incident Runbook        | Covered                                                        | `devops-release.md`, `templates/incident-runbook.md`                              |
 
 Result: Artifact coverage is complete for an MVP operating baseline. Backend, API, database, CI/CD, monitoring, and
 production artifacts are template-ready and must be instantiated when those capabilities are introduced.
 
 ## Gate Coverage Check
 
-| Expected gate             | Status  | Evidence                                                   |
-| ------------------------- | ------- | ---------------------------------------------------------- |
-| Business value gate       | Covered | Gate 2 in `quality-gates.md`                               |
-| Requirements clarity gate | Covered | Gate 3 and Definition of Ready in `quality-gates.md`       |
-| Architecture/design gate  | Covered | Gate 4 in `quality-gates.md`                               |
-| Security/privacy gate     | Covered | Gate 5 and Gate 6 in `quality-gates.md`                    |
-| Testability gate          | Covered | Definition of Ready, Gate 8, `qa-automation.md`            |
-| Implementation plan gate  | Covered | Stage 6 in `workflow.md`                                   |
-| Coding                    | Covered | Stage 7 in `workflow.md`, `engineering.md`, `AGENTS.md`    |
-| Automated tests           | Covered | Stage 8 in `workflow.md`, `qa-automation.md`               |
-| Pull request review       | Covered | Stage 9 and Gate 9 in `workflow.md` and `quality-gates.md` |
-| Manual QA                 | Covered | Stage 10 in `workflow.md`, `qa-manual.md`                  |
-| Release readiness         | Covered | Gate 10, `devops-release.md`                               |
+| Expected gate             | Status  | Evidence                                                      |
+| ------------------------- | ------- | ------------------------------------------------------------- |
+| Business value gate       | Covered | Gate 2 in `quality-gates.md`                                  |
+| Requirements clarity gate | Covered | Gate 3 and Definition of Ready in `quality-gates.md`          |
+| Architecture/design gate  | Covered | Gate 4 in `quality-gates.md`                                  |
+| Security/privacy gate     | Covered | Gate 5 and Gate 6 in `quality-gates.md`                       |
+| Testability gate          | Covered | Definition of Ready, Gate 8, `qa-automation.md`               |
+| Implementation plan gate  | Covered | Stage 6 in `workflow.md`                                      |
+| Coding                    | Covered | Stage 7 in `workflow.md`, `engineering.md`, `AGENTS.md`       |
+| Automated tests           | Covered | Stage 8 in `workflow.md`, `qa-automation.md`                  |
+| Documentation             | Covered | Stage 9 and Gate 9 in `workflow.md` and `quality-gates.md`    |
+| Pull request creation     | Covered | Stage 10 and Gate 10 in `workflow.md` and `quality-gates.md`  |
+| Pull request review       | Covered | Stage 11 and Gate 11 in `workflow.md` and `quality-gates.md`  |
+| Manual QA                 | Covered | Stage 12 in `workflow.md`, `qa-manual.md`                     |
+| Release readiness         | Covered | Stage 13 and Gate 12 in `workflow.md` and `devops-release.md` |
+| Pull request merge        | Covered | Stage 14 and Gate 13 in `workflow.md` and `quality-gates.md`  |
 
 Result: Gate coverage is complete.
 
@@ -117,13 +122,15 @@ Result: Gate coverage is complete.
 | -------------------------------------------------- | -------------------------------- | ---------------------------------------------------------- |
 | Requirements satisfied                             | Covered                          | Definition of Done in `workflow.md` and `quality-gates.md` |
 | Acceptance criteria pass                           | Covered                          | Definition of Done in `quality-gates.md`                   |
-| Pull request review completed                      | Covered                          | `roles.md`, Gate 9, `templates/pr-checklist.md`            |
+| Pull request created or updated                    | Covered                          | `roles.md`, Gate 10, `templates/pr-checklist.md`           |
+| Pull request review completed                      | Covered                          | `roles.md`, Gate 11, `templates/pr-checklist.md`           |
 | Needed tests exist or gaps documented              | Covered                          | `qa-automation.md`, Gate 8                                 |
-| Manual QA checklist passed or scoped out           | Covered                          | `qa-manual.md`, Stage 10, Definition of Done               |
+| Manual QA checklist passed or scoped out           | Covered                          | `qa-manual.md`, Stage 12, Definition of Done               |
 | No critical security risks                         | Covered                          | `security-risk.md`, Gate 5                                 |
 | Logging/monitoring added when needed               | Covered by release/DevOps policy | `devops-release.md`, observability template                |
 | Documentation updated                              | Covered                          | Documentation Gate, project map workflow                   |
 | Rollback/deploy understood                         | Covered                          | `devops-release.md`, release templates                     |
+| Pull request merged or blocker documented          | Covered                          | `roles.md`, Gate 13, `governance.md`                       |
 | Product owner/human approver accepts when required | Covered                          | Human approval gates in `README.md`, `quality-gates.md`    |
 
 Result: Definition of Done is complete for the documented operating model.
@@ -160,7 +167,9 @@ so this remains a recommended periodic regression exercise before production-gra
 | Red flag                                       | Current status                                                       |
 | ---------------------------------------------- | -------------------------------------------------------------------- |
 | AI writes code without clarifying requirements | Controlled by Intake, Requirements Gate, Definition of Ready         |
+| AI pushes work without creating a PR           | Controlled by AI PR Owner, Pull Request Creation Gate, PR Checklist  |
 | AI opens or updates PRs without reviewing them | Controlled by AI PR Reviewer, Pull Request Review Gate, PR Checklist |
+| AI leaves merge-ready PRs unmerged             | Controlled by AI PR Owner, Pull Request Merge Gate, governance       |
 | No acceptance criteria                         | Controlled by BA role, Requirements Gate, templates                  |
 | No ADR for large decisions                     | Controlled by Architecture Gate and ADR policy                       |
 | QA means only "tests passed"                   | Controlled by manual QA and automation QA docs                       |

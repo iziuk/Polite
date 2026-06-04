@@ -10,28 +10,30 @@ Legend:
 - C: Consulted before completion.
 - I: Informed in handoff.
 
-| Activity                | Product Owner | Business Analyst | Architect | FE Dev | BE Dev | PR Reviewer | QA Manual | QA Automation | DevOps/SRE | Security | Human                    |
-| ----------------------- | ------------- | ---------------- | --------- | ------ | ------ | ----------- | --------- | ------------- | ---------- | -------- | ------------------------ |
-| Product vision          | A/R           | C                | I         | I      | I      | I           | I         | I             | I          | C        | A                        |
-| Prioritization          | A/R           | C                | C         | I      | I      | I           | C         | C             | C          | C        | A                        |
-| BRD                     | C             | A/R              | C         | I      | I      | I           | C         | C             | I          | C        | A when business-critical |
-| User stories            | C             | A/R              | C         | I      | I      | I           | C         | C             | I          | C        | I                        |
-| Acceptance criteria     | C             | A/R              | C         | C      | C      | C           | C         | C             | I          | C        | I                        |
-| Architecture design     | C             | C                | A/R       | C      | C      | C           | I         | C             | C          | C        | A when major             |
-| ADR                     | I             | C                | A/R       | C      | C      | C           | I         | I             | C          | C        | A when accepted          |
-| RAG strategy            | C             | C                | A/R       | C      | C      | C           | C         | C             | C          | C        | A when high-risk         |
-| RAG security review     | I             | I                | C         | C      | C      | C           | I         | C             | C          | A/R      | A when sensitive         |
-| Frontend implementation | I             | C                | C         | A/R    | I      | C           | C         | C             | I          | C        | I                        |
-| Backend implementation  | I             | C                | C         | I      | A/R    | C           | C         | C             | C          | C        | I                        |
-| Pull request review     | I             | C                | C         | C      | C      | A/R         | C         | C             | C          | C        | A for high-risk blockers |
-| Test plan               | C             | C                | C         | C      | C      | C           | A/R       | R             | I          | C        | C for UAT                |
-| Automation tests        | I             | C                | C         | C      | C      | C           | C         | A/R           | C          | C        | I                        |
-| Manual QA               | C             | C                | I         | C      | C      | C           | A/R       | C             | I          | C        | C for UAT                |
-| Security review         | C             | C                | C         | C      | C      | C           | C         | C             | C          | A/R      | A for high risk          |
-| Deployment plan         | I             | I                | C         | I      | C      | C           | C         | C             | A/R        | C        | A for production         |
-| Release approval        | A             | C                | C         | I      | I      | C           | C         | C             | A/R        | C        | A                        |
-| Incident response       | I             | I                | C         | C      | C      | C           | C         | C             | A/R        | C        | A for major              |
-| Postmortem              | C             | C                | C         | C      | C      | C           | C         | C             | A/R        | C        | I                        |
+| Activity                | Product Owner | Business Analyst | Architect | FE Dev | BE Dev | PR Owner | PR Reviewer | QA Manual | QA Automation | DevOps/SRE | Security | Human                    |
+| ----------------------- | ------------- | ---------------- | --------- | ------ | ------ | -------- | ----------- | --------- | ------------- | ---------- | -------- | ------------------------ |
+| Product vision          | A/R           | C                | I         | I      | I      | I        | I           | I         | I             | I          | C        | A                        |
+| Prioritization          | A/R           | C                | C         | I      | I      | I        | I           | C         | C             | C          | C        | A                        |
+| BRD                     | C             | A/R              | C         | I      | I      | I        | I           | C         | C             | I          | C        | A when business-critical |
+| User stories            | C             | A/R              | C         | I      | I      | I        | I           | C         | C             | I          | C        | I                        |
+| Acceptance criteria     | C             | A/R              | C         | C      | C      | C        | C           | C         | C             | I          | C        | I                        |
+| Architecture design     | C             | C                | A/R       | C      | C      | C        | C           | I         | C             | C          | C        | A when major             |
+| ADR                     | I             | C                | A/R       | C      | C      | C        | C           | I         | I             | C          | C        | A when accepted          |
+| RAG strategy            | C             | C                | A/R       | C      | C      | C        | C           | C         | C             | C          | C        | A when high-risk         |
+| RAG security review     | I             | I                | C         | C      | C      | C        | C           | I         | C             | C          | A/R      | A when sensitive         |
+| Frontend implementation | I             | C                | C         | A/R    | I      | C        | C           | C         | C             | I          | C        | I                        |
+| Backend implementation  | I             | C                | C         | I      | A/R    | C        | C           | C         | C             | C          | C        | I                        |
+| Pull request creation   | I             | I                | C         | C      | C      | A/R      | C           | C         | C             | C          | C        | I                        |
+| Pull request review     | I             | C                | C         | C      | C      | C        | A/R         | C         | C             | C          | C        | A for high-risk blockers |
+| Pull request merge      | I             | I                | C         | I      | I      | A/R      | C           | C         | C             | C          | C        | A when approval required |
+| Test plan               | C             | C                | C         | C      | C      | C        | C           | A/R       | R             | I          | C        | C for UAT                |
+| Automation tests        | I             | C                | C         | C      | C      | C        | C           | C         | A/R           | C          | C        | I                        |
+| Manual QA               | C             | C                | I         | C      | C      | C        | C           | A/R       | C             | I          | C        | C for UAT                |
+| Security review         | C             | C                | C         | C      | C      | C        | C           | C         | C             | C          | A/R      | A for high risk          |
+| Deployment plan         | I             | I                | C         | I      | C      | C        | C           | C         | C             | A/R        | C        | A for production         |
+| Release approval        | A             | C                | C         | I      | I      | C        | C           | C         | C             | A/R        | C        | A                        |
+| Incident response       | I             | I                | C         | C      | C      | C        | C           | C         | C             | A/R        | C        | A for major              |
+| Postmortem              | C             | C                | C         | C      | C      | C        | C           | C         | C             | A/R        | C        | I                        |
 
 ## Role Escalation Rules
 
@@ -39,6 +41,7 @@ Escalate to Human Approver when:
 
 - Accountable role finds unresolved business ambiguity.
 - Architecture decision is expensive to reverse.
+- PR owner cannot create or merge the pull request.
 - PR reviewer finds an unresolved blocker or high-risk merge concern.
 - Security reviewer rates risk high.
 - DevOps/SRE needs production deploy or rollback approval.
@@ -68,9 +71,17 @@ Developers / QA Automation to PR Reviewer:
 
 - Reviewable diff, scope summary, automated verification evidence, known risks, and out-of-scope changes.
 
+Developers / QA Automation to PR Owner:
+
+- Pushed branch, PR body inputs, verification evidence, docs updates, and known merge prerequisites.
+
 PR Reviewer to QA Manual:
 
 - Changed behavior, files, reviewer verdict, resolved findings, residual risks, and areas that need targeted QA attention.
+
+PR Reviewer / QA / DevOps to PR Owner:
+
+- Merge-ready verdict, blockers, approval status, release-readiness status, and merge method constraints.
 
 QA to DevOps:
 

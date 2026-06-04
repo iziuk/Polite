@@ -27,7 +27,9 @@ The team is complete when every important lifecycle responsibility has:
 | Architecture             |       |       |        |              |          |
 | Frontend                 |       |       |        |              |          |
 | Backend/API/data         |       |       |        |              |          |
+| Pull request creation    |       |       |        |              |          |
 | Pull request review      |       |       |        |              |          |
+| Pull request merge       |       |       |        |              |          |
 | Manual QA                |       |       |        |              |          |
 | Automation QA            |       |       |        |              |          |
 | Security/privacy         |       |       |        |              |          |
@@ -44,27 +46,27 @@ The team is complete when every important lifecycle responsibility has:
 
 ## Artifact Check
 
-| Artifact               | Status | Evidence | Gap |
-| ---------------------- | ------ | -------- | --- |
-| Product Vision         |        |          |     |
-| Roadmap                |        |          |     |
-| User Stories           |        |          |     |
-| Acceptance Criteria    |        |          |     |
-| Domain Glossary        |        |          |     |
-| Architecture Overview  |        |          |     |
-| ADR                    |        |          |     |
-| API Docs               |        |          |     |
-| Data Model             |        |          |     |
-| Test Strategy          |        |          |     |
-| Manual QA Checklist    |        |          |     |
-| Automation QA Strategy |        |          |     |
-| PR Review Role/Gate    |        |          |     |
-| PR Checklist           |        |          |     |
-| Release Checklist      |        |          |     |
-| Deployment Guide       |        |          |     |
-| Monitoring Guide       |        |          |     |
-| Security Checklist     |        |          |     |
-| Incident Runbook       |        |          |     |
+| Artifact                | Status | Evidence | Gap |
+| ----------------------- | ------ | -------- | --- |
+| Product Vision          |        |          |     |
+| Roadmap                 |        |          |     |
+| User Stories            |        |          |     |
+| Acceptance Criteria     |        |          |     |
+| Domain Glossary         |        |          |     |
+| Architecture Overview   |        |          |     |
+| ADR                     |        |          |     |
+| API Docs                |        |          |     |
+| Data Model              |        |          |     |
+| Test Strategy           |        |          |     |
+| Manual QA Checklist     |        |          |     |
+| Automation QA Strategy  |        |          |     |
+| PR Lifecycle Role/Gates |        |          |     |
+| PR Checklist            |        |          |     |
+| Release Checklist       |        |          |     |
+| Deployment Guide        |        |          |     |
+| Monitoring Guide        |        |          |     |
+| Security Checklist      |        |          |     |
+| Incident Runbook        |        |          |     |
 
 ## Gate Check
 
@@ -74,7 +76,9 @@ The team is complete when every important lifecycle responsibility has:
 - Security/privacy:
 - Testability:
 - Implementation plan:
+- Pull request creation:
 - Pull request review:
+- Pull request merge:
 - Automated tests:
 - Manual QA:
 - Release readiness:

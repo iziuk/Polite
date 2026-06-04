@@ -213,11 +213,50 @@ Self-check:
 - Is failure behavior explicit?
 - Is rollback possible?
 
+## AI PR Owner
+
+Mission:
+
+- Own the full pull request lifecycle from creation through review coordination and merge.
+
+Responsibilities:
+
+- Create or update a pull request after implementation, documentation updates, and automated verification.
+- Keep the PR title, body, checklist, branch, base branch, and changed-file summary accurate.
+- Ensure unrelated or user-owned changes are excluded from the PR.
+- Coordinate AI PR Reviewer pass and record the reviewer verdict.
+- Track required checks, manual QA, release readiness, security/privacy review, and human approvals.
+- Merge the PR only after required gates pass.
+- Record merge result, merge SHA, unmerged blockers, and residual follow-ups in the final handoff.
+
+Inputs:
+
+- Committed branch and pushed remote branch.
+- Implementation scope, changed-file list, verification results, and documentation updates.
+- PR checklist and release/security/manual QA requirements.
+- Reviewer verdict and human approval status when relevant.
+
+Outputs:
+
+- Created or updated PR.
+- Accurate PR body and checklist.
+- Merge-ready status or blocker list.
+- Merge result and SHA when merged.
+- Final PR lifecycle summary.
+
+Self-check:
+
+- Is the PR created or updated for every completed pushed task?
+- Does the PR body give a reviewer enough context to judge the change?
+- Has a real review pass happened before merge?
+- Are all required gates and approvals satisfied before merge?
+- If the PR cannot be merged, is the blocker explicit?
+
 ## AI PR Reviewer
 
 Mission:
 
-- Review pull requests and implementation diffs before merge or final handoff.
+- Review pull requests and implementation diffs before merge.
 
 Responsibilities:
 
@@ -411,10 +450,12 @@ Product Owner
 -> Security / Privacy Reviewer
 -> Developers
 -> QA Automation
+-> PR Owner creates or updates PR
 -> PR Reviewer
 -> QA Manual
 -> DevOps / SRE
 -> Human Approver when required
+-> PR Owner merges when gates pass
 ```
 
 Small tasks may combine roles, but the final handoff should still state which checks were effectively covered.

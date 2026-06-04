@@ -48,7 +48,7 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 | RAG / project knowledge    | `.ai/ai-sdlc/rag-strategy.md`, `.ai/project-knowledge/README.md`, `.ai/tools/project-knowledge/`                           |
 | RAG feature and evals      | `.ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md`, `.ai/ai-sdlc/evaluations/`                                 |
 | AI team roles and QA       | `.ai/ai-sdlc/roles.md`, `.ai/ai-sdlc/responsibility-matrix.md`, `.ai/ai-sdlc/quality-gates.md`, `.ai/ai-sdlc/qa-manual.md` |
-| Pull request review        | `.ai/ai-sdlc/templates/pr-checklist.md`, `.ai/ai-sdlc/completeness-audit.md`                                               |
+| Pull request lifecycle     | `.ai/ai-sdlc/templates/pr-checklist.md`, `.ai/ai-sdlc/completeness-audit.md`                                               |
 | Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/devops-release.md`, `.ai/ai-sdlc/security-risk.md`                            |
 
 ## Main Flows
@@ -60,8 +60,8 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 5. UI copy comes from `@shared/core/i18n`; phrase pack content remains backend/content data in `packages/data`.
 6. Non-trivial AI-assisted work follows `AGENTS.md` into `.ai/ai-sdlc`, checks `coverage-matrix.md`, retrieves context
    through the RAG/source-priority policy, checks accepted ADRs, applies the relevant product, BA, architecture,
-   engineering, PR review, QA, DevOps, security, governance, and template artifacts, then passes quality gates and
-   human approval gates before implementation or release.
+   engineering, PR lifecycle, QA, DevOps, security, governance, and template artifacts, then passes quality gates and
+   human approval gates before implementation, pull request merge, or release.
 
 ## Known Decisions
 
@@ -73,7 +73,8 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
   role playbooks, lifecycle gates, QA strategy, DevOps/release practice, security/risk review, governance, and templates.
 - AI fullstack team completeness is audited by checking every lifecycle stage for owner, input, output, quality gate, and
   evidence; current verdict is a substantially complete operational baseline.
-- Pull requests and implementation diffs require an explicit AI PR Reviewer pass before merge or final handoff.
+- Completed pushed work requires an explicit pull request lifecycle: create or update PR, run AI PR Reviewer review, and
+  merge when gates pass or document the merge blocker.
 - Accepted ADRs in `.ai/ai-sdlc/adr/` are the authoritative architecture decision log; `.ai/project-map/decisions.md`
   summarizes project-map relevant decisions.
 - Current RAG posture includes local project-knowledge retrieval through `.ai/tools/project-knowledge`; external

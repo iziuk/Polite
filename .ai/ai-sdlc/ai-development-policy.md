@@ -66,9 +66,11 @@ For non-trivial work, AI must:
 8. Identify artifacts to create or update.
 9. Implement only after scope and risk are clear.
 10. Verify according to risk.
-11. Review the implementation diff or pull request.
-12. Update project map and docs.
-13. Report reviewer verdict, verification, and residual risk.
+11. Update project map and docs.
+12. Create or update the pull request.
+13. Review the implementation diff or pull request.
+14. Merge the pull request when gates pass.
+15. Report PR URL, reviewer verdict, merge status, verification, and residual risk.
 
 ## Prompt Discipline
 
@@ -158,7 +160,9 @@ AI-assisted work is done when:
 - The autonomy level was appropriate.
 - Human approval gates were respected.
 - Required artifacts were created or updated.
+- Pull request was created or updated.
 - Pull request or implementation diff review was completed.
+- Pull request was merged or a merge blocker was documented.
 - Implementation is verified.
 - Residual risks are stated.
 - The final response is traceable to files and checks.

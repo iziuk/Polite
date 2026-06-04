@@ -34,7 +34,7 @@ Before implementation, right-size the workflow:
 - New features, architecture changes, integrations, sensitive data, auth, infrastructure, or release work must pass the
   relevant stages in `.ai/ai-sdlc/workflow.md` and `.ai/ai-sdlc/quality-gates.md`.
 - Simulate the needed role reviews from `.ai/ai-sdlc/roles.md`: Product Owner, Business Analyst, Architect, Developer,
-  PR Reviewer, QA Manual, QA Automation, DevOps/SRE, and Security/Privacy Reviewer.
+  PR Owner, PR Reviewer, QA Manual, QA Automation, DevOps/SRE, and Security/Privacy Reviewer.
 - For architecture decisions, use `.ai/ai-sdlc/adr.md` and accepted records in `.ai/ai-sdlc/adr/`; create or update an
   ADR when the ADR policy triggers, and treat accepted ADRs as constraints.
 - For AI context retrieval, project knowledge management, or future RAG work, use `.ai/ai-sdlc/rag-strategy.md`. Current
