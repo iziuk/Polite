@@ -498,3 +498,35 @@ Notes:
   `main`.
 - Added a mobile translation provider, locale model, Ukrainian translation file, corrected English copy, and language
   controls in the RN toolbar.
+
+## 2026-06-04
+
+Changed files:
+
+- eslint.config.mjs
+- package.json
+- package-lock.json
+- apps/web/package.json
+- apps/mobile/package.json
+- packages/shared/tsconfig.json
+- .gitignore
+- apps/web/.prettierrc
+- apps/web/eslint.config.mjs
+- `apps/web/src/**/*`
+- `apps/mobile/src/**/*`
+- packages/shared/src/lib/clipboard.ts
+- packages/data/\*.json
+- packages/shared/tokens.json
+
+Updated map files:
+
+- INDEX.md -> strict monorepo JS/TS tooling and future Python API posture
+- modules.yaml -> web-config, mobile-config, and shared-package tooling entries
+- decisions.md -> strict monorepo tooling and future FastAPI backend direction
+- update-log.md -> this entry
+
+Notes:
+
+- Root ESLint now enforces strict FSD, import, naming, promise-safety, and TypeScript rules across web, mobile, and shared code.
+- Added explicit typecheck and format check scripts; Vitest and backend skeleton remain deferred.
+- routes.md and data-flow.md checked; no route or runtime data-flow changes required.

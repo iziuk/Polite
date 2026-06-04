@@ -46,6 +46,19 @@ lint-staged 17, Tailwind CSS 4, and TypeScript 6 can be used without downgrading
 until the Next.js React lint plugin stack supports its rule context API. Transitive audit fixes must not force major
 downgrades of Next.js or Expo.
 
+## Strict Monorepo JS/TS Tooling
+
+JS/TS linting is enforced from the repo root with `eslint.config.mjs` rather than app-local lint commands. The strict
+baseline covers FSD layer boundaries, public API import depth, import ordering, kebab-case filenames, unused imports,
+promise safety, TypeScript safety, and naming rules across `apps/web`, `apps/mobile`, and `packages/shared`. Prettier
+stays separate from ESLint and is checked with `npm run format:check`.
+
+## Future Python API Backend
+
+Polite stays a mixed-language monorepo. Future backend work is expected to add `apps/api` as a Python FastAPI/Pydantic
+service, with OpenAPI as the contract boundary for web and mobile clients. The current JS/TS tooling must not assume a
+Node.js backend app.
+
 ## React 19 Component Typing
 
 Reusable components are const arrow functions checked with `satisfies React.FC`. Their concrete return type stays `React.ReactElement` to remain compatible with Next.js 15 generated route checks.

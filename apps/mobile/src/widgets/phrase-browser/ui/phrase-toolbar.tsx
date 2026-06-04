@@ -1,7 +1,7 @@
+import type { IPack } from "@entities/phrase";
+
 import { type FC } from "react";
 import { Text, View } from "react-native";
-
-import type { IPack } from "@entities/phrase";
 
 import { type TLocale, type TTranslationKey, useTranslation } from "@shared/core/i18n";
 import { Button, TextInput } from "@shared/ui";

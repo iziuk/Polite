@@ -1,10 +1,11 @@
 "use client";
 
+import type { TTranslationKey } from "./translation-map";
+
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback } from "react";
 
 import { DEFAULT_LOCALE, LOCALE_COOKIE_NAME, type TLocale, isSupportedLocale } from "./locale";
-import type { TTranslationKey } from "./translation-map";
 
 interface IUseTranslationResult {
   locale: TLocale;

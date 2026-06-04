@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 
@@ -23,7 +24,7 @@ interface IRootLayoutProps {
   children: React.ReactNode;
 }
 
-export default async function RootLayout({ children }: IRootLayoutProps) {
+export default async function RootLayout({ children }: IRootLayoutProps): Promise<React.ReactElement> {
   const locale = await getLocale();
 
   return (

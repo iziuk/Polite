@@ -60,4 +60,3 @@ polite/
 ## 📜 License
 
 MIT — feel free to use, modify, and share with attribution.
-

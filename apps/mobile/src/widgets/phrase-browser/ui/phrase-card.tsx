@@ -1,7 +1,7 @@
+import type { IPhrase } from "@entities/phrase";
+
 import { type FC, useState } from "react";
 import { Text, View } from "react-native";
-
-import type { IPhrase } from "@entities/phrase";
 
 import { useTranslation } from "@shared/core/i18n";
 import { copyText, speak } from "@shared/lib/native";

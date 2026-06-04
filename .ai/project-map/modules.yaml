@@ -274,6 +274,7 @@ mobile-shared-native-lib:
 shared-package:
   paths:
     - packages/shared/src
+    - packages/shared/tsconfig.json
     - packages/shared/tokens.json
   fsd_layer: shared
   type: shared
@@ -283,12 +284,14 @@ shared-package:
     - packages/shared/src/types/index.ts
     - packages/shared/src/types/phrase.ts
     - packages/shared/src/lib/index.ts
+    - packages/shared/tsconfig.json
     - packages/shared/tokens.json
   public_api:
     - copyText
     - speak
     - IPack
     - IPhrase
+    - npm run typecheck:shared
   related_routes:
     - /
   last_verified: 2026-06-04
@@ -318,14 +321,16 @@ web-config:
   paths:
     - .nvmrc
     - .gitignore
+    - .prettierrc
+    - eslint.config.mjs
     - apps/web/package.json
     - apps/web/tsconfig.json
     - apps/web/next.config.mjs
     - apps/web/tailwind.config.js
     - apps/web/postcss.config.mjs
-    - apps/web/eslint.config.mjs
     - package-lock.json
     - package.json
+    - packages/shared/tsconfig.json
     - turbo.json
   fsd_layer: app
   type: app
@@ -333,19 +338,24 @@ web-config:
   key_files:
     - .nvmrc
     - .gitignore
+    - .prettierrc
+    - eslint.config.mjs
     - package.json
     - turbo.json
     - package-lock.json
     - apps/web/package.json
     - apps/web/tsconfig.json
     - apps/web/next.config.mjs
-    - apps/web/eslint.config.mjs
+    - packages/shared/tsconfig.json
     - apps/web/tailwind.config.js
   public_api:
     - npm run dev:web
     - npm run dev:mobile
     - npm run build
     - npm run lint
+    - npm run typecheck
+    - npm run format
+    - npm run format:check
     - npm run knowledge:index
     - npm run knowledge:search
     - npm run knowledge:evaluate
@@ -376,6 +386,7 @@ mobile-config:
     - npm run dev:mobile
     - npm run build --workspace apps/mobile
     - npm run lint --workspace apps/mobile
+    - npm run typecheck --workspace apps/mobile
   related_routes: []
   last_verified: 2026-06-04
   confidence: high

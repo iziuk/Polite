@@ -3,5 +3,5 @@ export const copyText = (text: string): void => {
     return;
   }
 
-  navigator.clipboard.writeText(text).catch((_error: unknown): void => undefined);
+  navigator.clipboard.writeText(text).catch((): void => undefined);
 };
