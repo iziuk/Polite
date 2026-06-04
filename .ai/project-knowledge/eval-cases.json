@@ -32,5 +32,10 @@
       ".ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md",
       ".ai/project-knowledge/README.md"
     ]
+  },
+  {
+    "id": "team-completeness-audit",
+    "query": "Where is AI fullstack team completeness audited with owner input output gate evidence?",
+    "expectedPaths": [".ai/ai-sdlc/completeness-audit.md", ".ai/project-map/decisions.md"]
   }
 ]

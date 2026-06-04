@@ -31,6 +31,7 @@ explicit.
 | Area                               | File                       |
 | ---------------------------------- | -------------------------- |
 | Coverage map                       | `coverage-matrix.md`       |
+| Team completeness audit            | `completeness-audit.md`    |
 | End-to-end workflow                | `workflow.md`              |
 | Product and business               | `product-business.md`      |
 | Business analysis                  | `business-analysis.md`     |
@@ -174,6 +175,13 @@ Current knowledge baseline:
 - Local project-knowledge retrieval tooling lives in `.ai/tools/project-knowledge`.
 - Local retrieval docs and eval cases live in `.ai/project-knowledge`.
 - The project map remains the required first navigation source before implementation.
+
+Current completeness baseline:
+
+- Team completeness is audited in `.ai/ai-sdlc/completeness-audit.md`.
+- Reusable completeness-audit template lives in `.ai/ai-sdlc/templates/team-completeness-audit.md`.
+- A team is complete only when every important lifecycle responsibility has an owner, input, output, quality gate, and
+  evidence.
 
 ## Operating Principle
 
