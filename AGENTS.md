@@ -22,6 +22,38 @@ map already points to the right area.
 After implementation, follow the skill's incremental update workflow: inspect changed files, update only affected
 project-map sections, and append a concise entry to `.ai/project-map/update-log.md`.
 
+## AI SDLC Managed Fullstack Team
+
+For non-trivial product, engineering, QA, DevOps, security, or release work, use the operating model in
+`.ai/ai-sdlc/README.md`.
+
+Before implementation, right-size the workflow:
+
+- Small, low-risk fixes may use the lightweight path from `.ai/ai-sdlc/README.md`.
+- For non-trivial work, check `.ai/ai-sdlc/coverage-matrix.md` first and identify which documentation areas apply.
+- New features, architecture changes, integrations, sensitive data, auth, infrastructure, or release work must pass the
+  relevant stages in `.ai/ai-sdlc/workflow.md` and `.ai/ai-sdlc/quality-gates.md`.
+- Simulate the needed role reviews from `.ai/ai-sdlc/roles.md`: Product Owner, Business Analyst, Architect, Developer,
+  QA Manual, QA Automation, DevOps/SRE, and Security/Privacy Reviewer.
+- Use `.ai/ai-sdlc/qa-manual.md` and `.ai/ai-sdlc/qa-automation.md` to choose manual and automated verification.
+- Use `.ai/ai-sdlc/templates/` for required artifacts such as feature briefs, BRDs, ADRs, RFCs, test plans, release
+  checklists, threat models, privacy policies, incident runbooks, and postmortems.
+- Require human approval for gates listed in `.ai/ai-sdlc/README.md`, especially production deploys, sensitive data,
+  auth, payments, security exceptions, and major architecture decisions.
+
+## Git Branches
+
+For this project, create new work branches from `main` with the `polite/` prefix by default, for example
+`polite/ai-sdlc-fullstack-team`, unless the user explicitly requests another prefix.
+
+Do not create git worktrees unless the user explicitly asks for a worktree.
+
+## Commit Message Drafting
+
+Always use the global `draft-commit-message` skill before drafting commit messages or preparing commits. Inspect the
+current git state with that skill's workflow, separate in-scope and out-of-scope changes, and draft a Conventional Commit
+message without scopes unless the user explicitly requests otherwise.
+
 ## Architecture — Feature-Sliced Design
 
 This project follows Feature-Sliced Design. All code lives under `src/` in FSD layers.

@@ -35,3 +35,23 @@ flowchart TD
 - Web Speech API is guarded in `packages/shared/src/lib/speech.ts`.
 - Clipboard API is guarded in `packages/shared/src/lib/clipboard.ts`.
 - No backend API or TanStack Query usage exists yet.
+
+## AI SDLC Delivery Flow
+
+```mermaid
+flowchart TD
+  Request["User request"] --> Agents["AGENTS.md"]
+  Agents --> Map["project-cartographer map read"]
+  Agents --> OperatingModel[".ai/ai-sdlc operating model"]
+  OperatingModel --> Coverage["coverage-matrix.md"]
+  Coverage --> Artifacts["Product, BA, architecture, engineering, QA, DevOps, security, governance artifacts"]
+  Artifacts --> Roles["Role reviews: PO, BA, Architect, Dev, QA, DevOps, Security"]
+  Roles --> Gates["Quality gates and human approval checks"]
+  Gates --> Implementation["Scoped implementation"]
+  Implementation --> Verification["Automated and manual verification"]
+  Verification --> Docs["Docs, ADRs, release notes, and project-map updates"]
+```
+
+- Small low-risk fixes can use the lightweight path documented in `.ai/ai-sdlc/README.md`.
+- High-risk work keeps the relevant role reviews, artifacts, gates, QA strategy, security review, release readiness,
+  rollback plan, and human approvals explicit.
