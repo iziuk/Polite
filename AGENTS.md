@@ -77,7 +77,7 @@ This project follows Feature-Sliced Design. All code lives under `src/` in FSD l
 ### Layers (top → bottom)
 
 | Layer      | Can import from                            |
-|------------|--------------------------------------------|
+| ---------- | ------------------------------------------ |
 | `app`      | pages, widgets, features, entities, shared |
 | `pages`    | widgets, features, entities, shared        |
 | `widgets`  | features, entities, shared                 |
@@ -93,11 +93,11 @@ Always use FSD path aliases — never relative paths that cross layer boundaries
 
 ```ts
 // ✅ Correct — importing through public API
-import {Button} from "@shared/ui";
-import {useAuth} from "@features/auth";
+import { Button } from "@shared/ui";
+import { useAuth } from "@features/auth";
 
 // ❌ Wrong — bypasses public API
-import {useAuth} from "@features/auth/hooks";
+import { useAuth } from "@features/auth/hooks";
 ```
 
 Available aliases: `@app/*`, `@pages/*`, `@widgets/*`, `@features/*`, `@entities/*`, `@shared/*`
@@ -108,10 +108,10 @@ Import from a module's public API (`index.ts`), never from internal files:
 
 ```ts
 // ✅ Correct
-import {formatDate} from "@shared/lib/date";
+import { formatDate } from "@shared/lib/date";
 
 // ❌ Wrong — bypasses public API
-import {formatDate} from "@shared/lib/date/utils/formatDate";
+import { formatDate } from "@shared/lib/date/utils/formatDate";
 ```
 
 Exception: `**/next/**` deep imports are allowed.
@@ -122,8 +122,8 @@ A slice may not import from a sibling slice at the same layer:
 
 ```ts
 // ❌ Wrong — cross-slice import within the same layer
-import {PaymentForm} from "@features/payment"; // inside @features/auth
-import {ProductCard} from "@entities/product"; // inside @entities/user
+import { PaymentForm } from "@features/payment"; // inside @features/auth
+import { ProductCard } from "@entities/product"; // inside @entities/user
 ```
 
 Exception: `shared` has no slices and is exempt from this rule.
@@ -134,16 +134,16 @@ Inside a slice, cross-segment imports must use relative paths, not layer aliases
 
 ```ts
 // ✅ Correct — relative path inside the slice
-import {selectUser} from "../model/selectors";
+import { selectUser } from "../model/selectors";
 
 // ❌ Wrong — alias bypasses slice boundary
-import {selectUser} from "@features/auth/model/selectors";
+import { selectUser } from "@features/auth/model/selectors";
 ```
 
 Segment dependency direction within a slice (no upward imports):
 
 | Segment  | Can import from                 |
-|----------|---------------------------------|
+| -------- | ------------------------------- |
 | `ui`     | `model`, `api`, `lib`, `config` |
 | `model`  | `api`, `lib`, `config`          |
 | `api`    | `lib`, `config`                 |
@@ -157,12 +157,12 @@ through segment public API (max 3 segments):
 
 ```ts
 // ✅ Correct — segment public API
-import {Button} from "@shared/ui";
-import {apiClient} from "@shared/core/api";
+import { Button } from "@shared/ui";
+import { apiClient } from "@shared/core/api";
 
 // ❌ Wrong — too deep into segment internals
-import {Button} from "@shared/ui/button/button";
-import type {IMfaOption} from "@shared/core/api/auth";
+import { Button } from "@shared/ui/button/button";
+import type { IMfaOption } from "@shared/core/api/auth";
 ```
 
 ### FSD import depth
@@ -176,15 +176,15 @@ Import depth for FSD aliases depends on the layer:
 
 ```ts
 // ✅ Correct
-import {LoginForm} from "@widgets/auth";
-import {useAuth} from "@features/auth";
-import {apiClient} from "@shared/core/api";
-import {Button} from "@shared/ui";
+import { LoginForm } from "@widgets/auth";
+import { useAuth } from "@features/auth";
+import { apiClient } from "@shared/core/api";
+import { Button } from "@shared/ui";
 
 // ❌ Wrong — too deep
-import {LoginForm} from "@widgets/auth/login-form/ui/login-form";
-import {useAuth} from "@features/auth/hooks";
-import type {IMfaOption} from "@shared/core/api/auth";
+import { LoginForm } from "@widgets/auth/login-form/ui/login-form";
+import { useAuth } from "@features/auth/hooks";
+import type { IMfaOption } from "@shared/core/api/auth";
 ```
 
 ---
@@ -297,7 +297,7 @@ These are warnings today — write new code as if they are errors:
 Prettier is the **single source of truth** for formatting. Never use ESLint for formatting concerns.
 
 | Setting           | Value                                         |
-|-------------------|-----------------------------------------------|
+| ----------------- | --------------------------------------------- |
 | `printWidth`      | 160                                           |
 | `tabWidth`        | 2 (spaces, no tabs)                           |
 | `semi`            | always                                        |
@@ -393,7 +393,7 @@ Imports must follow this group order with blank lines between groups and alphabe
 
 ```ts
 // 1. Type imports
-import type {Props} from "...";
+import type { Props } from "...";
 
 // 2. External packages
 import React from "react";
@@ -402,16 +402,16 @@ import React from "react";
 import path from "node:path";
 
 // 4. Internal (aliases)
-import {Button} from "@shared/ui";
+import { Button } from "@shared/ui";
 
 // 5. Parent
-import {utils} from "../utils";
+import { utils } from "../utils";
 
 // 6. Sibling
-import {helper} from "./helper";
+import { helper } from "./helper";
 
 // 7. Index
-import {config} from ".";
+import { config } from ".";
 ```
 
 ### File extensions in imports
@@ -420,12 +420,12 @@ Never include file extensions — **except** for image assets (`.svg`, `.png`, `
 
 ```ts
 // ✅
-import {Button} from "@shared/ui/button";
+import { Button } from "@shared/ui/button";
 import Logo from "@shared/assets/logo.svg";
 import Hero from "@shared/assets/hero.png";
 
 // ❌
-import {Button} from "@shared/ui/Button.tsx";
+import { Button } from "@shared/ui/Button.tsx";
 import Logo from "@shared/assets/logo"; // missing extension on image
 ```
 
@@ -475,7 +475,7 @@ Middle extensions (`.test`, `.stories`, `.module`) are allowed. Next.js special 
 ### Variables
 
 | Type                          | Format                        | Example                                |
-|-------------------------------|-------------------------------|----------------------------------------|
+| ----------------------------- | ----------------------------- | -------------------------------------- |
 | General variable              | camelCase or UPPER_CASE       | `userName`, `MAX_RETRIES`              |
 | Function / component variable | camelCase or PascalCase       | `handleClick`, `App`, `UserCard`       |
 | Function declaration          | camelCase or PascalCase       | `getUser()`, `UserCard()`              |
@@ -499,7 +499,7 @@ const Count = 5;             // PascalCase for primitive
 ### Class members
 
 | Type                    | Format                      | Example                       |
-|-------------------------|-----------------------------|-------------------------------|
+| ----------------------- | --------------------------- | ----------------------------- |
 | Public property         | camelCase or PascalCase     | `userName`, `ApiClient`       |
 | Public boolean          | prefix `is`/`has`/`can`/... | `isLoading`, `hasError`       |
 | Private property/method | leading `_` required        | `_apiClient`, `_fetchUsers()` |
@@ -508,7 +508,7 @@ const Count = 5;             // PascalCase for primitive
 ### Types, interfaces, enums
 
 | Type        | Format                     | Example                           |
-|-------------|----------------------------|-----------------------------------|
+| ----------- | -------------------------- | --------------------------------- |
 | Interface   | PascalCase with `I` prefix | `IUserProfile`, `IRequestConfig`  |
 | Type alias  | PascalCase with `T` prefix | `TButtonVariant`, `TThemeMode`    |
 | Enum name   | PascalCase                 | `UserRole`, `HttpStatus`          |
@@ -517,7 +517,7 @@ const Count = 5;             // PascalCase for primitive
 ### Parameters and properties
 
 | Type               | Format                               | Example                           |
-|--------------------|--------------------------------------|-----------------------------------|
+| ------------------ | ------------------------------------ | --------------------------------- |
 | Function parameter | camelCase                            | `userName`, `callback`, `options` |
 | Object property    | camelCase, PascalCase, or UPPER_CASE | `apiUrl`, `BaseComponent`         |
 | Quoted property    | unrestricted                         | `"Content-Type"`, `"x-api-key"`   |
@@ -600,15 +600,15 @@ Every component directory inside `@shared/ui` must have an `index.ts` that re-ex
 
 ```ts
 // src/shared/ui/button/index.ts
-export {Button} from "./button";
+export { Button } from "./button";
 ```
 
 ```tsx
 // ✅ Correct — always go through @shared/ui
-import {Button, Input, Checkbox, Select, Typography, Paper} from "@shared/ui";
+import { Button, Input, Checkbox, Select, Typography, Paper } from "@shared/ui";
 
 // ❌ Wrong — bypasses the design system adapter layer
-import {Button, Typography} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 ```
 
@@ -619,14 +619,14 @@ be imported directly from `@mui/material` when used for layout only (no visual s
 
 ```tsx
 // ✅ Acceptable — pure layout
-import {Box, Stack} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
 <Box display="flex" gap={2}>
   <Stack spacing={1}>{children}</Stack>
 </Box>;
 
 // ❌ Wrong — visual component used directly instead of shared wrapper
-import {Paper, Typography} from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 ```
 
 ### Import style
@@ -635,7 +635,7 @@ Always import from the barrel — never from individual module paths:
 
 ```ts
 // ✅ Correct
-import {Box, Stack} from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
 // ❌ Wrong
 import Box from "@mui/material/Box";
@@ -653,7 +653,7 @@ All visual styling of default MUI components must be defined in `src/shared/conf
 export const MenuItem: FC<MenuItemProps> = (props) => <MuiMenuItem {...props} />;
 
 // ❌ Wrong — visual styling should not live in the wrapper file
-const StyledMenuItem = styled(MuiMenuItem)({height: 40, borderRadius: 8});
+const StyledMenuItem = styled(MuiMenuItem)({ height: 40, borderRadius: 8 });
 export const MenuItem: FC<MenuItemProps> = (props) => <StyledMenuItem {...props} />;
 ```
 
