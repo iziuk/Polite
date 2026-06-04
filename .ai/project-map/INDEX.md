@@ -43,6 +43,8 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 | AI SDLC operating model    | `.ai/ai-sdlc/README.md`, `.ai/ai-sdlc/coverage-matrix.md`, `.ai/ai-sdlc/workflow.md`                 |
 | Product, BA, architecture  | `.ai/ai-sdlc/product-business.md`, `.ai/ai-sdlc/business-analysis.md`, `.ai/ai-sdlc/architecture.md` |
 | Engineering and governance | `.ai/ai-sdlc/engineering.md`, `.ai/ai-sdlc/ai-development-policy.md`, `.ai/ai-sdlc/governance.md`    |
+| Architecture decisions     | `.ai/ai-sdlc/adr.md`, `.ai/ai-sdlc/adr/README.md`, `.ai/ai-sdlc/adr/`                                |
+| RAG / project knowledge    | `.ai/ai-sdlc/rag-strategy.md`, `.ai/ai-sdlc/templates/rag-strategy.md`                               |
 | AI team roles and QA       | `.ai/ai-sdlc/roles.md`, `.ai/ai-sdlc/responsibility-matrix.md`, `.ai/ai-sdlc/qa-manual.md`           |
 | Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/devops-release.md`, `.ai/ai-sdlc/security-risk.md`      |
 
@@ -53,9 +55,10 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 3. Filtering is local and memoized from the active pack and query.
 4. `PhraseCard` invokes `speak` and `copyText` through `@shared/lib/browser`.
 5. UI copy comes from `@shared/core/i18n`; phrase pack content remains backend/content data in `packages/data`.
-6. Non-trivial AI-assisted work follows `AGENTS.md` into `.ai/ai-sdlc`, checks `coverage-matrix.md`, applies the
-   relevant product, BA, architecture, engineering, QA, DevOps, security, governance, and template artifacts, then passes
-   quality gates and human approval gates before implementation or release.
+6. Non-trivial AI-assisted work follows `AGENTS.md` into `.ai/ai-sdlc`, checks `coverage-matrix.md`, retrieves context
+   through the RAG/source-priority policy, checks accepted ADRs, applies the relevant product, BA, architecture,
+   engineering, QA, DevOps, security, governance, and template artifacts, then passes quality gates and human approval
+   gates before implementation or release.
 
 ## Known Decisions
 
@@ -65,3 +68,7 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 - Shared UI primitives wrap native elements and Tailwind classes, matching the current project stack.
 - AI-assisted delivery uses `.ai/ai-sdlc` as a comprehensive managed fullstack team operating model with coverage matrix,
   role playbooks, lifecycle gates, QA strategy, DevOps/release practice, security/risk review, governance, and templates.
+- Accepted ADRs in `.ai/ai-sdlc/adr/` are the authoritative architecture decision log; `.ai/project-map/decisions.md`
+  summarizes project-map relevant decisions.
+- Current RAG posture is RAG-ready manual context retrieval through `.ai/ai-sdlc/rag-strategy.md`; automated vector RAG
+  is not implemented and requires ADR, evals, security/privacy review, and approval before adoption.

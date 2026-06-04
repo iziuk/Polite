@@ -35,8 +35,10 @@ explicit.
 | Product and business             | `product-business.md`      |
 | Business analysis                | `business-analysis.md`     |
 | Architecture                     | `architecture.md`          |
+| Architecture decision records    | `adr.md`, `adr/`           |
 | Engineering                      | `engineering.md`           |
 | AI development policy            | `ai-development-policy.md` |
+| RAG and project knowledge        | `rag-strategy.md`          |
 | Roles                            | `roles.md`                 |
 | RACI / responsibility matrix     | `responsibility-matrix.md` |
 | Quality gates                    | `quality-gates.md`         |
@@ -105,6 +107,8 @@ A human must approve before:
 - Adding, storing, exposing, or transmitting sensitive personal data.
 - Modifying auth, authorization, secrets, payments, deployment, or production infrastructure.
 - Accepting a major architecture decision or reversing an existing ADR.
+- Implementing or changing an automated RAG pipeline, embedding store, AI provider, or retrieval strategy that affects
+  sensitive data, user-facing output, production workflows, or architecture.
 - Adding AI-generated content to production user-facing flows.
 - Deploying to production.
 - Bypassing checks.
@@ -131,6 +135,7 @@ For meaningful work, final handoff should include:
 - Verification commands and results.
 - Manual QA performed or skipped.
 - Human approvals required or received.
+- ADR/RAG strategy impact when relevant.
 - Project-map updates.
 - Residual risks and follow-ups.
 
@@ -154,6 +159,13 @@ Current product baseline:
 - Static phrase packs live in `packages/data`.
 - Shared browser helpers and domain types live in `packages/shared`.
 - Web UI uses FSD modules under `apps/web/src`.
+
+Current knowledge baseline:
+
+- Accepted architecture decisions live in `.ai/ai-sdlc/adr/`.
+- ADR policy lives in `.ai/ai-sdlc/adr.md`.
+- AI context retrieval and future RAG rules live in `.ai/ai-sdlc/rag-strategy.md`.
+- The project map remains the required first navigation source before implementation.
 
 ## Operating Principle
 

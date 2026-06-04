@@ -14,6 +14,8 @@ Current Polite baseline:
 - Next.js app route for `/`.
 - FSD-style web layers: app, widgets, entities, shared.
 - Public API barrels and aliases are required for cross-layer imports.
+- Accepted ADRs under `.ai/ai-sdlc/adr/`.
+- RAG-ready project knowledge policy under `.ai/ai-sdlc/rag-strategy.md`.
 
 The project map in `.ai/project-map` is the first source for navigation.
 
@@ -21,14 +23,15 @@ The project map in `.ai/project-map` is the first source for navigation.
 
 Use these artifacts by change type:
 
-| Change type                                                 | Required artifact                        |
-| ----------------------------------------------------------- | ---------------------------------------- |
-| New service, package, major module, backend, or integration | System architecture overview and ADR     |
-| New user flow spanning modules                              | Component or flow diagram                |
-| Data shape, persistence, or backend contract                | Data model and integration contract      |
-| Public API change                                           | API specification and compatibility note |
-| Performance, availability, security, or scalability concern | Non-functional requirements              |
-| Multiple viable technical options                           | RFC or ADR                               |
+| Change type                                                 | Required artifact                          |
+| ----------------------------------------------------------- | ------------------------------------------ |
+| New service, package, major module, backend, or integration | System architecture overview and ADR       |
+| New user flow spanning modules                              | Component or flow diagram                  |
+| Data shape, persistence, or backend contract                | Data model and integration contract        |
+| Public API change                                           | API specification and compatibility note   |
+| Performance, availability, security, or scalability concern | Non-functional requirements                |
+| Multiple viable technical options                           | RFC or ADR                                 |
+| AI provider, RAG pipeline, embeddings, or retrieval index   | ADR, RAG strategy, eval plan, threat model |
 
 ## System Architecture Overview
 
@@ -78,7 +81,30 @@ ADR status values:
 - Superseded.
 - Rejected.
 
+ADR records live in `.ai/ai-sdlc/adr/`. Use `.ai/ai-sdlc/adr.md` for the full lifecycle, approval, numbering,
+conflict-resolution, and revision policy.
+
 Use `templates/adr.md`.
+
+## RAG And Project Knowledge
+
+RAG is a knowledge-retrieval strategy, not a standalone documentation artifact. Polite's current position is
+RAG-ready documentation: AI agents retrieve project context from `AGENTS.md`, the project map, AI SDLC docs, ADRs,
+source files, and targeted searches before implementation.
+
+Use `.ai/ai-sdlc/rag-strategy.md` when work affects:
+
+- AI context retrieval.
+- Project knowledge management.
+- Source priority or conflict resolution.
+- Future automated RAG.
+- Embedding or vector-store providers.
+- AI-generated user-facing output grounded in retrieved context.
+- Documentation freshness, citations, indexing, or retrieval evaluation.
+
+Any automated RAG implementation requires an ADR, AI feature specification, integration contract, threat model,
+privacy/PII review, evaluation plan, rollback path, and human approval when sensitive data, production, or user-facing
+output is affected.
 
 ## Technical Constraints
 
@@ -169,6 +195,8 @@ Before implementation, AI Architect asks:
 - What data ownership changes?
 - What failure modes need fallback?
 - What needs an ADR, RFC, or human approval?
+- Does the change rely on RAG or project knowledge retrieval rules?
+- Are accepted ADRs and source priority consistent with the proposed implementation?
 
 ## Architecture Done Criteria
 

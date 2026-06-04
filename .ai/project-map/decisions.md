@@ -29,6 +29,19 @@ check the coverage matrix, right-size the workflow, simulate the needed fullstac
 templates, pass relevant quality gates, and require human approval for production, sensitive data, auth, payments,
 security exceptions, and major architecture decisions.
 
+## ADR Operating Policy And Decision Records
+
+Architecture decisions are governed by `.ai/ai-sdlc/adr.md` and stored in `.ai/ai-sdlc/adr/`. Accepted ADRs are the
+authoritative decision memory for architecture, platform, AI, security, production, and governance choices; the project
+map summarizes only navigation-relevant decisions.
+
+## RAG-Ready Project Knowledge Strategy
+
+Polite uses `.ai/ai-sdlc/rag-strategy.md` as the policy for AI context retrieval, source priority, stale-context handling,
+citations, future indexing, prompt-injection controls, and retrieval evaluation. No automated vector RAG pipeline exists
+yet; adding one requires a new ADR, AI feature spec, eval plan, security/privacy review, rollback path, and human
+approval when high-risk sources or user-facing output are involved.
+
 ## Polite Branch Prefix
 
 Project work branches should use the `polite/` prefix by default, for example `polite/ai-sdlc-fullstack-team`. Git

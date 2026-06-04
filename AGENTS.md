@@ -35,6 +35,11 @@ Before implementation, right-size the workflow:
   relevant stages in `.ai/ai-sdlc/workflow.md` and `.ai/ai-sdlc/quality-gates.md`.
 - Simulate the needed role reviews from `.ai/ai-sdlc/roles.md`: Product Owner, Business Analyst, Architect, Developer,
   QA Manual, QA Automation, DevOps/SRE, and Security/Privacy Reviewer.
+- For architecture decisions, use `.ai/ai-sdlc/adr.md` and accepted records in `.ai/ai-sdlc/adr/`; create or update an
+  ADR when the ADR policy triggers, and treat accepted ADRs as constraints.
+- For AI context retrieval, project knowledge management, or future RAG work, use `.ai/ai-sdlc/rag-strategy.md`. Current
+  project posture is RAG-ready manual retrieval; automated RAG requires ADR, eval, security/privacy, rollback, and human
+  approval gates when applicable.
 - Use `.ai/ai-sdlc/qa-manual.md` and `.ai/ai-sdlc/qa-automation.md` to choose manual and automated verification.
 - Use `.ai/ai-sdlc/templates/` for required artifacts such as feature briefs, BRDs, ADRs, RFCs, test plans, release
   checklists, threat models, privacy policies, incident runbooks, and postmortems.

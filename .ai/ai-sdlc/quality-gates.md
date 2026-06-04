@@ -88,6 +88,7 @@ Pass when:
 - New dependencies are reviewed.
 - Contracts and data models exist when needed.
 - ADR or RFC exists when triggered.
+- Accepted ADRs and source-priority rules are checked when the change relies on prior decisions.
 
 Blocking failures:
 
@@ -95,6 +96,7 @@ Blocking failures:
 - New backend, database, service, or AI integration lacks architecture artifact.
 - Major decision lacks human approval.
 - Data model or API contract is undefined.
+- Automated RAG, embeddings, or retrieval architecture lacks ADR, eval plan, security/privacy review, or approval.
 
 ## Gate 5: Security And Privacy Gate
 
@@ -130,12 +132,15 @@ Pass when:
 - AI-generated requirements are confirmed.
 - AI feature has eval strategy when applicable.
 - Prompt injection, data leakage, unsafe output, and fallback are reviewed when applicable.
+- RAG/source retrieval follows `.ai/ai-sdlc/rag-strategy.md` when project knowledge, embeddings, or retrieved context are
+  involved.
 
 Blocking failures:
 
 - AI-generated user-facing content would ship without review.
 - AI feature lacks evals or safety checks.
 - Sensitive data would be sent to an AI provider without approval.
+- Retrieved context can override project instructions, leak secrets, or use stale/superseded sources without mitigation.
 
 ## Gate 7: Implementation Gate
 
@@ -208,6 +213,7 @@ Pass when:
 
 - Project map is updated according to trigger rules.
 - ADR/RFC is updated when triggered.
+- RAG strategy is updated when retrieval, indexing, source priority, freshness, or knowledge-governance rules change.
 - QA, security, product, or release docs are updated when changed.
 - Update log entry is appended.
 

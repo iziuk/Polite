@@ -72,6 +72,7 @@ Create a threat model when work introduces:
 - Admin or privileged functions.
 - External integrations.
 - AI prompt or retrieval pipelines.
+- Embedding stores, vector databases, or automated RAG indexes.
 
 Threat model questions:
 
@@ -167,6 +168,9 @@ For AI-enabled features, review:
 - Prompt injection.
 - Instruction override.
 - Data leakage through prompts, logs, embeddings, or retrieved context.
+- Indexing secrets, sensitive personal data, or private prompts.
+- Retrieving stale, superseded, or untrusted context.
+- Retrieved content overriding project instructions or human approval gates.
 - Hallucinated or unsupported output.
 - Unsafe or biased output.
 - Cost spikes.
@@ -184,6 +188,9 @@ AI feature release requirements:
 - Human fallback for risky outcomes.
 - Monitoring.
 - Disable or rollback path.
+
+Use `.ai/ai-sdlc/rag-strategy.md` for source priority, denied sources, prompt-injection controls, future RAG metadata,
+and retrieval evaluation rules.
 
 ## Security Review Checklist
 

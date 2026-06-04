@@ -18,6 +18,22 @@ Classify every task before implementation.
 | DevOps/release            | CI/CD, deployment, rollback, monitoring                 | Full with human approval for production |
 | AI feature                | Prompting, RAG, model integration, AI-generated content | Full with evals and human approval      |
 
+## Context Retrieval Rule
+
+Before implementation, retrieve the smallest authoritative context set that can support a correct decision.
+
+Required baseline:
+
+- `AGENTS.md`.
+- `.ai/project-map/INDEX.md`.
+- `.ai/project-map/modules.yaml`.
+- Relevant `.ai/ai-sdlc` docs for the work type.
+- Relevant accepted ADRs from `.ai/ai-sdlc/adr/`.
+- Relevant source files, tests, config, templates, or external official docs.
+
+Use `.ai/ai-sdlc/rag-strategy.md` for source priority, stale-context handling, conflict resolution, citation rules, and
+future automated RAG requirements.
+
 ## Stage 1: Intake
 
 Goal:
@@ -30,6 +46,8 @@ Inputs:
 - Existing docs.
 - Project map.
 - Relevant code or artifacts.
+- Relevant ADRs.
+- RAG strategy and source-priority rules when AI context, documentation, or retrieval is involved.
 
 Required output:
 
@@ -143,11 +161,13 @@ Artifacts:
 
 - `templates/architecture-overview.md`.
 - `templates/c4-diagram.md`.
+- `adr.md` and `adr/`.
 - `templates/adr.md`.
 - `templates/rfc.md`.
 - `templates/integration-contract.md`.
 - `templates/data-model.md`.
 - `templates/non-functional-requirements.md`.
+- `rag-strategy.md` when retrieval, AI context, embeddings, or RAG are involved.
 
 ## Stage 5: Risk, Security, And Privacy Review
 
@@ -280,6 +300,7 @@ Required updates:
 - QA docs when testing strategy changes.
 - Security docs when risk posture changes.
 - Release docs when deployable behavior changes.
+- RAG strategy when source priority, retrieval, indexing, or AI knowledge governance changes.
 
 Always append `.ai/project-map/update-log.md` after implementation.
 

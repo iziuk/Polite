@@ -139,3 +139,41 @@ Notes:
 
 - Added project convention to always use `draft-commit-message` before drafting commit messages or preparing commits.
 - routes.md, INDEX.md, and data-flow.md checked; no updates required for this convention-only change.
+
+## 2026-06-04
+
+Changed files:
+
+- AGENTS.md
+- .ai/ai-sdlc/README.md
+- .ai/ai-sdlc/coverage-matrix.md
+- .ai/ai-sdlc/workflow.md
+- .ai/ai-sdlc/architecture.md
+- .ai/ai-sdlc/adr.md
+- .ai/ai-sdlc/adr/\*\*
+- .ai/ai-sdlc/rag-strategy.md
+- .ai/ai-sdlc/ai-development-policy.md
+- .ai/ai-sdlc/governance.md
+- .ai/ai-sdlc/quality-gates.md
+- .ai/ai-sdlc/responsibility-matrix.md
+- .ai/ai-sdlc/roles.md
+- .ai/ai-sdlc/security-risk.md
+- .ai/ai-sdlc/templates/rag-strategy.md
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/data-flow.md
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> ADR and RAG lookup entries plus AI SDLC main-flow decision retrieval
+- modules.yaml -> ai-sdlc-operating-model key files and public API for ADR/RAG
+- data-flow.md -> AI SDLC delivery flow includes ADR records and RAG/source-priority policy
+- decisions.md -> ADR operating policy and RAG-ready project knowledge strategy
+
+Notes:
+
+- Added full ADR operating policy, ADR index, seven baseline accepted ADRs, RAG/project knowledge strategy, and a RAG strategy template.
+- Wired ADR/RAG responsibilities into AI SDLC README, coverage, workflow, quality gates, AI policy, governance, roles, responsibility matrix, architecture, and security/risk docs.
+- routes.md checked; no route changes required.
