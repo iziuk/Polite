@@ -446,6 +446,7 @@ ai-sdlc-operating-model:
     - Branch-per-task policy
     - Post-task commit and push policy
     - Commit message drafting convention
+    - Root shared ownership policy
     - Reusable artifact templates
   related_routes: []
   last_verified: 2026-06-04

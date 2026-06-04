@@ -44,6 +44,20 @@ Additional AI engineering rules:
 - Preserve current public contracts unless the task asks for a behavior change.
 - Keep generated docs and templates plain, searchable, and actionable.
 
+## Cross-Platform Shared Ownership
+
+Use `packages/shared/src` as the root shared ownership boundary for anything reusable by both web and mobile.
+
+- Future endpoint contracts, operation names, endpoint paths, request/response DTOs, API error shapes, generated or
+  handwritten API types, domain models, and field validation rules belong in `packages/shared/src`.
+- Pure utilities that are not platform-specific belong in `packages/shared/src/lib/*` or another public shared segment.
+  This includes date/time helpers, formatting/parsing, normalization, id handling, data mapping, and validation helpers.
+- Do not duplicate the same endpoint type, model, validation rule, or utility in `apps/web` and `apps/mobile`.
+- Keep `apps/web/src/shared` and `apps/mobile/src/shared` for platform-specific FSD shared code such as UI primitives,
+  i18n adapters/messages, browser/native facades, React hooks, routing, styling, and framework wiring.
+- App-local code may adapt or wrap `packages/shared` exports, but the reusable implementation and public contract should
+  start in the shared package.
+
 ## Frontend Guidelines
 
 Before frontend work:

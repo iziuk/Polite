@@ -530,3 +530,29 @@ Notes:
 - Root ESLint now enforces strict FSD, import, naming, promise-safety, and TypeScript rules across web, mobile, and shared code.
 - Added explicit typecheck and format check scripts; Vitest and backend skeleton remain deferred.
 - routes.md and data-flow.md checked; no route or runtime data-flow changes required.
+
+## 2026-06-04
+
+Changed files:
+
+- AGENTS.md
+- .ai/ai-sdlc/engineering.md
+- .ai/project-map/INDEX.md
+- .ai/project-map/decisions.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> root shared ownership known decision
+- modules.yaml -> AI SDLC operating model public API includes root shared ownership policy
+- decisions.md -> root shared ownership decision
+
+Notes:
+
+- Added a rule that future endpoint contracts, API types, models, field validations, and cross-platform utilities belong
+  in `packages/shared/src`.
+- Clarified that `apps/web/src/shared` and `apps/mobile/src/shared` should only adapt platform-specific UI, framework,
+  browser, native, or i18n behavior rather than duplicating shared contracts or helpers.
+- No ADR created; this refines the existing shared package ownership policy without adding a new service, integration, or
+  production architecture decision.
