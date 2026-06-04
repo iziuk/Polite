@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "es2022"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": "../..",
+    "paths": {
+      "@app/*": ["apps/web/src/app/*"],
+      "@pages/*": ["apps/web/src/pages/*"],
+      "@widgets/*": ["apps/web/src/widgets/*"],
+      "@features/*": ["apps/web/src/features/*"],
+      "@entities/*": ["apps/web/src/entities/*"],
+      "@shared/*": ["apps/web/src/shared/*"],
+      "@polite/shared/lib": ["packages/shared/src/lib/index.ts"],
+      "@polite/shared/types": ["packages/shared/src/types/index.ts"],
+      "@polite/data/*": ["packages/data/*"]
+    },
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["../../node_modules"]
+}
