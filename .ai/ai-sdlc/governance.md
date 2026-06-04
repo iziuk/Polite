@@ -25,6 +25,8 @@ artifact that preserves decision quality, traceability, and release safety.
 | RAG strategy            | AI Architect / Security   | Automated RAG, sensitive data, or production AI retrieval |
 | Team completeness audit | AI Architect / Governance | Major operating-model changes                             |
 | RFC                     | AI Architect              | Multiple stakeholders or high uncertainty                 |
+| PR lifecycle            | AI PR Owner               | Merge is blocked by high-risk findings or approval gates  |
+| PR review               | AI PR Reviewer            | High-risk blocker is accepted instead of fixed            |
 | Test plan               | AI QA Manual / Automation | Release-critical flow                                     |
 | Release checklist       | AI DevOps / SRE           | Production deploy                                         |
 | Threat model            | AI Security Reviewer      | Medium or high security risk                              |
@@ -58,6 +60,19 @@ Required behavior:
 - Do not continue unrelated new work on an existing task branch.
 - If task boundaries are unclear, ask before branching, committing, or pushing.
 - Do not create git worktrees unless the user explicitly requests a worktree.
+
+## Pull Request Governance
+
+Every completed pushed task must move through the full pull request lifecycle.
+
+Required behavior:
+
+- Create or update a PR for every completed task branch that is intended to land on `main`.
+- Submit an AI PR Reviewer review before merge.
+- Merge the PR after required checks, reviewer findings, manual QA, release readiness, and approvals are complete.
+- If merge is blocked, record the blocker, owner, and next action instead of leaving the lifecycle implicit.
+- Do not merge when branch protection, failed checks, unresolved blocker findings, missing approvals, or merge conflicts
+  are present.
 
 ## RFC Policy
 
@@ -134,6 +149,8 @@ For high-risk tasks, final handoff should include:
 - Branch.
 - Scope.
 - Changed files.
+- PR URL and merge result.
+- PR review verdict and unresolved findings.
 - Verification commands.
 - Manual QA performed or skipped.
 - Human approvals received or required.

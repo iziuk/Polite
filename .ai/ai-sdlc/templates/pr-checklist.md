@@ -3,6 +3,9 @@
 ## Summary
 
 - Branch:
+- PR owner:
+- PR URL:
+- Base branch:
 - Scope:
 - Work type:
 - Risk level:
@@ -19,6 +22,15 @@
 - FSD boundaries respected:
 - ADR/RFC required:
 - Contracts/data models updated:
+
+## Code Review
+
+- Reviewer:
+- Reviewer verdict:
+- Findings/blockers:
+- Unrelated changes excluded:
+- FSD/public API/i18n/mock policy checked:
+- Residual risks or follow-ups:
 
 ## Verification
 
@@ -40,6 +52,13 @@
 - Rollback:
 - Monitoring:
 - Human approval required/received:
+
+## Merge
+
+- Merge-ready:
+- Merge method:
+- Merge SHA:
+- Merge blocker if not merged:
 
 ## Docs
 
