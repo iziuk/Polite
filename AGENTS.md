@@ -208,8 +208,9 @@ import type { IMfaOption } from "@shared/core/api/auth";
 
 - Single Responsibility: keep API transport, server-state hooks, DTO mappers, UI state, and rendering separate where
   that separation reduces complexity.
-- Dependency Inversion: reusable API services and reusable pure helpers belong in `polite-ts-lib`; `polite-web` wires
-  runtime dependencies and owns UI-specific mapping/rendering.
+- Dependency Inversion: reusable API contracts, services, validation rules, domain models, and pure helpers belong in
+  the root shared package (`packages/shared/src`); `apps/web` and `apps/mobile` wire runtime dependencies and own
+  platform-specific UI mapping/rendering.
 - Open/Closed: when conditional rendering or behavior branches grow repeatedly, prefer a registry/strategy table over
   extending a long branching function.
 - DRY: check for duplicated hooks, request patterns, styled blocks, DTO/types/constants, mock/demo flows, repeated JSX
@@ -219,16 +220,24 @@ import type { IMfaOption } from "@shared/core/api/auth";
 
 ### Reusable code ownership
 
-- Reusable backend API endpoints, DTOs, service implementations, and API context contracts live in
-  `polite-ts-lib/src/shared/core/*`.
-- Reusable pure helpers that can be shared by web and mobile live in `polite-ts-lib/src/shared/lib/*` and are consumed
-  through `@polite/ts-lib/shared`.
-- `polite-web/src/shared/lib` may keep compatibility barrels/wrappers for existing imports, but new cross-platform
-  helper implementation should start in `polite-ts-lib`.
-- Keep UI/framework-specific helpers in `polite-web`: React hooks, DOM logic, Next.js routing, MUI styling, view-model
-  mapping, shell behavior, and component layout helpers.
-- Services in `polite-ts-lib` must stay UI-agnostic and must not create browser/mobile singletons. Consumers provide
-  `ApiClient`, token/runtime config, and `IpoliteApiContext`.
+- `packages/shared/src` is the root shared ownership boundary for code that can be reused by both web and mobile. Do not
+  implement the same utility, model, endpoint contract, validation rule, DTO, or API type separately in `apps/web` and
+  `apps/mobile`.
+- Future API endpoint contracts live in `packages/shared/src`: operation names, endpoint paths, methods, request
+  parameters, request/response DTOs, error shapes, auth metadata, generated contract types, and handwritten API model
+  types. Backend route handlers may live in a backend app, but their client-facing contract belongs to the shared
+  package.
+- Cross-platform pure utilities live in `packages/shared/src/lib/*` or another clearly named shared segment under
+  `packages/shared/src`. This includes date/time helpers, formatting/parsing, normalization, id handling, data mapping,
+  field validation helpers, and other reusable domain utilities.
+- Domain types and models shared by web and mobile live in `packages/shared/src/types/*` or another public shared domain
+  segment. App-local duplicate types are not allowed.
+- `apps/web/src/shared` and `apps/mobile/src/shared` are only for platform-specific FSD shared code: UI primitives,
+  i18n adapters/messages, browser/native facades, React hooks, routing, styling, and framework-specific wiring.
+- App-local shared folders may expose compatibility wrappers/adapters over `packages/shared`, but new cross-platform
+  implementation starts in `packages/shared/src`.
+- Shared services must stay UI-agnostic and must not create browser/mobile singletons. Consumers provide API clients,
+  tokens/runtime config, platform capabilities, and app-specific error normalization.
 - Keep backend identifiers that can exceed `Number.MAX_SAFE_INTEGER` as strings end-to-end. Never coerce 64-bit API ids
   with `Number()`.
 
@@ -236,7 +245,7 @@ import type { IMfaOption } from "@shared/core/api/auth";
 
 - Server state belongs in TanStack Query. Do not reintroduce duplicated `useState + useEffect + AbortController` request
   loops for reusable API data.
-- `polite-web` owns the app-level QueryClient, query defaults, feature hooks, error normalization, and DTO-to-view-model
+- `apps/web` owns the app-level QueryClient, query defaults, feature hooks, error normalization, and DTO-to-view-model
   mapping.
 - Do not add Redux, MobX, or Zustand by default. Consider Zustand only when cross-view client UI state becomes too broad
   for local state/context.
@@ -248,7 +257,7 @@ import type { IMfaOption } from "@shared/core/api/auth";
 - Use patterns only when they clarify ownership or reduce complexity. Do not add factories, strategies, reducers, or
   providers as ceremony.
 - Preferred existing patterns: Adapter (`@shared/ui` over MUI), Facade/Public API (FSD barrels), Service (
-  `polite-ts-lib` API services), Mapper (DTO to UI/domain model), Context (app shell state), Reducer/state machine (
+  `packages/shared` API services), Mapper (DTO to UI/domain model), Context (app shell state), Reducer/state machine (
   multi-step auth/MFA flows).
 - For complex UI workflows, prefer a focused reducer/state machine over scattered booleans when transitions become hard
   to reason about.

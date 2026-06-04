@@ -20,6 +20,14 @@ layers. Mobile imports use the same FSD-style aliases through TypeScript and Bab
 
 Cross-layer imports use `@widgets`, `@entities`, and `@shared` aliases. Shared package internals are exposed through barrels in `packages/shared/src`.
 
+## Root Shared Ownership
+
+Reusable endpoint contracts, operation names, endpoint paths, request/response DTOs, API error shapes, generated or
+handwritten API types, domain models, field validation rules, and pure utilities shared by web and mobile belong in
+`packages/shared/src` and are exposed through public barrels. App-local `apps/web/src/shared` and
+`apps/mobile/src/shared` code may adapt these exports for browser, React, Next.js, Expo, or native behavior, but should
+not duplicate cross-platform contracts or helpers.
+
 ## UI Copy Ownership
 
 User-facing UI copy is centralized in `apps/web/src/shared/core/i18n/translations/*.json` and accessed through the

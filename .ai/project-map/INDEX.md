@@ -101,6 +101,9 @@ import through slice/segment public APIs.
 - The mobile app mirrors the web phrase browser under `apps/mobile/src` with FSD-style app/widgets/entities/shared
   layers.
 - Reusable browser helpers and phrase interfaces stay in `packages/shared/src` and are exposed through public barrels.
+- Future endpoint contracts, request/response DTOs, API types, domain models, field validations, and pure utilities
+  shared by web and mobile belong in `packages/shared/src`; app-local `src/shared` folders only adapt platform-specific
+  UI, framework, browser, or native behavior.
 - Shared UI primitives wrap native elements and Tailwind classes, matching the current project stack.
 - Interface localization uses `next-intl` with local `uk` and `en` message files and a cookie-based locale preference.
 - Mobile interface localization uses a client-local provider and translation map under
