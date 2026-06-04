@@ -152,6 +152,9 @@ Current branch convention:
 
 - Create normal work branches from `main` with the `polite/` prefix.
 - Do not create git worktrees unless explicitly requested.
+- After a completed and verified task, commit and push the finished changes without waiting for an extra instruction.
+- If readiness, scope, verification, safety, approval, or repository state is uncertain, do not push silently; ask the
+  user before pushing.
 
 Current product baseline:
 

@@ -51,3 +51,9 @@ worktrees should not be created unless the user explicitly asks for a worktree.
 
 Commit messages should always be drafted through the global `draft-commit-message` skill. The workflow must inspect git
 state, classify in-scope and out-of-scope changes, and produce a Conventional Commit message that follows project rules.
+
+## Post-Task Push Policy
+
+After a completed and verified task, agents should commit and push finished changes without waiting for an extra user
+instruction. If readiness, scope, verification, safety, approval, or repository state is uncertain, agents must not push
+silently and must ask the user before pushing.
