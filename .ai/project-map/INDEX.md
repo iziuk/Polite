@@ -41,6 +41,7 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 | Browser helpers            | `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                          |
 | Web config                 | `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/eslint.config.mjs`, `turbo.json`     |
 | AI SDLC operating model    | `.ai/ai-sdlc/README.md`, `.ai/ai-sdlc/coverage-matrix.md`, `.ai/ai-sdlc/workflow.md`                 |
+| AI team completeness       | `.ai/ai-sdlc/completeness-audit.md`, `.ai/ai-sdlc/templates/team-completeness-audit.md`              |
 | Product, BA, architecture  | `.ai/ai-sdlc/product-business.md`, `.ai/ai-sdlc/business-analysis.md`, `.ai/ai-sdlc/architecture.md` |
 | Engineering and governance | `.ai/ai-sdlc/engineering.md`, `.ai/ai-sdlc/ai-development-policy.md`, `.ai/ai-sdlc/governance.md`    |
 | Architecture decisions     | `.ai/ai-sdlc/adr.md`, `.ai/ai-sdlc/adr/README.md`, `.ai/ai-sdlc/adr/`                                |
@@ -69,6 +70,8 @@ The active web app now uses FSD aliases from `apps/web/tsconfig.json`. App entry
 - Shared UI primitives wrap native elements and Tailwind classes, matching the current project stack.
 - AI-assisted delivery uses `.ai/ai-sdlc` as a comprehensive managed fullstack team operating model with coverage matrix,
   role playbooks, lifecycle gates, QA strategy, DevOps/release practice, security/risk review, governance, and templates.
+- AI fullstack team completeness is audited by checking every lifecycle stage for owner, input, output, quality gate, and
+  evidence; current verdict is a substantially complete operational baseline.
 - Accepted ADRs in `.ai/ai-sdlc/adr/` are the authoritative architecture decision log; `.ai/project-map/decisions.md`
   summarizes project-map relevant decisions.
 - Current RAG posture includes local project-knowledge retrieval through `.ai/tools/project-knowledge`; external

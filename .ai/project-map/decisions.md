@@ -29,6 +29,12 @@ check the coverage matrix, right-size the workflow, simulate the needed fullstac
 templates, pass relevant quality gates, and require human approval for production, sensitive data, auth, payments,
 security exceptions, and major architecture decisions.
 
+## AI Fullstack Team Completeness
+
+Polite verifies managed fullstack team completeness through `.ai/ai-sdlc/completeness-audit.md`. A team is considered
+complete only when every important lifecycle responsibility has an owner, input, output, quality gate, and evidence. The
+current verdict is a substantially complete operational baseline with no obvious ownerless lifecycle responsibility.
+
 ## ADR Operating Policy And Decision Records
 
 Architecture decisions are governed by `.ai/ai-sdlc/adr.md` and stored in `.ai/ai-sdlc/adr/`. Accepted ADRs are the

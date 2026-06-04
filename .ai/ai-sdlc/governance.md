@@ -14,21 +14,22 @@ artifact that preserves decision quality, traceability, and release safety.
 
 ## Artifact Ownership
 
-| Artifact              | Owner role                | Human approval required when                              |
-| --------------------- | ------------------------- | --------------------------------------------------------- |
-| Product vision        | AI Product Owner          | Product direction changes                                 |
-| Persona               | AI Product Owner          | New user segment changes roadmap                          |
-| BRD                   | AI Business Analyst       | Business-critical workflow changes                        |
-| User story            | AI Business Analyst       | Scope or priority is ambiguous                            |
-| Architecture overview | AI Architect              | Platform or system boundary changes                       |
-| ADR                   | AI Architect              | Decision is accepted or reversed                          |
-| RAG strategy          | AI Architect / Security   | Automated RAG, sensitive data, or production AI retrieval |
-| RFC                   | AI Architect              | Multiple stakeholders or high uncertainty                 |
-| Test plan             | AI QA Manual / Automation | Release-critical flow                                     |
-| Release checklist     | AI DevOps / SRE           | Production deploy                                         |
-| Threat model          | AI Security Reviewer      | Medium or high security risk                              |
-| Risk register item    | Owning role               | High risk is accepted                                     |
-| Postmortem            | AI DevOps / SRE           | Major incident                                            |
+| Artifact                | Owner role                | Human approval required when                              |
+| ----------------------- | ------------------------- | --------------------------------------------------------- |
+| Product vision          | AI Product Owner          | Product direction changes                                 |
+| Persona                 | AI Product Owner          | New user segment changes roadmap                          |
+| BRD                     | AI Business Analyst       | Business-critical workflow changes                        |
+| User story              | AI Business Analyst       | Scope or priority is ambiguous                            |
+| Architecture overview   | AI Architect              | Platform or system boundary changes                       |
+| ADR                     | AI Architect              | Decision is accepted or reversed                          |
+| RAG strategy            | AI Architect / Security   | Automated RAG, sensitive data, or production AI retrieval |
+| Team completeness audit | AI Architect / Governance | Major operating-model changes                             |
+| RFC                     | AI Architect              | Multiple stakeholders or high uncertainty                 |
+| Test plan               | AI QA Manual / Automation | Release-critical flow                                     |
+| Release checklist       | AI DevOps / SRE           | Production deploy                                         |
+| Threat model            | AI Security Reviewer      | Medium or high security risk                              |
+| Risk register item      | Owning role               | High risk is accepted                                     |
+| Postmortem              | AI DevOps / SRE           | Major incident                                            |
 
 ## Change Management
 
@@ -86,6 +87,20 @@ Update the RAG strategy when work changes:
 - Citation or handoff requirements.
 - Prompt-injection, privacy, or indexing controls.
 - Automated RAG architecture, provider, embeddings, or vector-store rules.
+
+## Team Completeness Governance
+
+Use `.ai/ai-sdlc/completeness-audit.md` to verify that the AI fullstack team has no ownerless lifecycle work.
+
+Repeat the audit when:
+
+- A backend, database, auth, payment, or production infrastructure capability is introduced.
+- A new AI provider, external RAG provider, vector database, or user-facing AI output is introduced.
+- CI/CD or production monitoring is added.
+- A major incident or security/privacy issue occurs.
+- More than one role repeatedly has unclear ownership.
+
+Use `templates/team-completeness-audit.md` for future audits.
 
 ## Documentation Lifecycle
 

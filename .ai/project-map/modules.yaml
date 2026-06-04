@@ -218,6 +218,7 @@ ai-sdlc-operating-model:
     - AGENTS.md
     - .ai/ai-sdlc/README.md
     - .ai/ai-sdlc/coverage-matrix.md
+    - .ai/ai-sdlc/completeness-audit.md
     - .ai/ai-sdlc/workflow.md
     - .ai/ai-sdlc/product-business.md
     - .ai/ai-sdlc/business-analysis.md
@@ -255,6 +256,7 @@ ai-sdlc-operating-model:
     - RAG and project knowledge retrieval strategy
     - AI feature specifications and retrieval evaluations
     - Security reviews and threat models
+    - AI fullstack team completeness audit
     - Post-task commit and push policy
     - Commit message drafting convention
     - Reusable artifact templates
