@@ -38,9 +38,16 @@ map summarizes only navigation-relevant decisions.
 ## RAG-Ready Project Knowledge Strategy
 
 Polite uses `.ai/ai-sdlc/rag-strategy.md` as the policy for AI context retrieval, source priority, stale-context handling,
-citations, future indexing, prompt-injection controls, and retrieval evaluation. No automated vector RAG pipeline exists
-yet; adding one requires a new ADR, AI feature spec, eval plan, security/privacy review, rollback path, and human
-approval when high-risk sources or user-facing output are involved.
+citations, indexing, prompt-injection controls, and retrieval evaluation.
+
+## Local Project Knowledge Retrieval
+
+Polite now has local automated project-knowledge retrieval under `.ai/tools/project-knowledge` and
+`.ai/project-knowledge`. It builds a gitignored JSON index from allowlisted sources, uses local TF-IDF/cosine ranking,
+and exposes `npm run knowledge:index`, `npm run knowledge:search`, and `npm run knowledge:evaluate`. External embedding
+providers, vector databases, product RAG, and LLM-generated answers are still not implemented and require a new ADR,
+security/privacy review, evals, rollback path, and human approval when high-risk sources or user-facing output are
+involved.
 
 ## Polite Branch Prefix
 

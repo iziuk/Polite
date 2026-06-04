@@ -16,6 +16,7 @@ Current Polite baseline:
 - Public API barrels and aliases are required for cross-layer imports.
 - Accepted ADRs under `.ai/ai-sdlc/adr/`.
 - RAG-ready project knowledge policy under `.ai/ai-sdlc/rag-strategy.md`.
+- Local project-knowledge retrieval tooling under `.ai/tools/project-knowledge`.
 
 The project map in `.ai/project-map` is the first source for navigation.
 
@@ -88,21 +89,22 @@ Use `templates/adr.md`.
 
 ## RAG And Project Knowledge
 
-RAG is a knowledge-retrieval strategy, not a standalone documentation artifact. Polite's current position is
-RAG-ready documentation: AI agents retrieve project context from `AGENTS.md`, the project map, AI SDLC docs, ADRs,
-source files, and targeted searches before implementation.
+RAG is a knowledge-retrieval strategy, not a standalone documentation artifact. Polite's current position includes
+RAG-ready documentation plus local project-knowledge retrieval. AI agents retrieve project context from `AGENTS.md`, the
+project map, AI SDLC docs, ADRs, source files, targeted searches, and the local retrieval CLI before implementation.
 
 Use `.ai/ai-sdlc/rag-strategy.md` when work affects:
 
 - AI context retrieval.
 - Project knowledge management.
 - Source priority or conflict resolution.
-- Future automated RAG.
+- Future external or product RAG.
 - Embedding or vector-store providers.
 - AI-generated user-facing output grounded in retrieved context.
 - Documentation freshness, citations, indexing, or retrieval evaluation.
 
-Any automated RAG implementation requires an ADR, AI feature specification, integration contract, threat model,
+Local retrieval is documented by ADR-008 and uses no external provider. Any external provider, vector database, product
+RAG, or generated-answer implementation requires an ADR, AI feature specification, integration contract, threat model,
 privacy/PII review, evaluation plan, rollback path, and human approval when sensitive data, production, or user-facing
 output is affected.
 
