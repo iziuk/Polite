@@ -50,11 +50,13 @@ flowchart TD
   Coverage --> Artifacts["Product, BA, architecture, engineering, QA, DevOps, security, governance artifacts"]
   ADRs --> Artifacts
   Retrieval --> Artifacts
-  Artifacts --> Roles["Role reviews: PO, BA, Architect, Dev, QA, DevOps, Security"]
+  Artifacts --> Roles["Role reviews: PO, BA, Architect, Dev, PR Reviewer, QA, DevOps, Security"]
   Roles --> Gates["Quality gates and human approval checks"]
   Gates --> Implementation["Scoped implementation"]
-  Implementation --> Verification["Automated and manual verification"]
-  Verification --> Docs["Docs, ADRs, release notes, and project-map updates"]
+  Implementation --> AutoVerification["Automated verification"]
+  AutoVerification --> PRReview["Pull request/code review"]
+  PRReview --> ManualVerification["Manual QA when relevant"]
+  ManualVerification --> Docs["Docs, ADRs, release notes, and project-map updates"]
 ```
 
 - Small low-risk fixes can use the lightweight path documented in `.ai/ai-sdlc/README.md`.
@@ -64,8 +66,8 @@ flowchart TD
   decisions.
 - Local project-knowledge retrieval can build a gitignored TF-IDF/cosine index from allowlisted docs, source, config, and
   project-map files, then search it with `npm run knowledge:search -- "query"`.
-- High-risk work keeps the relevant role reviews, artifacts, gates, QA strategy, security review, release readiness,
-  rollback plan, and human approvals explicit.
+- High-risk work keeps the relevant role reviews, pull request review, artifacts, gates, QA strategy, security review,
+  release readiness, rollback plan, and human approvals explicit.
 
 ## Local Project Knowledge Retrieval
 

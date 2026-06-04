@@ -178,6 +178,8 @@ Implementation is ready when:
 Implementation is complete when:
 
 - Acceptance criteria pass.
+- Diff or pull request is ready for AI PR Reviewer review.
 - Verification was run or gaps are documented.
+- PR reviewer findings are resolved or documented before merge/final handoff.
 - Project map is updated.
 - User-facing changes are QA-ready.

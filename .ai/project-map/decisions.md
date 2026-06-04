@@ -35,6 +35,12 @@ Polite verifies managed fullstack team completeness through `.ai/ai-sdlc/complet
 complete only when every important lifecycle responsibility has an owner, input, output, quality gate, and evidence. The
 current verdict is a substantially complete operational baseline with no obvious ownerless lifecycle responsibility.
 
+## AI Pull Request Review Role
+
+Pull request review is an explicit AI SDLC responsibility owned by the AI PR Reviewer. Implementation diffs and PRs must
+pass the Pull Request Review Gate before merge or final handoff, with severity-ranked findings resolved, approved, or
+documented as residual risk.
+
 ## ADR Operating Policy And Decision Records
 
 Architecture decisions are governed by `.ai/ai-sdlc/adr.md` and stored in `.ai/ai-sdlc/adr/`. Accepted ADRs are the

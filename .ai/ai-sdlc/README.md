@@ -18,6 +18,7 @@ understand requirement
 -> plan implementation
 -> implement
 -> verify automatically
+-> review pull request diff
 -> verify manually
 -> update docs
 -> prepare release or rollback
@@ -97,9 +98,10 @@ For non-trivial work:
 6. Implementation plan.
 7. Development.
 8. Automated verification.
-9. Manual QA.
-10. Documentation and project-map update.
-11. Release readiness and rollback planning.
+9. Pull request and code review.
+10. Manual QA.
+11. Documentation and project-map update.
+12. Release readiness and rollback planning.
 
 Use `workflow.md` for stage details.
 
@@ -136,6 +138,7 @@ For meaningful work, final handoff should include:
 - Branch.
 - Scope completed.
 - Changed files.
+- Pull request review summary and unresolved findings.
 - Verification commands and results.
 - Manual QA performed or skipped.
 - Human approvals required or received.

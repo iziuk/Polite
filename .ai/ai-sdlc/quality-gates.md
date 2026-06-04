@@ -155,6 +155,7 @@ Pass when:
 - Public behavior remains stable unless intentionally changed.
 - UI copy is localized.
 - Mock data policy is followed.
+- The diff is small enough to review or the review scope is explicitly split.
 
 Blocking failures:
 
@@ -163,26 +164,48 @@ Blocking failures:
 - User-facing strings are hardcoded.
 - Mock data is scattered or unticketed.
 
-## Gate 8: Verification Gate
+## Gate 8: Automated Verification Gate
 
 Purpose:
 
-- Confirm the change was checked appropriately.
+- Confirm automated checks cover the implementation risk.
 
 Pass when:
 
 - Automated checks match blast radius.
-- Manual QA covers touched user flow when relevant.
 - Known test gaps are documented.
 - Flaky or failing tests are investigated.
 
 Blocking failures:
 
-- Critical flow is unverified.
+- Critical automated check is skipped without approval.
 - Build or lint failure is ignored.
-- Release-critical manual QA is skipped without approval.
 
-## Gate 9: Release Readiness Gate
+## Gate 9: Pull Request Review Gate
+
+Purpose:
+
+- Ensure the implementation has been reviewed as a pull request before merge or final handoff.
+
+Pass when:
+
+- AI PR Reviewer has inspected the full diff or PR.
+- Scope, affected modules, and out-of-scope changes are identified.
+- Findings are prioritized by severity and resolved, accepted by a human when required, or documented as residual risk.
+- Architecture, FSD boundaries, public APIs, localization, dependency changes, docs, and project-map triggers are checked.
+- Verification, planned or completed manual QA, security/privacy, and release evidence are sufficient for the blast
+  radius.
+- The reviewer records a merge-ready, blocked, or mergeable-with-follow-ups verdict.
+
+Blocking failures:
+
+- No reviewer pass was performed before merge/handoff.
+- A blocker finding is unresolved.
+- Unrelated or user-owned changes are mixed into the PR.
+- Required verification evidence is missing or contradicted by the diff.
+- A high-risk residual finding lacks human approval.
+
+## Gate 10: Release Readiness Gate
 
 Purpose:
 
@@ -203,7 +226,7 @@ Blocking failures:
 - Migration is irreversible and unapproved.
 - Monitoring gap is unacceptable for the risk.
 
-## Gate 10: Documentation Gate
+## Gate 11: Documentation Gate
 
 Purpose:
 
@@ -238,6 +261,7 @@ Blocking failures:
 
 - Acceptance criteria satisfied.
 - Code or docs changed only within scope.
+- Pull request review completed and blocker findings resolved or explicitly accepted.
 - Automated checks run or gaps documented.
 - Manual QA run or explicitly scoped out.
 - Security/privacy/AI risk reviewed.
@@ -251,6 +275,7 @@ Blocking failures:
 - Requirements and acceptance criteria are linked or summarized.
 - Affected modules are listed.
 - Architecture impact is stated.
+- PR reviewer verdict and unresolved findings are included.
 - Tests and verification commands are included.
 - Manual QA result is included for UI/user-flow changes.
 - Security/privacy impact is stated.

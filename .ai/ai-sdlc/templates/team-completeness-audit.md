@@ -27,6 +27,7 @@ The team is complete when every important lifecycle responsibility has:
 | Architecture             |       |       |        |              |          |
 | Frontend                 |       |       |        |              |          |
 | Backend/API/data         |       |       |        |              |          |
+| Pull request review      |       |       |        |              |          |
 | Manual QA                |       |       |        |              |          |
 | Automation QA            |       |       |        |              |          |
 | Security/privacy         |       |       |        |              |          |
@@ -57,6 +58,7 @@ The team is complete when every important lifecycle responsibility has:
 | Test Strategy          |        |          |     |
 | Manual QA Checklist    |        |          |     |
 | Automation QA Strategy |        |          |     |
+| PR Review Role/Gate    |        |          |     |
 | PR Checklist           |        |          |     |
 | Release Checklist      |        |          |     |
 | Deployment Guide       |        |          |     |
@@ -72,6 +74,7 @@ The team is complete when every important lifecycle responsibility has:
 - Security/privacy:
 - Testability:
 - Implementation plan:
+- Pull request review:
 - Automated tests:
 - Manual QA:
 - Release readiness:

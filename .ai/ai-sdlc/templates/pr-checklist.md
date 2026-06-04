@@ -20,6 +20,15 @@
 - ADR/RFC required:
 - Contracts/data models updated:
 
+## Code Review
+
+- Reviewer:
+- Reviewer verdict:
+- Findings/blockers:
+- Unrelated changes excluded:
+- FSD/public API/i18n/mock policy checked:
+- Residual risks or follow-ups:
+
 ## Verification
 
 - Lint:

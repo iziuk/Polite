@@ -266,7 +266,40 @@ Additional checks depend on risk:
 
 If a command cannot run, explain why and what was verified instead.
 
-## Stage 9: Manual QA
+## Stage 9: Pull Request Review
+
+Goal:
+
+- Review the implemented diff before merge, release handoff, or PR publication.
+
+Owner:
+
+- AI PR Reviewer.
+
+Required for:
+
+- Any code change.
+- Any docs, process, dependency, config, or project-map change that will be committed or pushed.
+- Any pull request opened or updated by AI.
+
+Pass criteria:
+
+- The diff matches the accepted scope and implementation plan.
+- Unrelated or user-owned changes are not included.
+- Architecture boundaries, public APIs, localization, dependency changes, and documentation triggers are checked.
+- Findings are prioritized by severity and cited with file/line references when applicable.
+- Automated verification, planned or completed manual QA, security/privacy, and release evidence are reviewed for
+  sufficiency.
+- The reviewer states merge-ready, blocked, or mergeable with explicit residual risks.
+
+Use:
+
+- `roles.md`.
+- `quality-gates.md`.
+- `responsibility-matrix.md`.
+- `templates/pr-checklist.md`.
+
+## Stage 10: Manual QA
 
 Goal:
 
@@ -287,7 +320,7 @@ Use:
 - `templates/regression-checklist.md`.
 - `templates/uat-checklist.md`.
 
-## Stage 10: Documentation Update
+## Stage 11: Documentation Update
 
 Goal:
 
@@ -304,7 +337,7 @@ Required updates:
 
 Always append `.ai/project-map/update-log.md` after implementation.
 
-## Stage 11: Release Readiness
+## Stage 12: Release Readiness
 
 Goal:
 

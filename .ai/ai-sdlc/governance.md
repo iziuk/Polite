@@ -25,6 +25,7 @@ artifact that preserves decision quality, traceability, and release safety.
 | RAG strategy            | AI Architect / Security   | Automated RAG, sensitive data, or production AI retrieval |
 | Team completeness audit | AI Architect / Governance | Major operating-model changes                             |
 | RFC                     | AI Architect              | Multiple stakeholders or high uncertainty                 |
+| PR review               | AI PR Reviewer            | High-risk blocker is accepted instead of fixed            |
 | Test plan               | AI QA Manual / Automation | Release-critical flow                                     |
 | Release checklist       | AI DevOps / SRE           | Production deploy                                         |
 | Threat model            | AI Security Reviewer      | Medium or high security risk                              |
@@ -134,6 +135,7 @@ For high-risk tasks, final handoff should include:
 - Branch.
 - Scope.
 - Changed files.
+- PR review verdict and unresolved findings.
 - Verification commands.
 - Manual QA performed or skipped.
 - Human approvals received or required.

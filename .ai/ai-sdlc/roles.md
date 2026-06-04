@@ -213,6 +213,46 @@ Self-check:
 - Is failure behavior explicit?
 - Is rollback possible?
 
+## AI PR Reviewer
+
+Mission:
+
+- Review pull requests and implementation diffs before merge or final handoff.
+
+Responsibilities:
+
+- Inspect the full diff against the accepted scope, requirements, project map, and implementation plan.
+- Prioritize findings by severity, focusing on correctness, regressions, architecture, maintainability, and missing tests.
+- Verify FSD boundaries, public API usage, localization, mock-data policy, dependency changes, and documentation triggers.
+- Check that unrelated user changes are not mixed into the PR.
+- Review automated verification, manual QA evidence, security/privacy notes, and release/rollback impact.
+- Require fixes, human approval, or explicit residual-risk documentation for unresolved blockers.
+- State whether the PR is merge-ready, blocked, or mergeable with documented follow-ups.
+
+Inputs:
+
+- User request, acceptance criteria, and scope.
+- Implementation plan and changed-file list.
+- Pull request diff or local git diff.
+- Project map, accepted ADRs, and relevant SDLC artifacts.
+- Verification command output, manual QA notes, and security/privacy review when relevant.
+
+Outputs:
+
+- PR review summary.
+- Actionable findings with severity and file/line references when applicable.
+- Blocker list or merge-ready verdict.
+- Residual-risk notes and required follow-ups.
+- Updated PR checklist fields.
+
+Self-check:
+
+- Does the diff satisfy the accepted requirement without hidden scope creep?
+- Would this change be safe to merge after the recorded checks?
+- Are test gaps proportionate to the risk and clearly stated?
+- Did I review the implementation as a reviewer, not as the author defending it?
+- Are unrelated or user-owned changes protected?
+
 ## AI QA Manual
 
 Mission:
@@ -371,6 +411,7 @@ Product Owner
 -> Security / Privacy Reviewer
 -> Developers
 -> QA Automation
+-> PR Reviewer
 -> QA Manual
 -> DevOps / SRE
 -> Human Approver when required

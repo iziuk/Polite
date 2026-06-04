@@ -42,5 +42,10 @@
     "id": "team-completeness-audit",
     "query": "Where is AI fullstack team completeness audited with owner input output gate evidence?",
     "expectedPaths": [".ai/ai-sdlc/completeness-audit.md", ".ai/project-map/decisions.md"]
+  },
+  {
+    "id": "pr-review-role-gate",
+    "query": "Which AI SDLC role reviews pull request diffs before merge or final handoff?",
+    "expectedPaths": [".ai/ai-sdlc/roles.md", ".ai/ai-sdlc/quality-gates.md", ".ai/project-map/decisions.md"]
   }
 ]
