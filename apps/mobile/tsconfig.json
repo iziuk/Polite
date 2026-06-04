@@ -4,6 +4,7 @@
     "allowJs": false,
     "baseUrl": "../..",
     "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "6.0",
     "isolatedModules": true,
     "paths": {
       "@app/*": ["apps/mobile/src/app/*"],

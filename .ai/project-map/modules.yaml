@@ -308,6 +308,7 @@ phrase-data:
 
 web-config:
   paths:
+    - .nvmrc
     - .gitignore
     - apps/web/package.json
     - apps/web/tsconfig.json
@@ -322,6 +323,7 @@ web-config:
   type: app
   depends_on: []
   key_files:
+    - .nvmrc
     - .gitignore
     - package.json
     - turbo.json

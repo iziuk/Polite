@@ -434,3 +434,41 @@ Notes:
   app-specific under `apps/mobile/src/shared/lib/native`.
 - No ADR created; this fills the existing mobile workspace direction from ADR-001 and static data constraints from
   ADR-003 without introducing a new backend, persistence model, or production platform decision.
+
+## 2026-06-04
+
+Changed files:
+
+- .nvmrc
+- package.json
+- package-lock.json
+- apps/web/package.json
+- apps/web/eslint.config.mjs
+- apps/web/next-env.d.ts
+- apps/web/next.config.mjs
+- apps/web/postcss.config.mjs
+- apps/web/src/app/styles/globals.css
+- apps/web/tailwind.config.js
+- apps/web/tsconfig.json
+- apps/mobile/package.json
+- apps/mobile/tsconfig.json
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> latest dependency stack and Node/npm baseline
+- modules.yaml -> web-config includes `.nvmrc`
+- decisions.md -> fresh dependency baseline convention
+
+Notes:
+
+- Rebased RN work onto `origin/main` after interface localization landed.
+- Updated direct web, mobile, and root toolchain dependencies to current stable compatible versions and migrated Tailwind
+  to the v4 PostCSS plugin/import entrypoint.
+- Kept ESLint on the latest compatible 9.x line because the Next.js 16 React lint plugin stack fails under ESLint 10.
+- Migrated Next 16 config for top-level typed routes, explicit Turbopack root, and generated typed-route declarations.
+- Audit still reports upstream moderate advisories in Next/PostCSS and Expo/xcode/uuid where npm only proposes force
+  downgrades to older major versions.
