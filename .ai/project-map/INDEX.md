@@ -6,6 +6,8 @@ Last verified: 2026-06-04
 
 - Monorepo with npm workspaces and Turbo.
 - Toolchain baseline: Node.js 22.22.1+, npm 11.16.0+, Turbo 2, ESLint 9.39+, Prettier 3, TypeScript 6.
+- JS/TS quality gates use a strict root `eslint.config.mjs`, root Prettier config, and explicit web/mobile/shared
+  typecheck scripts.
 - Web app: Next.js 16, React 19, TypeScript strict mode, Tailwind CSS 4, next-intl.
 - Mobile app: Expo SDK 56, React 19, React Native 0.85, TypeScript strict mode.
 - Shared packages: phrase data JSON under `packages/data`, platform helpers and domain types under `packages/shared`.
@@ -59,7 +61,8 @@ import through slice/segment public APIs.
 | Mobile UI primitives       | `apps/mobile/src/shared/ui/button/button.tsx`, `apps/mobile/src/shared/ui/text-input/text-input.tsx`                                       |
 | Browser helpers            | `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                                                                |
 | Mobile native helpers      | `apps/mobile/src/shared/lib/native/actions.ts`                                                                                             |
-| Web config                 | `.nvmrc`, `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/eslint.config.mjs`, `turbo.json`                                 |
+| Tooling config             | `.nvmrc`, `eslint.config.mjs`, `.prettierrc`, `package.json`, `packages/shared/tsconfig.json`, `turbo.json`                                |
+| Web config                 | `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/package.json`, `turbo.json`                                                |
 | Mobile config              | `apps/mobile/app.json`, `apps/mobile/babel.config.js`, `apps/mobile/metro.config.js`                                                       |
 | AI SDLC operating model    | `.ai/ai-sdlc/README.md`, `.ai/ai-sdlc/coverage-matrix.md`, `.ai/ai-sdlc/workflow.md`                                                       |
 | AI team completeness       | `.ai/ai-sdlc/completeness-audit.md`, `.ai/ai-sdlc/templates/team-completeness-audit.md`                                                    |
@@ -104,6 +107,10 @@ import through slice/segment public APIs.
   `apps/mobile/src/shared/core/i18n` with local `uk` and `en` message files.
 - Dependency freshness tracks latest stable direct dependencies where the ecosystem supports them; the current baseline
   requires Node.js 22.22.1+ and npm 11.16.0+.
+- JS/TS linting is enforced from the repo root with strict FSD boundaries, import ordering, naming, promise-safety,
+  filename, unused-import, and TypeScript-safety rules across web, mobile, and shared package code.
+- Future backend work should keep the monorepo shape and is currently expected to add a Python FastAPI app under
+  `apps/api`; OpenAPI should be the contract boundary between that backend and the TypeScript clients.
 - AI-assisted delivery uses `.ai/ai-sdlc` as a comprehensive managed fullstack team operating model with coverage matrix,
   role playbooks, lifecycle gates, QA strategy, DevOps/release practice, security/risk review, governance, and templates.
 - AI fullstack team completeness is audited by checking every lifecycle stage for owner, input, output, quality gate, and

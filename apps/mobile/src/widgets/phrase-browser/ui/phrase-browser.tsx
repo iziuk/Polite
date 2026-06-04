@@ -3,12 +3,12 @@ import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { PHRASE_PACKS } from "@entities/phrase";
-
 import { useTranslation } from "@shared/core/i18n";
 
 import { filterPhrases } from "../model/filter-phrases";
-import { PhraseCard } from "./phrase-card";
+
 import { phraseBrowserStyles } from "./phrase-browser.styles";
+import { PhraseCard } from "./phrase-card";
 import { PhraseToolbar } from "./phrase-toolbar";
 
 export const PhraseBrowser: FC = () => {

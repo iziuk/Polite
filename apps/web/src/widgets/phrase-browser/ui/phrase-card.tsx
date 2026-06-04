@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-
 import type { IPhrase } from "@entities/phrase";
+
+import { useState } from "react";
 
 import { useTranslation } from "@shared/core/i18n";
 import { copyText, speak } from "@shared/lib/browser";

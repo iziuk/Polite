@@ -8,7 +8,8 @@
     "build": "tsc --noEmit",
     "dev": "expo start",
     "ios": "expo start --ios",
-    "lint": "tsc --noEmit"
+    "lint": "cd ../.. && npm run lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "expo": "^56.0.8",

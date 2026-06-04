@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 
 import { PHRASE_PACKS, type IPhrase } from "@entities/phrase";
-
 import { useTranslation } from "@shared/core/i18n";
 
 import { PhraseCard } from "./phrase-card";
