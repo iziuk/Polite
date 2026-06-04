@@ -73,10 +73,17 @@ shared-i18n:
   depends_on: []
   key_files:
     - apps/web/src/shared/core/i18n/index.ts
+    - apps/web/src/shared/core/i18n/locale.ts
+    - apps/web/src/shared/core/i18n/request.ts
     - apps/web/src/shared/core/i18n/translation-map.ts
     - apps/web/src/shared/core/i18n/use-translation.ts
     - apps/web/src/shared/core/i18n/translations/en.json
+    - apps/web/src/shared/core/i18n/translations/uk.json
   public_api:
+    - DEFAULT_LOCALE
+    - SUPPORTED_LOCALES
+    - TLocale
+    - getMessages
     - translate
     - useTranslation
     - TTranslationKey
@@ -96,10 +103,12 @@ shared-ui:
   key_files:
     - apps/web/src/shared/ui/index.ts
     - apps/web/src/shared/ui/button/button.tsx
+    - apps/web/src/shared/ui/select/select.tsx
     - apps/web/src/shared/ui/text-input/text-input.tsx
     - apps/web/src/shared/lib/class-names/class-names.ts
   public_api:
     - Button
+    - Select
     - TextInput
     - classNames
   related_routes:
@@ -182,6 +191,7 @@ web-config:
     - apps/web/tailwind.config.js
     - apps/web/postcss.config.mjs
     - apps/web/eslint.config.mjs
+    - package-lock.json
     - package.json
     - turbo.json
   fsd_layer: app
@@ -191,6 +201,7 @@ web-config:
     - .gitignore
     - package.json
     - turbo.json
+    - package-lock.json
     - apps/web/package.json
     - apps/web/tsconfig.json
     - apps/web/next.config.mjs

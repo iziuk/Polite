@@ -2,8 +2,8 @@
 
 import type { IPack } from "@entities/phrase";
 
-import { useTranslation } from "@shared/core/i18n";
-import { Button, TextInput } from "@shared/ui";
+import { type TLocale, type TTranslationKey, isSupportedLocale, useTranslation } from "@shared/core/i18n";
+import { Button, Select, TextInput } from "@shared/ui";
 
 interface IPhraseToolbarProps {
   activePackId: string;
@@ -16,6 +16,11 @@ interface IPhraseToolbarProps {
 }
 
 const SEARCH_INPUT_ID = "phrase-search";
+const LANGUAGE_SELECT_ID = "interface-language";
+const LANGUAGE_OPTIONS: readonly { labelKey: TTranslationKey; locale: TLocale }[] = [
+  { labelKey: "shared.i18n.locale-option-uk", locale: "uk" },
+  { labelKey: "shared.i18n.locale-option-en", locale: "en" },
+];
 
 export const PhraseToolbar = (({
   activePackId,
@@ -26,7 +31,15 @@ export const PhraseToolbar = (({
   packs,
   query,
 }: IPhraseToolbarProps): React.ReactElement => {
-  const { t } = useTranslation();
+  const { locale, setLocale, t } = useTranslation();
+
+  const handleLocaleChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    const nextLocale = event.target.value;
+
+    if (isSupportedLocale(nextLocale)) {
+      setLocale(nextLocale);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -38,6 +51,16 @@ export const PhraseToolbar = (({
           </Button>
         ))}
         <div className="flex-1" />
+        <label className="flex flex-col gap-1 text-sm text-gray-500" htmlFor={LANGUAGE_SELECT_ID}>
+          {t("shared.i18n.language-label")}
+          <Select id={LANGUAGE_SELECT_ID} onChange={handleLocaleChange} value={locale}>
+            {LANGUAGE_OPTIONS.map((languageOption) => (
+              <option key={languageOption.locale} value={languageOption.locale}>
+                {t(languageOption.labelKey)}
+              </option>
+            ))}
+          </Select>
+        </label>
         <Button onClick={onToggleLargeText}>
           {isLargeText ? t("widgets.phrase-browser.normal-text-action") : t("widgets.phrase-browser.large-text-action")}
         </Button>

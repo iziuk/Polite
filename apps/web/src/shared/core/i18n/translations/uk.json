@@ -1,0 +1,43 @@
+{
+  "app": {
+    "metadata": {
+      "description": "Швидкі фрази з фонетикою та озвученням",
+      "open-graph-description": "Фрази SK↔UA",
+      "title": "Polite — MVP"
+    }
+  },
+  "shared": {
+    "i18n": {
+      "language-label": "Мова інтерфейсу",
+      "locale-option-en": "English",
+      "locale-option-uk": "Українська"
+    }
+  },
+  "widgets": {
+    "phrase-browser": {
+      "anti-stupor-action": "Не зрозумів",
+      "copy-action": "Копіювати",
+      "copy-fallback-action": "Текст 🆘",
+      "copy-reply-aria-label": "Скопіювати відповідь словацькою",
+      "copy-title": "Скопіювати словацький текст",
+      "direction-label": "UA → SK",
+      "empty-state": "Нічого не знайдено за запитом.",
+      "fallback-title": "Анти-ступор: озвучити прохання повторити повільніше/уточнити",
+      "footer-next-step": "Далі винесемо офлайн (Next-PWA) і простий CMS (Supabase) для редагування паків.",
+      "footer-tip-after": "— якщо відповідь швидка і незрозуміла, одразу ж тисни",
+      "footer-tip-before": "Порада: натисни",
+      "large-text-action": "Великий текст",
+      "normal-text-action": "Звичайний текст",
+      "page-description": "Швидкі фрази з фонетикою, варіантами відповідей та «анти-ступор» кнопкою. Пакети: автосервіс, ринок, аптека, транспорт.",
+      "page-title": "Polite — розмовні пакети",
+      "replies-hide-action": "Приховати відповіді",
+      "replies-show-action": "Можливі відповіді",
+      "search-label": "Пошук по українському або словацькому тексту",
+      "search-placeholder": "Наприклад: діагностика, термін, рахунок, квиток",
+      "speak-action": "Озвучити",
+      "speak-reply-aria-label": "Озвучити відповідь словацькою",
+      "speak-title": "Озвучити словацькою",
+      "ukrainian-label": "Українською:"
+    }
+  }
+}

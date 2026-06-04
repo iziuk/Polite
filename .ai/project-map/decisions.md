@@ -16,7 +16,14 @@ Cross-layer imports use `@widgets`, `@entities`, and `@shared` aliases. Shared p
 
 ## UI Copy Ownership
 
-User-facing UI copy is centralized in `apps/web/src/shared/core/i18n/translations/en.json` and accessed through `translate` or `useTranslation`.
+User-facing UI copy is centralized in `apps/web/src/shared/core/i18n/translations/*.json` and accessed through the
+`@shared/core/i18n` public API. Phrase pack domain content remains in `packages/data` rather than UI localization files.
+
+## next-intl For Interface Localization
+
+The web app uses `next-intl` for request-scoped interface localization. `apps/web/next.config.mjs` wires the plugin to
+`apps/web/src/shared/core/i18n/request.ts`, which reads a `locale` cookie and loads local `uk` or `en` messages. Routes
+remain prefix-free for the MVP; the toolbar updates the cookie and reloads the current route.
 
 ## React 19 Component Typing
 

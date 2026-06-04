@@ -12,5 +12,6 @@ Last verified: 2026-06-04
 ## Routing Notes
 
 - The app currently has a single public UI route.
-- `apps/web/next.config.mjs` enables typed routes and security headers.
+- `apps/web/next.config.mjs` enables typed routes, security headers, and the `next-intl` plugin.
+- Localization is cookie-based and does not add locale-prefixed routes.
 - No redirects or route constants are defined yet.
