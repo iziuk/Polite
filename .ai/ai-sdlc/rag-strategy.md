@@ -28,9 +28,9 @@ and `.ai/project-knowledge`.
 Commands:
 
 ```bash
-yarn knowledge:index
-yarn knowledge:search -- "ADR RAG approval gates"
-yarn knowledge:evaluate
+npm run knowledge:index
+npm run knowledge:search -- "ADR RAG approval gates"
+npm run knowledge:evaluate
 ```
 
 Local retrieval:

@@ -38,7 +38,7 @@ The tool:
 - Runs a conservative secret-signal scan before indexing files.
 - Stores metadata such as source path, source type, owner role, authority level, module, risk level, and line range.
 - Uses local TF-IDF vectors and cosine similarity for retrieval.
-- Provides Yarn scripts for indexing, searching, and retrieval evaluation.
+- Provides npm scripts for indexing, searching, and retrieval evaluation.
 - Does not call an LLM, embedding provider, or vector database.
 
 The generated index is ignored by git and should be regenerated after relevant documentation, source, config, or
@@ -124,9 +124,9 @@ The tool must not index secrets, credentials, private prompts, sensitive persona
 Commands:
 
 ```bash
-yarn knowledge:index
-yarn knowledge:search -- "query"
-yarn knowledge:evaluate
+npm run knowledge:index
+npm run knowledge:search -- "query"
+npm run knowledge:evaluate
 ```
 
 Generated artifact:
@@ -143,7 +143,7 @@ Rollback is simple:
 
 - Remove `.ai/tools/project-knowledge`.
 - Remove `.ai/project-knowledge`.
-- Remove Yarn knowledge scripts.
+- Remove npm knowledge scripts.
 - Remove generated `.ai/project-knowledge/index.json`.
 - Supersede this ADR if a different retrieval architecture replaces it.
 

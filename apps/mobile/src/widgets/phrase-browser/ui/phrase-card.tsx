@@ -24,7 +24,7 @@ export const PhraseCard: FC<IPhraseCardProps> = ({ isLargeText, phrase }) => {
   const phoneticTextStyle = isLargeText ? phraseCardStyles.phoneticLarge : phraseCardStyles.phoneticNormal;
 
   return (
-    <View style={phraseCardStyles.card} testID={`phrase-card-${phrase.id}`}>
+    <View style={phraseCardStyles.card}>
       <View style={phraseCardStyles.header}>
         <View style={phraseCardStyles.body}>
           <Text style={phraseCardStyles.direction}>{t("widgets.phrase-browser.direction-label")}</Text>
@@ -36,30 +36,22 @@ export const PhraseCard: FC<IPhraseCardProps> = ({ isLargeText, phrase }) => {
         </View>
 
         <View style={phraseCardStyles.actionRow}>
-          <Button onPress={() => speak(phrase.sk)} testID={`phrase-speak-${phrase.id}`} variant="primary">
+          <Button onPress={() => speak(phrase.sk)} variant="primary">
             🔊 {t("widgets.phrase-browser.speak-action")}
           </Button>
-          <Button onPress={() => copyText(phrase.sk)} testID={`phrase-copy-${phrase.id}`}>
-            📋 {t("widgets.phrase-browser.copy-action")}
-          </Button>
+          <Button onPress={() => copyText(phrase.sk)}>📋 {t("widgets.phrase-browser.copy-action")}</Button>
         </View>
       </View>
 
       {hasExpectedReplies ? (
         <View>
-          <Button
-            style={phraseCardStyles.replyToggle}
-            onPress={() => setIsRepliesVisible((currentIsRepliesVisible) => !currentIsRepliesVisible)}
-            testID={`phrase-replies-toggle-${phrase.id}`}>
+          <Button style={phraseCardStyles.replyToggle} onPress={() => setIsRepliesVisible((currentIsRepliesVisible) => !currentIsRepliesVisible)}>
             {isRepliesVisible ? t("widgets.phrase-browser.replies-hide-action") : t("widgets.phrase-browser.replies-show-action")}
           </Button>
           {isRepliesVisible ? (
             <View style={phraseCardStyles.replies}>
-              {expectedReplies.map((expectedReply, expectedReplyIndex) => (
-                <View
-                  style={phraseCardStyles.replyCard}
-                  key={`${expectedReply.sk}-${expectedReply.ua}`}
-                  testID={`phrase-reply-${phrase.id}-${expectedReplyIndex}`}>
+              {expectedReplies.map((expectedReply) => (
+                <View style={phraseCardStyles.replyCard} key={`${expectedReply.sk}-${expectedReply.ua}`}>
                   <View style={phraseCardStyles.replyTextBlock}>
                     <Text style={[phraseCardStyles.phrase, phraseTextStyle]}>{expectedReply.sk}</Text>
                     <Text style={phraseCardStyles.translation}>
@@ -67,18 +59,10 @@ export const PhraseCard: FC<IPhraseCardProps> = ({ isLargeText, phrase }) => {
                     </Text>
                   </View>
                   <View style={phraseCardStyles.replyCopyRow}>
-                    <Button
-                      accessibilityLabel={t("widgets.phrase-browser.speak-reply-aria-label")}
-                      onPress={() => speak(expectedReply.sk)}
-                      size="icon"
-                      testID={`phrase-reply-speak-${phrase.id}-${expectedReplyIndex}`}>
+                    <Button accessibilityLabel={t("widgets.phrase-browser.speak-reply-aria-label")} onPress={() => speak(expectedReply.sk)} size="icon">
                       🔊
                     </Button>
-                    <Button
-                      accessibilityLabel={t("widgets.phrase-browser.copy-reply-aria-label")}
-                      onPress={() => copyText(expectedReply.sk)}
-                      size="icon"
-                      testID={`phrase-reply-copy-${phrase.id}-${expectedReplyIndex}`}>
+                    <Button accessibilityLabel={t("widgets.phrase-browser.copy-reply-aria-label")} onPress={() => copyText(expectedReply.sk)} size="icon">
                       📋
                     </Button>
                   </View>
@@ -91,12 +75,10 @@ export const PhraseCard: FC<IPhraseCardProps> = ({ isLargeText, phrase }) => {
 
       {fallbackPhrase ? (
         <View style={phraseCardStyles.fallbackRow}>
-          <Button onPress={() => speak(fallbackPhrase.sk)} testID={`phrase-fallback-speak-${phrase.id}`} variant="ghost">
+          <Button onPress={() => speak(fallbackPhrase.sk)} variant="ghost">
             🆘 {t("widgets.phrase-browser.anti-stupor-action")}
           </Button>
-          <Button onPress={() => copyText(fallbackPhrase.sk)} testID={`phrase-fallback-copy-${phrase.id}`}>
-            📝 {t("widgets.phrase-browser.copy-fallback-action")}
-          </Button>
+          <Button onPress={() => copyText(fallbackPhrase.sk)}>📝 {t("widgets.phrase-browser.copy-fallback-action")}</Button>
         </View>
       ) : null}
     </View>

@@ -1,15 +1,12 @@
 # ADR-001: Use Npm Workspace Monorepo With Next.js Web App
 
-Status: Superseded by [ADR-009](adr-009-yarn-4-test-automation-stack.md)
+Status: Accepted
 
 Date: 2026-06-04
 
 Owner: AI Architect
 
 Related work: `package.json`, `apps/web/package.json`, `.ai/project-map/INDEX.md`
-
-Superseded note: the monorepo and Next.js app shape remain, but the package-manager and test automation baseline moved
-to Yarn 4 and ADR-009.
 
 ## Context
 

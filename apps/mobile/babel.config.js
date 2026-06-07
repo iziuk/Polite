@@ -13,7 +13,6 @@ module.exports = function getBabelConfig(api) {
             "@features": "./src/features",
             "@pages": "./src/pages",
             "@polite/data": "../../packages/data",
-            "@polite/shared/lib": "../../packages/shared/src/lib",
             "@polite/shared/types": "../../packages/shared/src/types",
             "@shared": "./src/shared",
             "@widgets": "./src/widgets",

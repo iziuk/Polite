@@ -11,19 +11,19 @@ or vector database.
 Build the local index:
 
 ```bash
-yarn knowledge:index
+npm run knowledge:index
 ```
 
 Search the index:
 
 ```bash
-yarn knowledge:search -- "ADR RAG approval gates"
+npm run knowledge:search -- "ADR RAG approval gates"
 ```
 
 Run retrieval evaluation cases:
 
 ```bash
-yarn knowledge:evaluate
+npm run knowledge:evaluate
 ```
 
 ## Generated Files

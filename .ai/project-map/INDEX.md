@@ -1,16 +1,13 @@
 # Polite Project Map
 
-Last verified: 2026-06-08
+Last verified: 2026-06-04
 
 ## Stack
 
-- Monorepo with Yarn 4 workspaces, `nodeLinker: node-modules`, and Turbo.
-- Toolchain baseline: Node.js 22.22.1+, Yarn 4.12.0+, Turbo 2, ESLint 9.39+, Prettier 3, TypeScript 6.
+- Monorepo with npm workspaces and Turbo.
+- Toolchain baseline: Node.js 22.22.1+, npm 11.16.0+, Turbo 2, ESLint 9.39+, Prettier 3, TypeScript 6.
 - JS/TS quality gates use a strict root `eslint.config.mjs`, root Prettier config, and explicit web/mobile/shared
   typecheck scripts.
-- Unit/component tests use Vitest for web/shared and Jest with `jest-expo` for Expo/RN, both with 100% covered-source
-  thresholds.
-- E2E uses Playwright for the web app and Maestro/EAS Workflows for native iOS/Android mobile journeys.
 - Web app: Next.js 16, React 19, TypeScript strict mode, Tailwind CSS 4, next-intl.
 - Mobile app: Expo SDK 56, React 19, React Native 0.85, TypeScript strict mode.
 - Shared packages: phrase data JSON under `packages/data`, platform helpers and domain types under `packages/shared`.
@@ -62,11 +59,11 @@ import through slice/segment public APIs.
 | Mobile UI copy             | `apps/mobile/src/shared/core/i18n/translations/en.json`, `apps/mobile/src/shared/core/i18n/translations/uk.json`                           |
 | Shared UI primitives       | `apps/web/src/shared/ui/button/button.tsx`, `apps/web/src/shared/ui/select/select.tsx`, `apps/web/src/shared/ui/text-input/text-input.tsx` |
 | Mobile UI primitives       | `apps/mobile/src/shared/ui/button/button.tsx`, `apps/mobile/src/shared/ui/text-input/text-input.tsx`                                       |
-| Shared helpers             | `packages/shared/src/lib/filter-phrases.ts`, `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                   |
+| Browser helpers            | `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                                                                |
 | Mobile native helpers      | `apps/mobile/src/shared/lib/native/actions.ts`                                                                                             |
-| Tooling config             | `.yarnrc.yml`, `yarn.lock`, `vitest.config.ts`, `playwright.config.ts`, `eslint.config.mjs`, `package.json`, `turbo.json`                  |
-| Web config                 | `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/package.json`, `tests/e2e/web/phrase-browser.spec.ts`                      |
-| Mobile config              | `apps/mobile/app.json`, `apps/mobile/babel.config.js`, `apps/mobile/metro.config.js`, `apps/mobile/jest.config.js`, `apps/mobile/eas.json` |
+| Tooling config             | `.nvmrc`, `eslint.config.mjs`, `.prettierrc`, `package.json`, `packages/shared/tsconfig.json`, `turbo.json`                                |
+| Web config                 | `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/package.json`, `turbo.json`                                                |
+| Mobile config              | `apps/mobile/app.json`, `apps/mobile/babel.config.js`, `apps/mobile/metro.config.js`                                                       |
 | AI SDLC operating model    | `.ai/ai-sdlc/README.md`, `.ai/ai-sdlc/coverage-matrix.md`, `.ai/ai-sdlc/workflow.md`                                                       |
 | AI team completeness       | `.ai/ai-sdlc/completeness-audit.md`, `.ai/ai-sdlc/templates/team-completeness-audit.md`                                                    |
 | Product, BA, architecture  | `.ai/ai-sdlc/product-business.md`, `.ai/ai-sdlc/business-analysis.md`, `.ai/ai-sdlc/architecture.md`                                       |
@@ -76,13 +73,13 @@ import through slice/segment public APIs.
 | RAG feature and evals      | `.ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md`, `.ai/ai-sdlc/evaluations/`                                                 |
 | AI team roles and QA       | `.ai/ai-sdlc/roles.md`, `.ai/ai-sdlc/responsibility-matrix.md`, `.ai/ai-sdlc/quality-gates.md`, `.ai/ai-sdlc/qa-manual.md`                 |
 | Pull request lifecycle     | `.ai/ai-sdlc/templates/pr-checklist.md`, `.ai/ai-sdlc/completeness-audit.md`                                                               |
-| Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/automation-test-plan-yarn4-coverage-e2e.md`, `.ai/ai-sdlc/devops-release.md`                  |
+| Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/devops-release.md`, `.ai/ai-sdlc/security-risk.md`                                            |
 
 ## Main Flows
 
 1. `/` renders `PhraseBrowser` from `@widgets/phrase-browser`.
 2. `PhraseBrowser` reads static packs from `@entities/phrase`, owns local selected-pack, query, and large-text state.
-3. Filtering uses `filterPhrases` from `packages/shared/src/lib` and is memoized from the active pack and query.
+3. Filtering is local and memoized from the active pack and query.
 4. `PhraseCard` invokes `speak` and `copyText` through `@shared/lib/browser`.
 5. `next-intl` reads the locale from the `locale` cookie through `@shared/core/i18n/request`, then provides messages to
    the app layout.
@@ -111,14 +108,10 @@ import through slice/segment public APIs.
 - Interface localization uses `next-intl` with local `uk` and `en` message files and a cookie-based locale preference.
 - Mobile interface localization uses a client-local provider and translation map under
   `apps/mobile/src/shared/core/i18n` with local `uk` and `en` message files.
-- Yarn 4 with `nodeLinker: node-modules` is the package-manager baseline; ADR-009 supersedes ADR-001 for the previous
-  npm workspace tooling decision.
 - Dependency freshness tracks latest stable direct dependencies where the ecosystem supports them; the current baseline
-  requires Node.js 22.22.1+ and Yarn 4.12.0+.
+  requires Node.js 22.22.1+ and npm 11.16.0+.
 - JS/TS linting is enforced from the repo root with strict FSD boundaries, import ordering, naming, promise-safety,
   filename, unused-import, and TypeScript-safety rules across web, mobile, and shared package code.
-- Vitest and Jest enforce 100% covered-source thresholds; Playwright covers the web journey, and Maestro covers native
-  mobile journeys where simulator/emulator or EAS infrastructure is available.
 - Future backend work should keep the monorepo shape and is currently expected to add a Python FastAPI app under
   `apps/api`; OpenAPI should be the contract boundary between that backend and the TypeScript clients.
 - AI-assisted delivery uses `.ai/ai-sdlc` as a comprehensive managed fullstack team operating model with coverage matrix,
@@ -132,8 +125,7 @@ import through slice/segment public APIs.
 - Current RAG posture includes local project-knowledge retrieval through `.ai/tools/project-knowledge`; external
   provider/vector database/product RAG is not implemented and requires ADR, evals, security/privacy review, and approval
   before adoption.
-- Local retrieval is governed by ADR-008, exposed through Yarn knowledge scripts, and verified with
-  `.ai/project-knowledge/eval-cases.json`.
+- Local retrieval is governed by ADR-008 and verified with `.ai/project-knowledge/eval-cases.json`.
 - Every new task starts on a new dedicated `polite/` branch; reuse an existing branch only for clear continuations of
   the same task or PR, and ask when task boundaries are unclear.
 - Completed and verified tasks should be committed and pushed automatically; if readiness or safety is uncertain, ask

@@ -2,11 +2,7 @@
 /out-tsc
 
 node_modules/
-.yarn/
 .turbo/
-coverage/
-test-results/
-playwright-report/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

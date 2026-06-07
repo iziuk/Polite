@@ -2,4 +2,4 @@ export { DEFAULT_LOCALE, LOCALE_COOKIE_NAME, SUPPORTED_LOCALES, isSupportedLocal
 export type { TLocale } from "./locale";
 export { getMessages, translate } from "./translation-map";
 export type { TTranslationKey } from "./translation-map";
-export { getClientCookieLocale, getDocumentLocale, useTranslation } from "./use-translation";
+export { useTranslation } from "./use-translation";
