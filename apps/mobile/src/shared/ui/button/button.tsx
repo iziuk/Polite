@@ -13,7 +13,16 @@ interface IButtonProps {
   onPress?: (event: GestureResponderEvent) => void;
   size?: TButtonSize;
   style?: StyleProp<ViewStyle>;
+  testID?: string;
   variant?: TButtonVariant;
+}
+
+interface IButtonContainerStyleOptions {
+  isDisabled: boolean;
+  isPressed: boolean;
+  size: TButtonSize;
+  style?: StyleProp<ViewStyle>;
+  variant: TButtonVariant;
 }
 
 const getVariantStyle = (variant: TButtonVariant): ViewStyle => {
@@ -42,20 +51,34 @@ const getTextVariantStyle = (variant: TButtonVariant): TextStyle => {
   }
 };
 
-export const Button: FC<IButtonProps> = ({ accessibilityLabel, children, isDisabled = false, onPress, size = "default", style, variant = "secondary" }) => (
+export const getButtonContainerStyle = ({ isDisabled, isPressed, size, style, variant }: IButtonContainerStyleOptions): StyleProp<ViewStyle> => [
+  buttonStyles.base,
+  getVariantStyle(variant),
+  size === "icon" ? buttonStyles.iconSize : buttonStyles.defaultSize,
+  isPressed ? buttonStyles.pressed : null,
+  isDisabled ? buttonStyles.disabled : null,
+  style,
+];
+
+export const getButtonTextStyle = (variant: TButtonVariant): StyleProp<TextStyle> => [buttonStyles.text, getTextVariantStyle(variant)];
+
+export const Button: FC<IButtonProps> = ({
+  accessibilityLabel,
+  children,
+  isDisabled = false,
+  onPress,
+  size = "default",
+  style,
+  testID,
+  variant = "secondary",
+}) => (
   <Pressable
     accessibilityLabel={accessibilityLabel}
     accessibilityRole="button"
     disabled={isDisabled}
     onPress={onPress}
-    style={({ pressed }) => [
-      buttonStyles.base,
-      getVariantStyle(variant),
-      size === "icon" ? buttonStyles.iconSize : buttonStyles.defaultSize,
-      pressed ? buttonStyles.pressed : null,
-      isDisabled ? buttonStyles.disabled : null,
-      style,
-    ]}>
-    <Text style={[buttonStyles.text, getTextVariantStyle(variant)]}>{children}</Text>
+    style={({ pressed }) => getButtonContainerStyle({ isDisabled, isPressed: pressed, size, style, variant })}
+    testID={testID}>
+    <Text style={getButtonTextStyle(variant)}>{children}</Text>
   </Pressable>
 );
