@@ -220,9 +220,9 @@ Review ADRs:
 
 ## Baseline ADR Set
 
-The initial Polite ADR set records current project-level decisions:
+The Polite ADR set records current project-level decisions:
 
-- ADR-001: Use npm workspace monorepo with Next.js web app.
+- ADR-001: Use npm workspace monorepo with Next.js web app. Superseded by ADR-009 for package-manager direction.
 - ADR-002: Use Feature-Sliced Design boundaries for the web app.
 - ADR-003: Use static phrase packs as the MVP data source.
 - ADR-004: Use Project Cartographer as required navigation memory.
@@ -230,12 +230,12 @@ The initial Polite ADR set records current project-level decisions:
 - ADR-006: Require human approval gates for high-risk work.
 - ADR-007: Adopt a RAG-ready knowledge retrieval policy.
 - ADR-008: Use local project knowledge retrieval.
+- ADR-009: Use Yarn 4 and the web/RN test automation stack.
 
 Future examples that would require ADRs:
 
 - Use PostgreSQL as primary database.
 - Use TanStack Query for backend server state after APIs exist.
-- Use Playwright for E2E tests.
 - Use GitHub Actions for CI/CD.
 - Use a specific AI model/provider.
 - Use a vector database or embedding provider for automated RAG.

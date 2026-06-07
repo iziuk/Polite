@@ -1,22 +1,13 @@
 "use client";
 
+import { filterPhrases } from "@polite/shared/lib";
 import { useMemo, useState } from "react";
 
-import { PHRASE_PACKS, type IPhrase } from "@entities/phrase";
+import { PHRASE_PACKS } from "@entities/phrase";
 import { useTranslation } from "@shared/core/i18n";
 
 import { PhraseCard } from "./phrase-card";
 import { PhraseToolbar } from "./phrase-toolbar";
-
-const filterPhrases = (phrases: readonly IPhrase[], query: string): readonly IPhrase[] => {
-  const normalizedQuery = query.trim().toLowerCase();
-
-  if (normalizedQuery.length === 0) {
-    return phrases;
-  }
-
-  return phrases.filter((phrase) => [phrase.ua, phrase.sk, phrase.phonetic_ua].some((phraseText) => phraseText.toLowerCase().includes(normalizedQuery)));
-};
 
 export const PhraseBrowser = ((): React.ReactElement => {
   const { t } = useTranslation();

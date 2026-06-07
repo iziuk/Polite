@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "cd ../.. && npm run lint",
+    "lint": "cd ../.. && yarn lint",
     "typecheck": "tsc --noEmit",
     "start": "next start"
   },
@@ -21,6 +21,7 @@
     "@types/node": "^22.19.19",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.7",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.7",

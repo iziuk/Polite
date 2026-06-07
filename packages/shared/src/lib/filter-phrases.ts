@@ -1,4 +1,4 @@
-import type { IPhrase } from "@entities/phrase";
+import type { IPhrase } from "../types";
 
 export const filterPhrases = (phrases: readonly IPhrase[], query: string): readonly IPhrase[] => {
   const normalizedQuery = query.trim().toLowerCase();
