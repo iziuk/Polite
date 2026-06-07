@@ -156,12 +156,8 @@ For meaningful work, final handoff should include:
 Current baseline verification:
 
 ```bash
-corepack yarn install --immutable
-yarn lint
-yarn typecheck
-yarn test:coverage
-yarn build
-yarn format:check
+npm run lint
+npm run build
 ```
 
 Current branch convention:
@@ -177,11 +173,10 @@ Current branch convention:
 
 Current product baseline:
 
-- Polite is a web/PWA and Expo/RN phrase browser MVP.
+- Polite is a web/PWA phrase browser MVP.
 - Static phrase packs live in `packages/data`.
 - Shared browser helpers and domain types live in `packages/shared`.
-- Web UI uses FSD modules under `apps/web/src`; mobile UI uses FSD modules under `apps/mobile/src`.
-- Yarn 4 with `nodeLinker: node-modules` is the package manager baseline.
+- Web UI uses FSD modules under `apps/web/src`.
 
 Current knowledge baseline:
 

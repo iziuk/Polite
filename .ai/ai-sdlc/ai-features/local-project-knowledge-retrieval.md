@@ -59,7 +59,7 @@ No generation prompt is used. Search results are context for an AI or human, not
 - Eval dataset: `.ai/project-knowledge/eval-cases.json`.
 - Quality metrics: expected-path recall in top 8 results.
 - Safety tests: secret-like content refusal during index build; generated index ignored by git.
-- Regression evals: `yarn knowledge:evaluate`.
+- Regression evals: `npm run knowledge:evaluate`.
 
 ## Failure Modes
 
@@ -88,7 +88,7 @@ source files remain higher authority than search results.
 
 ## Rollback Or Disable Path
 
-Remove Yarn knowledge scripts, `.ai/tools/project-knowledge`, `.ai/project-knowledge`, and the generated index.
+Remove npm knowledge scripts, `.ai/tools/project-knowledge`, `.ai/project-knowledge`, and the generated index.
 
 ## Approval
 

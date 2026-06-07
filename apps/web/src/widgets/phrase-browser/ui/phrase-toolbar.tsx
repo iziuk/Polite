@@ -2,9 +2,7 @@
 
 import type { IPack } from "@entities/phrase";
 
-import { useEffect, useState } from "react";
-
-import { type TLocale, type TTranslationKey, getClientCookieLocale, isSupportedLocale, useTranslation } from "@shared/core/i18n";
+import { type TLocale, type TTranslationKey, isSupportedLocale, useTranslation } from "@shared/core/i18n";
 import { Button, Select, TextInput } from "@shared/ui";
 
 interface IPhraseToolbarProps {
@@ -34,17 +32,11 @@ export const PhraseToolbar = (({
   query,
 }: IPhraseToolbarProps): React.ReactElement => {
   const { locale, setLocale, t } = useTranslation();
-  const [selectedLocale, setSelectedLocale] = useState<TLocale>(locale);
-
-  useEffect(() => {
-    setSelectedLocale(getClientCookieLocale() ?? locale);
-  }, [locale]);
 
   const handleLocaleChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     const nextLocale = event.target.value;
 
     if (isSupportedLocale(nextLocale)) {
-      setSelectedLocale(nextLocale);
       setLocale(nextLocale);
     }
   };
@@ -61,7 +53,7 @@ export const PhraseToolbar = (({
         <div className="flex-1" />
         <label className="flex flex-col gap-1 text-sm text-gray-500" htmlFor={LANGUAGE_SELECT_ID}>
           {t("shared.i18n.language-label")}
-          <Select id={LANGUAGE_SELECT_ID} onChange={handleLocaleChange} value={selectedLocale}>
+          <Select id={LANGUAGE_SELECT_ID} onChange={handleLocaleChange} value={locale}>
             {LANGUAGE_OPTIONS.map((languageOption) => (
               <option key={languageOption.locale} value={languageOption.locale}>
                 {t(languageOption.labelKey)}

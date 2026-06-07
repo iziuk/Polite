@@ -88,7 +88,7 @@ flowchart TD
 - Context retrieval follows `.ai/ai-sdlc/rag-strategy.md`; accepted ADRs in `.ai/ai-sdlc/adr/` constrain architecture
   decisions.
 - Local project-knowledge retrieval can build a gitignored TF-IDF/cosine index from allowlisted docs, source, config, and
-  project-map files, then search it with `yarn knowledge:search -- "query"`.
+  project-map files, then search it with `npm run knowledge:search -- "query"`.
 - High-risk work keeps the relevant role reviews, pull request creation, pull request review, merge readiness, artifacts,
   gates, QA strategy, security review, release readiness, rollback plan, and human approvals explicit.
 

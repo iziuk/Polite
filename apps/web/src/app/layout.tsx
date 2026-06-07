@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: IRootLayoutProps): Promis
         <meta content="#4f46e5" name="theme-color" />
       </head>
       <body className="min-h-screen bg-gradient-to-b from-indigo-50 to-white text-gray-900">
-        <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

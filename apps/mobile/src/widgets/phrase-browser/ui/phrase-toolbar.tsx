@@ -34,11 +34,7 @@ export const PhraseToolbar: FC<IPhraseToolbarProps> = ({ activePackId, isLargeTe
     <View style={phraseToolbarStyles.toolbar}>
       <View style={phraseToolbarStyles.packButtons}>
         {packs.map((pack) => (
-          <Button
-            key={pack.id}
-            onPress={() => onChangePack(pack.id)}
-            testID={`phrase-pack-${pack.id}`}
-            variant={activePackId === pack.id ? "primary" : "secondary"}>
+          <Button key={pack.id} onPress={() => onChangePack(pack.id)} variant={activePackId === pack.id ? "primary" : "secondary"}>
             {pack.emoji ?? "📦"} {pack.title}
           </Button>
         ))}
@@ -50,14 +46,13 @@ export const PhraseToolbar: FC<IPhraseToolbarProps> = ({ activePackId, isLargeTe
                 accessibilityLabel={t(languageOption.labelKey)}
                 key={languageOption.locale}
                 onPress={() => handleLocaleChange(languageOption.locale)}
-                testID={`language-${languageOption.locale}`}
                 variant={locale === languageOption.locale ? "primary" : "secondary"}>
                 {t(languageOption.labelKey)}
               </Button>
             ))}
           </View>
         </View>
-        <Button onPress={onToggleLargeText} testID="large-text-toggle">
+        <Button onPress={onToggleLargeText}>
           {isLargeText ? t("widgets.phrase-browser.normal-text-action") : t("widgets.phrase-browser.large-text-action")}
         </Button>
       </View>
@@ -69,7 +64,6 @@ export const PhraseToolbar: FC<IPhraseToolbarProps> = ({ activePackId, isLargeTe
           onChangeText={onChangeQuery}
           placeholder={t("widgets.phrase-browser.search-placeholder")}
           returnKeyType="search"
-          testID="phrase-search-input"
           value={query}
         />
       </View>

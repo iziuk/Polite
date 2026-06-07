@@ -39,22 +39,15 @@ Use `templates/environment-doc.md`.
 Baseline commands:
 
 ```bash
-corepack yarn install --immutable
-yarn lint
-yarn typecheck
-yarn test:coverage
-yarn build
-yarn format:check
+npm run lint
+npm run build
 ```
 
 Local app command:
 
 ```bash
-yarn dev:web
+npm run dev:web
 ```
-
-Mobile E2E requires local Maestro plus an iOS simulator or Android emulator. EAS Workflows can run Maestro against
-simulator/APK builds after the Expo/EAS project and token are configured.
 
 Manual local checks should use `qa-manual.md`.
 

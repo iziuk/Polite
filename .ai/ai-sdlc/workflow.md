@@ -252,12 +252,8 @@ Goal:
 Baseline:
 
 ```bash
-corepack yarn install --immutable
-yarn lint
-yarn typecheck
-yarn test:coverage
-yarn build
-yarn format:check
+npm run lint
+npm run build
 ```
 
 Additional checks depend on risk:

@@ -8,12 +8,10 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
-      "bundleIdentifier": "com.polite.app",
       "supportsTablet": true
     },
     "android": {
-      "edgeToEdgeEnabled": true,
-      "package": "com.polite.app"
+      "edgeToEdgeEnabled": true
     }
   }
 }

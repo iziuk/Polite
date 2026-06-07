@@ -66,7 +66,7 @@ async function main() {
   const query = args.queryParts.join(" ").trim();
 
   if (query.length === 0) {
-    console.error('Usage: yarn knowledge:search -- "query" [--limit 8] [--index .ai/project-knowledge/index.json]');
+    console.error('Usage: npm run knowledge:search -- "query" [--limit 8] [--index .ai/project-knowledge/index.json]');
     process.exitCode = 1;
     return;
   }

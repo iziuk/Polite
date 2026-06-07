@@ -1,6 +1,6 @@
 # Architectural Decisions
 
-Last verified: 2026-06-08
+Last verified: 2026-06-04
 
 ## Static Phrase Packs For MVP
 
@@ -46,18 +46,11 @@ remain prefix-free for the MVP; the toolbar updates the cookie and reloads the c
 The web app uses guarded browser helper facades for Web Speech and Clipboard APIs. The mobile app uses Expo-native
 `expo-speech` and `expo-clipboard` wrappers in `apps/mobile/src/shared/lib/native` for the same phrase card actions.
 
-## Yarn 4 Tooling And Test Automation
-
-Polite uses Yarn 4 with `nodeLinker: node-modules` as the package-manager baseline. ADR-009 supersedes ADR-001 for the
-previous npm workspace tooling direction while preserving the monorepo shape. Web/shared tests use Vitest, Expo/RN tests
-use Jest with `jest-expo`, web E2E uses Playwright, and native mobile E2E uses Maestro with EAS Workflow definitions.
-Vitest and Jest enforce 100% covered-source thresholds; E2E remains pass/fail journey coverage.
-
 ## Fresh Dependency Baseline
 
 Direct dependencies track latest stable releases where the surrounding ecosystem supports them. The current baseline is
-Node.js 22.22.1+ and Yarn 4.12.0+ so Next.js 16, Expo SDK 56, React Native 0.85, the latest ESLint 9 compatible line,
-Tailwind CSS 4, and TypeScript 6 can be used without downgrading to older toolchains. ESLint 10 is held
+Node.js 22.22.1+ and npm 11.16.0+ so Next.js 16, Expo SDK 56, React Native 0.85, the latest ESLint 9 compatible line,
+lint-staged 17, Tailwind CSS 4, and TypeScript 6 can be used without downgrading to older toolchains. ESLint 10 is held
 until the Next.js React lint plugin stack supports its rule context API. Transitive audit fixes must not force major
 downgrades of Next.js or Expo.
 
@@ -66,7 +59,7 @@ downgrades of Next.js or Expo.
 JS/TS linting is enforced from the repo root with `eslint.config.mjs` rather than app-local lint commands. The strict
 baseline covers FSD layer boundaries, public API import depth, import ordering, kebab-case filenames, unused imports,
 promise safety, TypeScript safety, and naming rules across `apps/web`, `apps/mobile`, and `packages/shared`. Prettier
-stays separate from ESLint and is checked with `yarn format:check`.
+stays separate from ESLint and is checked with `npm run format:check`.
 
 ## Future Python API Backend
 
@@ -112,7 +105,7 @@ citations, indexing, prompt-injection controls, and retrieval evaluation.
 
 Polite now has local automated project-knowledge retrieval under `.ai/tools/project-knowledge` and
 `.ai/project-knowledge`. It builds a gitignored JSON index from allowlisted sources, uses local TF-IDF/cosine ranking,
-and exposes `yarn knowledge:index`, `yarn knowledge:search`, and `yarn knowledge:evaluate`. External embedding
+and exposes `npm run knowledge:index`, `npm run knowledge:search`, and `npm run knowledge:evaluate`. External embedding
 providers, vector databases, product RAG, and LLM-generated answers are still not implemented and require a new ADR,
 security/privacy review, evals, rollback path, and human approval when high-risk sources or user-facing output are
 involved.

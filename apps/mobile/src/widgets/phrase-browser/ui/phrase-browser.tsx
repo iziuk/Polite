@@ -1,27 +1,26 @@
-import { filterPhrases } from "@polite/shared/lib";
 import { type FC, useMemo, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { PHRASE_PACKS, type IPack } from "@entities/phrase";
+import { PHRASE_PACKS } from "@entities/phrase";
 import { useTranslation } from "@shared/core/i18n";
+
+import { filterPhrases } from "../model/filter-phrases";
 
 import { phraseBrowserStyles } from "./phrase-browser.styles";
 import { PhraseCard } from "./phrase-card";
 import { PhraseToolbar } from "./phrase-toolbar";
-
-export const getPhrasePackById = (activePackId: string): IPack => PHRASE_PACKS.find((pack) => pack.id === activePackId) ?? PHRASE_PACKS[0];
 
 export const PhraseBrowser: FC = () => {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [isLargeText, setIsLargeText] = useState(false);
   const [activePackId, setActivePackId] = useState(PHRASE_PACKS[0].id);
-  const currentPack = useMemo(() => getPhrasePackById(activePackId), [activePackId]);
+  const currentPack = useMemo(() => PHRASE_PACKS.find((pack) => pack.id === activePackId) ?? PHRASE_PACKS[0], [activePackId]);
   const filteredPhrases = useMemo(() => filterPhrases(currentPack.phrases, query), [currentPack.phrases, query]);
 
   return (
-    <SafeAreaView edges={["top", "left", "right"]} style={phraseBrowserStyles.page} testID="phrase-browser-screen">
+    <SafeAreaView edges={["top", "left", "right"]} style={phraseBrowserStyles.page}>
       <ScrollView keyboardShouldPersistTaps="handled" style={phraseBrowserStyles.scroll} contentContainerStyle={phraseBrowserStyles.content}>
         <View style={phraseBrowserStyles.header}>
           <Text style={phraseBrowserStyles.title}>{t("widgets.phrase-browser.page-title")}</Text>
@@ -38,12 +37,12 @@ export const PhraseBrowser: FC = () => {
           query={query}
         />
 
-        <View style={phraseBrowserStyles.packTitle} testID="phrase-browser-pack-title">
+        <View style={phraseBrowserStyles.packTitle}>
           <Text style={phraseBrowserStyles.packTitleEmoji}>{currentPack.emoji}</Text>
           <Text style={phraseBrowserStyles.packTitleText}>{currentPack.title}</Text>
         </View>
 
-        <View style={phraseBrowserStyles.cardList} testID="phrase-card-list">
+        <View style={phraseBrowserStyles.cardList}>
           {filteredPhrases.map((phrase) => (
             <PhraseCard isLargeText={isLargeText} key={phrase.id} phrase={phrase} />
           ))}

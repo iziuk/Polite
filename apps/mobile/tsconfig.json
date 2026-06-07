@@ -13,12 +13,11 @@
       "@features/*": ["apps/mobile/src/features/*"],
       "@entities/*": ["apps/mobile/src/entities/*"],
       "@shared/*": ["apps/mobile/src/shared/*"],
-      "@polite/shared/lib": ["packages/shared/src/lib/index.ts"],
       "@polite/shared/types": ["packages/shared/src/types/index.ts"],
       "@polite/data/*": ["packages/data/*"]
     },
     "strict": true
   },
-  "include": ["index.ts", "jest.setup.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["index.ts", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }
