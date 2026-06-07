@@ -7,8 +7,9 @@ implementation, when to create them, and how to keep decisions aligned with Poli
 
 Current Polite baseline:
 
-- Monorepo with npm workspaces and Turbo.
+- Monorepo with Yarn 4 workspaces, `nodeLinker: node-modules`, and Turbo.
 - Web app under `apps/web`.
+- Expo/RN mobile app under `apps/mobile`.
 - Shared domain types and browser helpers under `packages/shared`.
 - Static phrase pack data under `packages/data`.
 - Next.js app route for `/`.
@@ -119,6 +120,7 @@ Current constraints:
 - Keep UI copy in i18n.
 - Keep static phrase content in data packages.
 - Do not add dependencies without a dependency review.
+- Use Yarn 4 scripts from the monorepo root for package-manager operations.
 - Keep large backend identifiers as strings if backend APIs are added.
 - Do not create git worktrees unless requested.
 - Use `polite/` branch prefix for project work.

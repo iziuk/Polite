@@ -33,17 +33,23 @@ Avoid:
 Current verification commands:
 
 ```bash
-npm run lint
-npm run build
+corepack yarn install --immutable
+yarn lint
+yarn typecheck
+yarn test:coverage
+yarn test:e2e:web
+yarn build
+yarn format:check
 ```
 
-Treat these as minimum checks until a test runner is introduced.
+Mobile E2E uses Maestro and requires a local simulator/emulator or configured EAS Workflows before `yarn
+test:e2e:mobile` can pass end to end.
 
 ## Candidate Coverage For Polite
 
 Unit candidates:
 
-- Phrase filtering logic once extracted from UI.
+- Phrase filtering logic in `packages/shared/src/lib`.
 - Translation lookup and fallback.
 - `copyText` success path.
 - `copyText` unavailable-browser path.
@@ -62,9 +68,10 @@ Integration/component candidates:
 
 E2E candidates:
 
-- Open `/`, select a pack, search, see matching phrases.
-- Trigger copy and speech actions without page crash.
-- Mobile viewport renders primary workflow without overlap.
+- Web: open `/`, select a pack, search, see matching phrases, toggle large text, trigger copy/speech actions, switch UI
+  language.
+- Mobile native: launch the Expo app on iOS/Android, select all packs, search hit/no-hit, toggle large text, open replies,
+  switch UI language, and tap copy/speech/fallback actions.
 - PWA manifest is reachable when PWA behavior is in release scope.
 
 API/contract candidates for future backend:
@@ -133,12 +140,14 @@ PR checks should run:
 
 - Lint.
 - Build.
-- Unit/integration tests when introduced.
+- Typecheck.
+- Unit/integration coverage.
+- Web E2E where browser dependencies are available.
 
 Release checks should run:
 
 - PR checks.
-- Critical E2E journeys.
+- Critical web and native E2E journeys.
 - Manual smoke checklist.
 - Migration/rollback checks when relevant.
 
@@ -168,7 +177,9 @@ Critical behavior must be covered:
 - Public API exports for shared helpers and phrase entities.
 - Future auth, payments, sensitive-data, and AI workflows.
 
-Coverage gaps must be documented in the final handoff when relevant.
+Vitest and Jest enforce 100% statement, branch, function, and line thresholds for covered web/shared/mobile source. E2E
+is pass/fail journey coverage and does not count toward line coverage. Exclusions are limited to barrels, type-only
+files, framework artifacts, generated/static translation data, configs, and test files.
 
 ## Automation QA Done Criteria
 

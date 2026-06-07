@@ -7,7 +7,6 @@ This folder stores Polite Architecture Decision Records. Use `.ai/ai-sdlc/adr.md
 
 | ADR                                                          | Status   | Decision                                                |
 | ------------------------------------------------------------ | -------- | ------------------------------------------------------- |
-| [ADR-001](adr-001-npm-workspace-nextjs-web-app.md)           | Accepted | Use npm workspace monorepo with a Next.js web app.      |
 | [ADR-002](adr-002-fsd-web-boundaries.md)                     | Accepted | Use Feature-Sliced Design boundaries for the web app.   |
 | [ADR-003](adr-003-static-phrase-packs-mvp-data.md)           | Accepted | Use static phrase packs as the MVP data source.         |
 | [ADR-004](adr-004-project-cartographer-navigation-memory.md) | Accepted | Use Project Cartographer as required navigation memory. |
@@ -15,6 +14,13 @@ This folder stores Polite Architecture Decision Records. Use `.ai/ai-sdlc/adr.md
 | [ADR-006](adr-006-human-approval-gates.md)                   | Accepted | Require human approval gates for high-risk work.        |
 | [ADR-007](adr-007-rag-ready-knowledge-retrieval-policy.md)   | Accepted | Adopt a RAG-ready knowledge retrieval policy.           |
 | [ADR-008](adr-008-local-project-knowledge-retrieval.md)      | Accepted | Use local project knowledge retrieval.                  |
+| [ADR-009](adr-009-yarn-4-test-automation-stack.md)           | Accepted | Use Yarn 4 and the web/RN test automation stack.        |
+
+## Historical Decisions
+
+| ADR                                                | Status     | Decision                                                  |
+| -------------------------------------------------- | ---------- | --------------------------------------------------------- |
+| [ADR-001](adr-001-npm-workspace-nextjs-web-app.md) | Superseded | Replaced by ADR-009 for package-manager/tooling baseline. |
 
 ## Numbering Rules
 

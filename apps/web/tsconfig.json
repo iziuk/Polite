@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["node"],
+    "types": ["node", "@testing-library/jest-dom/vitest"],
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "es2022"],
     "allowJs": false,
