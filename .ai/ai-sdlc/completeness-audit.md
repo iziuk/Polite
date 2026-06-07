@@ -16,7 +16,8 @@ RAG/project-knowledge retrieval, and project-map update rules.
 Remaining maturity work is not a missing team role. It is operational hardening that should happen as Polite moves from
 MVP toward beta/production:
 
-- Add real CI/CD configuration when a CI provider is chosen.
+- Keep GitHub Actions/Vercel CI/CD configuration reviewed as the project adds secrets, hosted native E2E, or production
+  environment protection.
 - Add production monitoring docs when production observability exists.
 - Add backend/API/database artifacts when backend capabilities exist.
 - Run a full simulation for a high-risk feature before relying on the process for payments, auth, or sensitive data.
@@ -84,6 +85,7 @@ Approver.
 | Test Strategy           | Covered                                                        | `qa-manual.md`, `qa-automation.md`, `templates/test-plan.md`                      |
 | Manual QA Checklist     | Covered                                                        | `qa-manual.md`, `templates/regression-checklist.md`, `templates/uat-checklist.md` |
 | Automation QA Strategy  | Covered                                                        | `qa-automation.md`, `templates/automation-test-plan.md`                           |
+| CI/CD Pipeline          | Covered and implemented                                        | `cicd-pipeline-github-actions-vercel.md`, `.github/workflows/`                    |
 | PR Lifecycle Role/Gates | Covered                                                        | `roles.md`, `quality-gates.md`, `responsibility-matrix.md`, `governance.md`       |
 | PR Checklist            | Covered                                                        | `quality-gates.md`, `templates/pr-checklist.md`                                   |
 | Release Checklist       | Covered                                                        | `devops-release.md`, `templates/release-checklist.md`                             |
@@ -92,8 +94,9 @@ Approver.
 | Security Checklist      | Covered                                                        | `security-risk.md`, `templates/security-review-checklist.md`                      |
 | Incident Runbook        | Covered                                                        | `devops-release.md`, `templates/incident-runbook.md`                              |
 
-Result: Artifact coverage is complete for an MVP operating baseline. Backend, API, database, CI/CD, monitoring, and
-production artifacts are template-ready and must be instantiated when those capabilities are introduced.
+Result: Artifact coverage is complete for an MVP operating baseline. CI/CD is implemented with GitHub Actions and
+Vercel. Backend, API, database, production monitoring, and external AI provider artifacts remain template-ready and must
+be instantiated when those capabilities are introduced.
 
 ## Gate Coverage Check
 

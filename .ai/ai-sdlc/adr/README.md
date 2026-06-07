@@ -15,6 +15,7 @@ This folder stores Polite Architecture Decision Records. Use `.ai/ai-sdlc/adr.md
 | [ADR-007](adr-007-rag-ready-knowledge-retrieval-policy.md)   | Accepted | Adopt a RAG-ready knowledge retrieval policy.           |
 | [ADR-008](adr-008-local-project-knowledge-retrieval.md)      | Accepted | Use local project knowledge retrieval.                  |
 | [ADR-009](adr-009-yarn-4-test-automation-stack.md)           | Accepted | Use Yarn 4 and the web/RN test automation stack.        |
+| [ADR-010](adr-010-github-actions-vercel-release-review.md)   | Accepted | Use GitHub Actions for Vercel deploys and review gates. |
 
 ## Historical Decisions
 

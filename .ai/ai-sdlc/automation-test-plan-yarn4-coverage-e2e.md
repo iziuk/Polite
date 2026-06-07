@@ -42,9 +42,9 @@
 
 ## CI Policy
 
-- PR baseline should run `corepack yarn install --immutable`, `yarn lint`, `yarn typecheck`, `yarn test:coverage`,
-  `yarn build`, and `yarn format:check`.
-- Web E2E should run where Playwright browser binaries are installed.
+- GitHub Actions runs `corepack yarn install --immutable`, `yarn lint`, `yarn typecheck`, `yarn test:coverage`,
+  `yarn build`, `yarn format:check`, and `yarn test:e2e:web`.
+- Web E2E installs Playwright browsers in CI before running the critical browser journey.
 - Native mobile E2E should run through Maestro locally or EAS Workflows after Expo/EAS project credentials are available.
 
 ## Flaky Test Risk

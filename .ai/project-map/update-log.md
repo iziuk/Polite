@@ -606,3 +606,37 @@ Notes:
 - Extracted phrase filtering into `packages/shared/src/lib/filter-phrases.ts` for web/mobile reuse.
 - Added Vitest web/shared coverage, Jest Expo/RN coverage, Playwright web E2E, and Maestro/EAS native E2E assets.
 - ADR-009 supersedes the npm package-manager portion of ADR-001.
+
+## 2026-06-08
+
+Changed files:
+
+- package.json
+- apps/web/package.json
+- yarn.lock
+- .gitattributes
+- .github/workflows/\*.yml
+- .github/pull_request_template.md
+- .husky/\*
+- .codex/skills/code-review/\*
+- scripts/create-release.mjs
+- scripts/setup-merge-driver.mjs
+- version.json
+- apps/web/vercel.json
+- .ai/ai-sdlc/adr/adr-010-github-actions-vercel-release-review.md
+- .ai/ai-sdlc/cicd-pipeline-github-actions-vercel.md
+- .ai/ai-sdlc/\*.md
+
+Updated map files:
+
+- INDEX.md -> CI/CD stack, lookup table, flow, and known decisions
+- modules.yaml -> web-config public API, new delivery-tooling module, AI SDLC key files
+- decisions.md -> GitHub Actions/Vercel release branches and manual AI review
+- update-log.md -> this entry
+
+Notes:
+
+- Added GitHub Actions root CI, Vercel preview deploys from `release/a.b.c.d`, and production deploys from `main`.
+- Added Husky hooks, Yarn lockfile merge-driver setup, release automation backed by `version.json`, and a repo-tracked
+  manual `code-review` skill.
+- CI intentionally does not call an AI API; review remains a free manual PR gate.

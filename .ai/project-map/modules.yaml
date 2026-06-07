@@ -366,6 +366,10 @@ web-config:
     - yarn dev:mobile
     - yarn build
     - yarn lint
+    - yarn start
+    - yarn prepare
+    - yarn release
+    - yarn setup-merge-driver
     - yarn typecheck
     - yarn test:coverage
     - yarn test:e2e:web
@@ -375,6 +379,48 @@ web-config:
     - yarn knowledge:index
     - yarn knowledge:search
     - yarn knowledge:evaluate
+  last_verified: 2026-06-08
+  confidence: high
+  needs_review: false
+
+delivery-tooling:
+  paths:
+    - .github
+    - .husky
+    - .codex/skills/code-review
+    - .gitattributes
+    - scripts
+    - version.json
+    - apps/web/vercel.json
+  fsd_layer: app
+  type: app
+  depends_on:
+    - web-config
+    - ai-sdlc-operating-model
+  key_files:
+    - .github/workflows/ci.yml
+    - .github/workflows/vercel-preview.yml
+    - .github/workflows/vercel-production.yml
+    - .github/pull_request_template.md
+    - .husky/prepare-commit-msg
+    - .husky/commit-msg
+    - .husky/pre-commit
+    - .husky/pre-push
+    - .codex/skills/code-review/SKILL.md
+    - .codex/skills/code-review/references/polite-review-rules.md
+    - scripts/create-release.mjs
+    - scripts/setup-merge-driver.mjs
+    - apps/web/vercel.json
+    - version.json
+  public_api:
+    - GitHub Actions CI
+    - Vercel preview deploy from release/a.b.c.d
+    - Vercel production deploy from main
+    - Manual code-review skill
+    - yarn release <a.b.c.d>
+    - yarn setup-merge-driver
+  related_routes:
+    - /
   last_verified: 2026-06-08
   confidence: high
   needs_review: false
@@ -440,6 +486,8 @@ ai-sdlc-operating-model:
     - .ai/ai-sdlc/adr.md
     - .ai/ai-sdlc/adr/README.md
     - .ai/ai-sdlc/adr/adr-009-yarn-4-test-automation-stack.md
+    - .ai/ai-sdlc/adr/adr-010-github-actions-vercel-release-review.md
+    - .ai/ai-sdlc/cicd-pipeline-github-actions-vercel.md
     - .ai/ai-sdlc/rag-strategy.md
     - .ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md
     - .ai/ai-sdlc/evaluations/local-project-knowledge-retrieval.md
@@ -479,6 +527,8 @@ ai-sdlc-operating-model:
     - Commit message drafting convention
     - Root shared ownership policy
     - Yarn 4 and web/RN test automation baseline
+    - GitHub Actions and Vercel CI/CD policy
+    - Manual AI code review policy
     - Reusable artifact templates
   related_routes: []
   last_verified: 2026-06-08

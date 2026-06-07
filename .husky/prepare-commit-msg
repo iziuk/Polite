@@ -1,0 +1,19 @@
+#!/bin/sh
+
+COMMIT_SOURCE=$2
+
+if [ "$COMMIT_SOURCE" = "merge" ] || [ "$COMMIT_SOURCE" = "squash" ]; then
+  exit 0
+fi
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if echo "$branch" | grep -qE '^(main|polite/[a-z0-9][a-z0-9-]*|release/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$'; then
+  exit 0
+fi
+
+echo ""
+echo "Commit rejected: branch '$branch' does not match the Polite branch policy."
+echo "Use: polite/task-name | release/a.b.c.d | main"
+echo ""
+exit 1

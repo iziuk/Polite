@@ -1,0 +1,28 @@
+#!/bin/sh
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if ! echo "$branch" | grep -qE '^(main|polite/[a-z0-9][a-z0-9-]*|release/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)$'; then
+  echo ""
+  echo "Push rejected: branch '$branch' does not match the Polite branch policy."
+  echo "Use: polite/task-name | release/a.b.c.d | main"
+  echo ""
+  exit 1
+fi
+
+echo "Running lint..."
+corepack yarn lint || exit 1
+
+echo "Running typecheck..."
+corepack yarn typecheck || exit 1
+
+echo "Running coverage tests..."
+corepack yarn test:coverage || exit 1
+
+echo "Running build..."
+corepack yarn build || exit 1
+
+echo "Running format check..."
+corepack yarn format:check || exit 1
+
+echo "All pre-push checks passed."

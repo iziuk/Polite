@@ -74,6 +74,15 @@ Document CI/CD when adding or changing:
 
 Use `templates/cicd-pipeline.md`.
 
+Current Polite CI/CD is documented in `cicd-pipeline-github-actions-vercel.md` and governed by
+`adr/adr-010-github-actions-vercel-release-review.md`.
+
+- GitHub Actions runs root verification on PRs and pushes.
+- Vercel preview deploys run from `release/a.b.c.d` branches.
+- Vercel production deploys run from `main`.
+- Vercel deployment secrets live only in GitHub Secrets.
+- Manual AI code review uses `.codex/skills/code-review`; CI does not call an AI API.
+
 ## Deployment Guide
 
 Every production-impacting deployment should define:
@@ -96,6 +105,7 @@ Before release:
 
 - Confirm release scope.
 - Confirm branch and commit.
+- Confirm release branch format is `release/a.b.c.d` when creating a preview release branch.
 - Run required automated checks.
 - Run manual smoke checks.
 - Review security/privacy impact.
