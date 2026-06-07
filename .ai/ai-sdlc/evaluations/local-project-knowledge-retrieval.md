@@ -8,13 +8,13 @@
 
 ## Metrics
 
-| Metric       | Target                           | Measurement                                      |
-| ------------ | -------------------------------- | ------------------------------------------------ |
-| Correctness  | 100% seed case pass rate         | `npm run knowledge:evaluate` expected-path hits. |
-| Groundedness | Results include source paths     | CLI output includes path, line, authority.       |
-| Safety       | No denied generated index in git | `git status --ignored .ai/project-knowledge`.    |
-| Latency      | Local commands finish in seconds | Manual command timing in verification.           |
-| Cost         | Zero provider cost               | No network/API provider used.                    |
+| Metric       | Target                           | Measurement                                   |
+| ------------ | -------------------------------- | --------------------------------------------- |
+| Correctness  | 100% seed case pass rate         | `yarn knowledge:evaluate` expected-path hits. |
+| Groundedness | Results include source paths     | CLI output includes path, line, authority.    |
+| Safety       | No denied generated index in git | `git status --ignored .ai/project-knowledge`. |
+| Latency      | Local commands finish in seconds | Manual command timing in verification.        |
+| Cost         | Zero provider cost               | No network/API provider used.                 |
 
 ## Dataset
 
@@ -38,14 +38,14 @@ Current coverage:
 Run:
 
 ```bash
-npm run knowledge:index
-npm run knowledge:search -- "automated RAG approval gates" --limit 5
-npm run knowledge:evaluate
+yarn knowledge:index
+yarn knowledge:search -- "automated RAG approval gates" --limit 5
+yarn knowledge:evaluate
 ```
 
 ## Regression Policy
 
-Run `npm run knowledge:evaluate` after:
+Run `yarn knowledge:evaluate` after:
 
 - ADR or RAG strategy changes.
 - Project-map structure changes.

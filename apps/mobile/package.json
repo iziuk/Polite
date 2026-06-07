@@ -8,7 +8,9 @@
     "build": "tsc --noEmit",
     "dev": "expo start",
     "ios": "expo start --ios",
-    "lint": "cd ../.. && npm run lint",
+    "lint": "cd ../.. && yarn lint",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
