@@ -669,3 +669,5 @@ Notes:
 
 - Incremental update after replacing main-branch production deployment with pull request Vercel previews.
 - ADR-011 supersedes the ADR-010 production-on-main trigger while keeping release branch versioning unchanged.
+- Follow-up in the same branch added explicit Vercel scope handling for GitHub Actions preview deploys with the
+  `iziuks-projects` account slug.

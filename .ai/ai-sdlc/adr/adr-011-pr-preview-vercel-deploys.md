@@ -88,9 +88,9 @@ used for forked pull requests. Vercel secrets remain in GitHub Secrets as `VERCE
 PR preview deploys use:
 
 ```bash
-vercel pull --yes --environment=preview
-vercel build
-vercel deploy --prebuilt
+vercel pull --yes --environment=preview --scope="$VERCEL_SCOPE"
+vercel build --scope="$VERCEL_SCOPE"
+vercel deploy --prebuilt --scope="$VERCEL_SCOPE"
 ```
 
 The workflow writes or updates one PR comment marked with `<!-- polite-vercel-preview -->`.

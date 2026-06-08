@@ -24,6 +24,7 @@
 
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
+- `VERCEL_SCOPE` defaults to `iziuks-projects` in the workflow and may be overridden with a GitHub repository variable.
 
 ## Secrets
 
