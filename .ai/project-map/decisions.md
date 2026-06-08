@@ -53,6 +53,18 @@ previous npm workspace tooling direction while preserving the monorepo shape. We
 use Jest with `jest-expo`, web E2E uses Playwright, and native mobile E2E uses Maestro with EAS Workflow definitions.
 Vitest and Jest enforce 100% covered-source thresholds; E2E remains pass/fail journey coverage.
 
+## GitHub Actions, Vercel, And Release Branches
+
+Polite uses GitHub Actions as the CI/CD orchestrator. Root CI runs Yarn install, lint, typecheck, coverage, build, format
+check, and web E2E. Vercel preview deploys run from `release/a.b.c.d` branches, production deploys run from `main`, and
+the web Vercel project disables automatic Git deploys so Actions owns deployment. Release automation stores the release
+version only in `version.json` and creates `release/a.b.c.d` branches.
+
+## Manual AI Code Review
+
+AI code review is a manual PR gate using the repo-tracked `.codex/skills/code-review` skill and PR checklist. CI does
+not call an AI API; adding automated AI review requires new billing, secrets, security/privacy, and approval review.
+
 ## Fresh Dependency Baseline
 
 Direct dependencies track latest stable releases where the surrounding ecosystem supports them. The current baseline is

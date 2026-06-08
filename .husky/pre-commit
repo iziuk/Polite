@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FILES_WITH_SPACES=$(git diff --cached --name-only --diff-filter=ACMR | grep ' ' || true)
+
+if [ -n "$FILES_WITH_SPACES" ]; then
+  echo "Commit rejected: paths with spaces detected:"
+  echo "$FILES_WITH_SPACES"
+  echo "Rename them before committing."
+  exit 1
+fi
+
+echo "Running lint-staged..."
+corepack yarn lint-staged

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+message=$(sed -n '1p' "$1")
+
+if echo "$message" | grep -qE '^(Merge|Revert) '; then
+  exit 0
+fi
+
+if ! echo "$message" | grep -qE '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)!?: .+'; then
+  echo ""
+  echo "Commit rejected: message must use Conventional Commit format without a scope."
+  echo "Examples: feat: add phrase pack | fix: handle empty search | chore: release 1.2.3.4"
+  echo ""
+  exit 1
+fi
