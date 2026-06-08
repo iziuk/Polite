@@ -11,8 +11,8 @@ Last verified: 2026-06-08
 - Unit/component tests use Vitest for web/shared and Jest with `jest-expo` for Expo/RN, both with 100% covered-source
   thresholds.
 - E2E uses Playwright for the web app and Maestro/EAS Workflows for native iOS/Android mobile journeys.
-- CI/CD uses GitHub Actions for root verification plus Vercel CLI deploys from `release/a.b.c.d` preview branches and
-  `main` production.
+- CI/CD uses GitHub Actions for root verification plus Vercel CLI preview deploys from same-repository PRs targeting
+  `main`; merging to `main` does not automatically deploy production.
 - Web app: Next.js 16, React 19, TypeScript strict mode, Tailwind CSS 4, next-intl.
 - Mobile app: Expo SDK 56, React 19, React Native 0.85, TypeScript strict mode.
 - Shared packages: phrase data JSON under `packages/data`, platform helpers and domain types under `packages/shared`.
@@ -46,41 +46,41 @@ import through slice/segment public APIs.
 
 ## Where To Look First
 
-| Area                       | Key files                                                                                                                                   |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Web route and metadata     | `apps/web/src/app/page.tsx`, `apps/web/src/app/layout.tsx`                                                                                  |
-| Mobile app root            | `apps/mobile/index.ts`, `apps/mobile/src/app/app.tsx`                                                                                       |
-| Phrase browser workflow    | `apps/web/src/widgets/phrase-browser/ui/phrase-browser.tsx`                                                                                 |
-| Mobile phrase workflow     | `apps/mobile/src/widgets/phrase-browser/ui/phrase-browser.tsx`                                                                              |
-| Phrase card actions        | `apps/web/src/widgets/phrase-browser/ui/phrase-card.tsx`                                                                                    |
-| Mobile phrase card actions | `apps/mobile/src/widgets/phrase-browser/ui/phrase-card.tsx`                                                                                 |
-| Phrase toolbar and search  | `apps/web/src/widgets/phrase-browser/ui/phrase-toolbar.tsx`                                                                                 |
-| Mobile toolbar and search  | `apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.tsx`                                                                              |
-| Phrase entity public API   | `apps/web/src/entities/phrase/index.ts`, `apps/web/src/entities/phrase/model/phrase-packs.ts`                                               |
-| Mobile phrase entity API   | `apps/mobile/src/entities/phrase/index.ts`, `apps/mobile/src/entities/phrase/model/phrase-packs.ts`                                         |
-| UI localization            | `apps/web/src/shared/core/i18n/request.ts`, `apps/web/src/shared/core/i18n/translation-map.ts`                                              |
-| UI copy                    | `apps/web/src/shared/core/i18n/translations/en.json`, `apps/web/src/shared/core/i18n/translations/uk.json`                                  |
-| Mobile UI localization     | `apps/mobile/src/shared/core/i18n/i18n-provider.tsx`, `apps/mobile/src/shared/core/i18n/translation-map.ts`                                 |
-| Mobile UI copy             | `apps/mobile/src/shared/core/i18n/translations/en.json`, `apps/mobile/src/shared/core/i18n/translations/uk.json`                            |
-| Shared UI primitives       | `apps/web/src/shared/ui/button/button.tsx`, `apps/web/src/shared/ui/select/select.tsx`, `apps/web/src/shared/ui/text-input/text-input.tsx`  |
-| Mobile UI primitives       | `apps/mobile/src/shared/ui/button/button.tsx`, `apps/mobile/src/shared/ui/text-input/text-input.tsx`                                        |
-| Shared helpers             | `packages/shared/src/lib/filter-phrases.ts`, `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                    |
-| Mobile native helpers      | `apps/mobile/src/shared/lib/native/actions.ts`                                                                                              |
-| Tooling config             | `.yarnrc.yml`, `yarn.lock`, `vitest.config.ts`, `playwright.config.ts`, `eslint.config.mjs`, `package.json`, `turbo.json`                   |
-| Web config                 | `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/package.json`, `tests/e2e/web/phrase-browser.spec.ts`                       |
-| Mobile config              | `apps/mobile/app.json`, `apps/mobile/babel.config.js`, `apps/mobile/metro.config.js`, `apps/mobile/jest.config.js`, `apps/mobile/eas.json`  |
-| AI SDLC operating model    | `.ai/ai-sdlc/README.md`, `.ai/ai-sdlc/coverage-matrix.md`, `.ai/ai-sdlc/workflow.md`                                                        |
-| AI team completeness       | `.ai/ai-sdlc/completeness-audit.md`, `.ai/ai-sdlc/templates/team-completeness-audit.md`                                                     |
-| Product, BA, architecture  | `.ai/ai-sdlc/product-business.md`, `.ai/ai-sdlc/business-analysis.md`, `.ai/ai-sdlc/architecture.md`                                        |
-| Engineering and governance | `.ai/ai-sdlc/engineering.md`, `.ai/ai-sdlc/ai-development-policy.md`, `.ai/ai-sdlc/governance.md`                                           |
-| Architecture decisions     | `.ai/ai-sdlc/adr.md`, `.ai/ai-sdlc/adr/README.md`, `.ai/ai-sdlc/adr/`                                                                       |
-| RAG / project knowledge    | `.ai/ai-sdlc/rag-strategy.md`, `.ai/project-knowledge/README.md`, `.ai/tools/project-knowledge/`                                            |
-| RAG feature and evals      | `.ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md`, `.ai/ai-sdlc/evaluations/`                                                  |
-| AI team roles and QA       | `.ai/ai-sdlc/roles.md`, `.ai/ai-sdlc/responsibility-matrix.md`, `.ai/ai-sdlc/quality-gates.md`, `.ai/ai-sdlc/qa-manual.md`                  |
-| Pull request lifecycle     | `.ai/ai-sdlc/templates/pr-checklist.md`, `.ai/ai-sdlc/completeness-audit.md`                                                                |
-| Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/automation-test-plan-yarn4-coverage-e2e.md`, `.ai/ai-sdlc/devops-release.md`                   |
-| CI/CD and release tooling  | `.github/workflows/ci.yml`, `.github/workflows/vercel-preview.yml`, `.github/workflows/vercel-production.yml`, `scripts/create-release.mjs` |
-| Git hooks and review skill | `.husky/pre-commit`, `.husky/pre-push`, `.codex/skills/code-review/SKILL.md`, `.github/pull_request_template.md`                            |
+| Area                       | Key files                                                                                                                                  |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Web route and metadata     | `apps/web/src/app/page.tsx`, `apps/web/src/app/layout.tsx`                                                                                 |
+| Mobile app root            | `apps/mobile/index.ts`, `apps/mobile/src/app/app.tsx`                                                                                      |
+| Phrase browser workflow    | `apps/web/src/widgets/phrase-browser/ui/phrase-browser.tsx`                                                                                |
+| Mobile phrase workflow     | `apps/mobile/src/widgets/phrase-browser/ui/phrase-browser.tsx`                                                                             |
+| Phrase card actions        | `apps/web/src/widgets/phrase-browser/ui/phrase-card.tsx`                                                                                   |
+| Mobile phrase card actions | `apps/mobile/src/widgets/phrase-browser/ui/phrase-card.tsx`                                                                                |
+| Phrase toolbar and search  | `apps/web/src/widgets/phrase-browser/ui/phrase-toolbar.tsx`                                                                                |
+| Mobile toolbar and search  | `apps/mobile/src/widgets/phrase-browser/ui/phrase-toolbar.tsx`                                                                             |
+| Phrase entity public API   | `apps/web/src/entities/phrase/index.ts`, `apps/web/src/entities/phrase/model/phrase-packs.ts`                                              |
+| Mobile phrase entity API   | `apps/mobile/src/entities/phrase/index.ts`, `apps/mobile/src/entities/phrase/model/phrase-packs.ts`                                        |
+| UI localization            | `apps/web/src/shared/core/i18n/request.ts`, `apps/web/src/shared/core/i18n/translation-map.ts`                                             |
+| UI copy                    | `apps/web/src/shared/core/i18n/translations/en.json`, `apps/web/src/shared/core/i18n/translations/uk.json`                                 |
+| Mobile UI localization     | `apps/mobile/src/shared/core/i18n/i18n-provider.tsx`, `apps/mobile/src/shared/core/i18n/translation-map.ts`                                |
+| Mobile UI copy             | `apps/mobile/src/shared/core/i18n/translations/en.json`, `apps/mobile/src/shared/core/i18n/translations/uk.json`                           |
+| Shared UI primitives       | `apps/web/src/shared/ui/button/button.tsx`, `apps/web/src/shared/ui/select/select.tsx`, `apps/web/src/shared/ui/text-input/text-input.tsx` |
+| Mobile UI primitives       | `apps/mobile/src/shared/ui/button/button.tsx`, `apps/mobile/src/shared/ui/text-input/text-input.tsx`                                       |
+| Shared helpers             | `packages/shared/src/lib/filter-phrases.ts`, `packages/shared/src/lib/clipboard.ts`, `packages/shared/src/lib/speech.ts`                   |
+| Mobile native helpers      | `apps/mobile/src/shared/lib/native/actions.ts`                                                                                             |
+| Tooling config             | `.yarnrc.yml`, `yarn.lock`, `vitest.config.ts`, `playwright.config.ts`, `eslint.config.mjs`, `package.json`, `turbo.json`                  |
+| Web config                 | `apps/web/next.config.mjs`, `apps/web/tsconfig.json`, `apps/web/package.json`, `tests/e2e/web/phrase-browser.spec.ts`                      |
+| Mobile config              | `apps/mobile/app.json`, `apps/mobile/babel.config.js`, `apps/mobile/metro.config.js`, `apps/mobile/jest.config.js`, `apps/mobile/eas.json` |
+| AI SDLC operating model    | `.ai/ai-sdlc/README.md`, `.ai/ai-sdlc/coverage-matrix.md`, `.ai/ai-sdlc/workflow.md`                                                       |
+| AI team completeness       | `.ai/ai-sdlc/completeness-audit.md`, `.ai/ai-sdlc/templates/team-completeness-audit.md`                                                    |
+| Product, BA, architecture  | `.ai/ai-sdlc/product-business.md`, `.ai/ai-sdlc/business-analysis.md`, `.ai/ai-sdlc/architecture.md`                                       |
+| Engineering and governance | `.ai/ai-sdlc/engineering.md`, `.ai/ai-sdlc/ai-development-policy.md`, `.ai/ai-sdlc/governance.md`                                          |
+| Architecture decisions     | `.ai/ai-sdlc/adr.md`, `.ai/ai-sdlc/adr/README.md`, `.ai/ai-sdlc/adr/`                                                                      |
+| RAG / project knowledge    | `.ai/ai-sdlc/rag-strategy.md`, `.ai/project-knowledge/README.md`, `.ai/tools/project-knowledge/`                                           |
+| RAG feature and evals      | `.ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md`, `.ai/ai-sdlc/evaluations/`                                                 |
+| AI team roles and QA       | `.ai/ai-sdlc/roles.md`, `.ai/ai-sdlc/responsibility-matrix.md`, `.ai/ai-sdlc/quality-gates.md`, `.ai/ai-sdlc/qa-manual.md`                 |
+| Pull request lifecycle     | `.ai/ai-sdlc/templates/pr-checklist.md`, `.ai/ai-sdlc/completeness-audit.md`                                                               |
+| Release and risk           | `.ai/ai-sdlc/qa-automation.md`, `.ai/ai-sdlc/automation-test-plan-yarn4-coverage-e2e.md`, `.ai/ai-sdlc/devops-release.md`                  |
+| CI/CD and release tooling  | `.github/workflows/ci.yml`, `.github/workflows/vercel-preview.yml`, `scripts/create-release.mjs`                                           |
+| Git hooks and review skill | `.husky/pre-commit`, `.husky/pre-push`, `.codex/skills/code-review/SKILL.md`, `.github/pull_request_template.md`                           |
 
 ## Main Flows
 
@@ -100,8 +100,8 @@ import through slice/segment public APIs.
    through the RAG/source-priority policy, checks accepted ADRs, applies the relevant product, BA, architecture,
    engineering, PR lifecycle, QA, DevOps, security, governance, and template artifacts, then passes quality gates and
    human approval gates before implementation, pull request merge, or release.
-10. GitHub Actions runs root verification on PRs and pushes, deploys Vercel preview from `release/a.b.c.d`, deploys
-    Vercel production from `main`, and keeps AI code review as a manual `.codex/skills/code-review` PR step.
+10. GitHub Actions runs root verification on PRs and pushes, deploys Vercel preview for same-repository PRs targeting
+    `main`, comments the preview URL on the PR, and keeps AI code review as a manual `.codex/skills/code-review` PR step.
 
 ## Known Decisions
 
@@ -125,8 +125,9 @@ import through slice/segment public APIs.
   filename, unused-import, and TypeScript-safety rules across web, mobile, and shared package code.
 - Vitest and Jest enforce 100% covered-source thresholds; Playwright covers the web journey, and Maestro covers native
   mobile journeys where simulator/emulator or EAS infrastructure is available.
-- GitHub Actions is the CI/CD orchestrator: CI verifies root Yarn checks, Vercel preview deploys from `release/a.b.c.d`,
-  Vercel production deploys from `main`, and Vercel Git auto-deploys are disabled for the web project.
+- GitHub Actions is the CI/CD orchestrator: CI verifies root Yarn checks, Vercel preview deploys run for same-repository
+  PRs targeting `main`, preview URLs are posted to PR comments, and Vercel Git auto-deploys are disabled for the web
+  project.
 - Release automation uses `version.json` as the only release version source and creates `release/a.b.c.d` branches.
 - Manual AI code review uses the repo-tracked `.codex/skills/code-review` skill and PR checklist; CI intentionally does
   not call an AI API.

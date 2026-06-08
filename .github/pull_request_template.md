@@ -6,6 +6,10 @@
 
 -
 
+## Preview
+
+- [ ] Vercel preview URL is posted by GitHub Actions or preview deployment is documented as not applicable.
+
 ## Manual Code Review
 
 - [ ] Ran the repo `code-review` skill against this PR or completed an equivalent manual review using `.codex/skills/code-review`.

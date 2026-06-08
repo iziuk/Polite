@@ -75,11 +75,13 @@ Document CI/CD when adding or changing:
 Use `templates/cicd-pipeline.md`.
 
 Current Polite CI/CD is documented in `cicd-pipeline-github-actions-vercel.md` and governed by
-`adr/adr-010-github-actions-vercel-release-review.md`.
+`adr/adr-011-pr-preview-vercel-deploys.md`.
 
 - GitHub Actions runs root verification on PRs and pushes.
-- Vercel preview deploys run from `release/a.b.c.d` branches.
-- Vercel production deploys run from `main`.
+- Vercel preview deploys run for same-repository pull requests targeting `main`; the workflow comments the preview URL on
+  the PR for review before merge.
+- Merging to `main` does not trigger a production deployment. Production remains a separate human-approved release action
+  until an ADR defines a safe automated production path.
 - Vercel deployment secrets live only in GitHub Secrets.
 - Manual AI code review uses `.codex/skills/code-review`; CI does not call an AI API.
 
@@ -105,8 +107,9 @@ Before release:
 
 - Confirm release scope.
 - Confirm branch and commit.
-- Confirm release branch format is `release/a.b.c.d` when creating a preview release branch.
+- Confirm release branch format is `release/a.b.c.d` when creating a release version branch.
 - Run required automated checks.
+- Review the PR Vercel preview URL before merge.
 - Run manual smoke checks.
 - Review security/privacy impact.
 - Confirm migrations and data impact.

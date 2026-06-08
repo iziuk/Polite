@@ -15,13 +15,14 @@ This folder stores Polite Architecture Decision Records. Use `.ai/ai-sdlc/adr.md
 | [ADR-007](adr-007-rag-ready-knowledge-retrieval-policy.md)   | Accepted | Adopt a RAG-ready knowledge retrieval policy.           |
 | [ADR-008](adr-008-local-project-knowledge-retrieval.md)      | Accepted | Use local project knowledge retrieval.                  |
 | [ADR-009](adr-009-yarn-4-test-automation-stack.md)           | Accepted | Use Yarn 4 and the web/RN test automation stack.        |
-| [ADR-010](adr-010-github-actions-vercel-release-review.md)   | Accepted | Use GitHub Actions for Vercel deploys and review gates. |
+| [ADR-011](adr-011-pr-preview-vercel-deploys.md)              | Accepted | Deploy Vercel previews from pull requests.              |
 
 ## Historical Decisions
 
-| ADR                                                | Status     | Decision                                                  |
-| -------------------------------------------------- | ---------- | --------------------------------------------------------- |
-| [ADR-001](adr-001-npm-workspace-nextjs-web-app.md) | Superseded | Replaced by ADR-009 for package-manager/tooling baseline. |
+| ADR                                                        | Status     | Decision                                                  |
+| ---------------------------------------------------------- | ---------- | --------------------------------------------------------- |
+| [ADR-001](adr-001-npm-workspace-nextjs-web-app.md)         | Superseded | Replaced by ADR-009 for package-manager/tooling baseline. |
+| [ADR-010](adr-010-github-actions-vercel-release-review.md) | Superseded | Replaced by ADR-011 for deployment trigger policy.        |
 
 ## Numbering Rules
 

@@ -56,9 +56,10 @@ Vitest and Jest enforce 100% covered-source thresholds; E2E remains pass/fail jo
 ## GitHub Actions, Vercel, And Release Branches
 
 Polite uses GitHub Actions as the CI/CD orchestrator. Root CI runs Yarn install, lint, typecheck, coverage, build, format
-check, and web E2E. Vercel preview deploys run from `release/a.b.c.d` branches, production deploys run from `main`, and
-the web Vercel project disables automatic Git deploys so Actions owns deployment. Release automation stores the release
-version only in `version.json` and creates `release/a.b.c.d` branches.
+check, and web E2E. Vercel preview deploys run for same-repository PRs targeting `main`, post the preview URL in a PR
+comment, and the web Vercel project disables automatic Git deploys so Actions owns preview deployment. Merging to `main`
+does not automatically deploy production. Release automation stores the release version only in `version.json` and
+creates `release/a.b.c.d` branches.
 
 ## Manual AI Code Review
 
