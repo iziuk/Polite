@@ -400,7 +400,6 @@ delivery-tooling:
   key_files:
     - .github/workflows/ci.yml
     - .github/workflows/vercel-preview.yml
-    - .github/workflows/vercel-production.yml
     - .github/pull_request_template.md
     - .husky/prepare-commit-msg
     - .husky/commit-msg
@@ -414,8 +413,7 @@ delivery-tooling:
     - version.json
   public_api:
     - GitHub Actions CI
-    - Vercel preview deploy from release/a.b.c.d
-    - Vercel production deploy from main
+    - Vercel PR preview deploy with PR comment
     - Manual code-review skill
     - yarn release <a.b.c.d>
     - yarn setup-merge-driver
@@ -487,6 +485,7 @@ ai-sdlc-operating-model:
     - .ai/ai-sdlc/adr/README.md
     - .ai/ai-sdlc/adr/adr-009-yarn-4-test-automation-stack.md
     - .ai/ai-sdlc/adr/adr-010-github-actions-vercel-release-review.md
+    - .ai/ai-sdlc/adr/adr-011-pr-preview-vercel-deploys.md
     - .ai/ai-sdlc/cicd-pipeline-github-actions-vercel.md
     - .ai/ai-sdlc/rag-strategy.md
     - .ai/ai-sdlc/ai-features/local-project-knowledge-retrieval.md

@@ -640,3 +640,32 @@ Notes:
 - Added Husky hooks, Yarn lockfile merge-driver setup, release automation backed by `version.json`, and a repo-tracked
   manual `code-review` skill.
 - CI intentionally does not call an AI API; review remains a free manual PR gate.
+
+## 2026-06-08
+
+Changed files:
+
+- .github/workflows/vercel-preview.yml
+- .github/workflows/vercel-production.yml
+- .github/pull_request_template.md
+- .ai/ai-sdlc/cicd-pipeline-github-actions-vercel.md
+- .ai/ai-sdlc/devops-release.md
+- .ai/ai-sdlc/adr/README.md
+- .ai/ai-sdlc/adr/adr-010-github-actions-vercel-release-review.md
+- .ai/ai-sdlc/adr/adr-011-pr-preview-vercel-deploys.md
+- .ai/project-map/INDEX.md
+- .ai/project-map/modules.yaml
+- .ai/project-map/decisions.md
+- .ai/project-map/update-log.md
+
+Updated map files:
+
+- INDEX.md -> CI/CD stack, lookup table, main flow, and known decision now describe PR preview deploys.
+- modules.yaml -> delivery-tooling now exposes PR preview deploy with PR comments and no production workflow key file.
+- decisions.md -> GitHub Actions/Vercel decision now records PR preview deployment and no automatic production deploy on merge.
+- update-log.md -> this entry
+
+Notes:
+
+- Incremental update after replacing main-branch production deployment with pull request Vercel previews.
+- ADR-011 supersedes the ADR-010 production-on-main trigger while keeping release branch versioning unchanged.

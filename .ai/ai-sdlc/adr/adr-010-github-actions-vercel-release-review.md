@@ -1,6 +1,6 @@
 # ADR-010: Use GitHub Actions For Vercel Deploys And Manual AI Code Review
 
-Status: Accepted
+Status: Superseded by ADR-011
 
 Date: 2026-06-08
 
